@@ -11,3 +11,4 @@ Referencias: Nike, Adidas, Dexter, Digital Sport, Solo Deportes. Todos sitios el
 - Gonzalo Ezequiel López, 29 años, Olivos - Vicente Lopez, Buenos Aires.
 - Facundo Taborra, 20 años, Cañada de Gómez - Santa Fe.
 - Esteban Karlen Aguirre, 20 años, Rosario - Santa Fe.
+-  Anibal Leandro Daviú, 31 años, Pergamino - Buenos Aires.
