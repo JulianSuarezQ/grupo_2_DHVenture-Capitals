@@ -10,4 +10,4 @@ Referencias: Nike, Adidas, Dexter, Digital Sport, Solo Deportes. Todos sitios el
 - Julian Suarez Quintana, 28 años, Florida - Vicente Lopez, Buenos Aires.
 - Gonzalo Ezequiel López, 29 años, Olivos - Vicente Lopez, Buenos Aires.
 - Facundo Taborra, 20 años, Cañada de Gómez - Santa Fe.
-
+- Esteban Karlen Aguirre, 20 años, Rosario - Santa Fe.
