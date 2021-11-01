@@ -7,8 +7,8 @@ Contamos con zapatillas, camisetas, buzos y conjuntos deportivos para fútbol, b
 
 Referencias: Nike, Adidas, Dexter, Digital Sport, Solo Deportes. Todos sitios elegidos debido a su orientación deportiva.
 
-- Julian Suarez Quintana, 28 años, Florida - Vicente Lopez, Buenos Aires.
-- Gonzalo Ezequiel López, 29 años, Olivos - Vicente Lopez, Buenos Aires.
+- Julian Suarez Quintana, 28 años, Vicente Lopez - Buenos Aires.
+- Gonzalo Ezequiel López, 29 años, Vicente Lopez - Buenos Aires.
 - Facundo Taborra, 20 años, Cañada de Gómez - Santa Fe.
 - Esteban Karlen Aguirre, 20 años, Rosario - Santa Fe.
--  Anibal Leandro Daviú, 31 años, Pergamino - Buenos Aires.
+- Anibal Leandro Daviú, 31 años, Pergamino - Buenos Aires.
