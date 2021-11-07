@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0px;
+  margin: auto;
+}
+
+.logo {
+  width: 80px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: red;
+}
+
+.header-center {
+  display: none;
+}
+
+.header-center-mobile {
+  text-align: center;
+}
+
+.main-navbar {
+  display: none;
+}
+
+.main-navbar ul {
+  list-style: none;
+  margin: 0px;
+}
+
+.main-navbar a {
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  display: inline-block;
+}
+
+.img-carrousel {
+  width: 100%;
+  height: 100%;
+}
+
+.slider {
+  list-style: none;
+  margin: 0%;
+  padding-inline-start: 0px;
+}
+
+.div-mas-vendidos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+h2 {
+  text-align: center;
+}
+
+article img {
+  width: 100%;
+  height: 100%;
+  width: 250px;
+}
+
+article {
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  margin-bottom: 10px;
+}
+
+.div-article {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 5px;
+}
+
+.precios {
+  font-size: 20px;
+  margin: 0;
+}
+
+.descuentos {
+  font-size: 15px;
+  color: #39b54a;
+  margin: 0;
+}
+
+.descripcion {
+  margin: 0;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.imagen-fija {
+  width: 100%;
+  height: 100%;
+}
+
+.div-recomendados {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+footer {
+  padding-top: 30px;
+
+  background-color: #bdbdbd;
+}
+
+.ul-footer {
+  text-align: center;
+  list-style: none;
+  margin: 0px;
+  padding: 0;
+}
+
+.ul-footer a {
+  text-decoration: none;
+  color: black;
+}
+
+.li-footer {
+  margin-bottom: 10px;
+}
+
+.section-redesSociales {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.copyright {
+  padding: 5px;
+}
+
+@media (min-width: 768px) {
+  .main-navbar {
+    display: inherit;
+  }
+
+  .center-navbar {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-center {
+    display: inherit;
+  }
+  .header-center-simple {
+    display: none;
+  }
+  .header-center-mobile {
+    display: none;
+  }
+}
