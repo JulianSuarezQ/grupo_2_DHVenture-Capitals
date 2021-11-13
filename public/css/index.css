@@ -167,21 +167,33 @@ footer {
 }
 
 /* ///////////////////// carrito ///////////////////////////// */
-/* .main{
+  .main{
   display: flex;
-  justify-content: space-evenly;
-} */
+   justify-content:space-between; 
+
+/* //////////////////// TOP CARRITO /////////////////////////// */ 
+}  
 .top-carrito{
   display: flex;
-  flex-wrap: wrap;
-  
+  /* flex-wrap: wrap; */
+  margin-left: 10px;
+}
+.top-carrito h5{
+  margin-left: 20px;
+}
+.top-carrito div{
+  display: flex;
+  border: 1px solid red;
+  align-items: center;
+  margin-left: 3px;
+
 }
 
 .productos{
   border: 3px solid red;
   
-  width: 70%;
-  height: 200px;
+  width: 800px;
+  height: 150px;
   margin-bottom: 10px;
 }
 
@@ -189,10 +201,31 @@ footer {
   border: 3px solid red;
   width: 15%;
   height: 400px;
+  text-align: center;
 }
 
 .botonComprar{
+  
   border: 1px solid red;
   display: inline-block;
-  padding: 3px;
+  padding: 7px;
+}
+
+/* //////////////////// BOTTOM CARRITO /////////////////////////// */
+
+.main2{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.bottom-carrito{
+  border: 1px solid red;
+  display: inline-block;
+  margin: 5px;
+  padding: 0px 5px 0px 5px;
+}
+
+.productos2{
+  border: 3px solid red;
+  text-align: center;
 }
