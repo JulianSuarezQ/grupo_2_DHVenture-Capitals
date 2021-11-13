@@ -9,21 +9,58 @@
 <body>
     <div>
         <h2>REGISTRARME</h2>
-        <nav>
-        <p>Datos personales</p>
-        <div>
-            <p>Nombre</p>
-            <input type="text">
-        </div>
-        <div>
-            <p>*Apellido</p>
-            <input type="text">
-        </div>
-        <p>*Fecha de nacimento</p>
-        <div>
-            <input type="time" placeholder="Dia">
-            <input type="">
-        </div>
-        </nav>
+        <section>
+            <p>Datos personales</p>
+            <div>
+                <i>*</i><p>Nombre</p>
+                <input type="text" required>
+            </div>
+            <div>
+                <i>*</i><p>Apellido</p>
+                <input type="text" required>
+            </div>
+            <div> 
+                <i>*</i><p>Fecha de nacimento</p>
+                <div>
+                    <input type="number" placeholder="Dia" required>
+                    <select name="" id="" required>
+                        <option>Enero</option>
+                        <option>Febrero</option>
+                        <option>Marzo</option>
+                        <option>Abril</option>
+                        <option>Mayo</option>
+                        <option>Junio</option>
+                        <option>Julio</option>
+                        <option>Agosto</option>
+                        <option>Septiembre</option>
+                        <option>Octubre</option>
+                        <option>Noviembre</option>
+                        <option>Diciembre</option>
+                    </select>
+                    <input type="text" placeholder="Año" required> 
+                </div>
+            </div>
+            <div>
+                <div>
+                    <i>*</i><p>Tipo</p>
+                    <select name="type"required>
+                        <option>DNI</option>
+                    </select>
+                </div>
+                <div>
+                    <i>*</i><p>Número de Documento</p>
+                    <input type="number" required>
+                </div>
+            </div>
+            <div>
+                <p>Género</p>
+                <select>
+                    <option>Hombre</option>
+                    <option>Mujer</option>
+                    <option>Prefiero no decir</option>
+                </select>
+            </div>
+
+        </section>
 </body>
 </html>
