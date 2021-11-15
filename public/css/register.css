@@ -22,8 +22,9 @@ main{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    justify-content: center;
     width: 1100px;
-    height: 600px;
+    height: 90%;
     word-wrap: break-word;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .1875rem;
@@ -36,7 +37,7 @@ main{
     height: 100%;
     width: 100%;
     display: block;
-    padding: 1.25rem; 
+    padding: 10px; 
 }
 
 .content-form{
@@ -47,7 +48,7 @@ main{
 .datosPersonales,
 .sobreTuCuenta{
     height: 100%;
-    width: 90%;
+    width: 100%;
 }
 
 .datosPersonales .elementos,
@@ -58,17 +59,46 @@ main{
     flex-wrap: wrap;
 }
 
+.datosPersonales{
+    padding-right: 20px;
+    padding-left: 25px;
+}
+
+.sobreTuCuenta{
+    padding-right: 25px;
+    padding-left: 20px;
+}
+
 .elementos div{
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.dat-Title{
+    width: 100%;
     display: flex;
 }
 
-.footer-form{
-    height: 60%;
-    width: 100%;
+.documento{
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    justify-items: space-around;
 }
+
+.nroDocumento{
+    background-color: #fff;
+    width: 300px;
+    height: 40%;
+    flex-grow: 1;
+}
+
 
 .input{
     display: block;
+    height: 40%;
+    width: 100%;
     border: 1px solid #567492;
     background-color: #fff;
 }
@@ -78,12 +108,46 @@ i{
     padding: 5px;
 }
 
-form{
-    width: 700px;
-    height: 500px;
+.fechaNac{
+    height: 100%;
+    width: 100%;
+    bottom: 0px;
 }
 
-form .sobreTuCuenta{
+.fechaNacInput{
     width: 100%;
+    border: 1px solid #567492;
+    background-color: #fff;
+}
+
+.fechaNac select{
+    align-self: stretch;
+    margin-right: 5px;
+    border: 1px solid #567492;
+    background-color: #fff;
+}
+
+.footer-form{
+    display: flex;
+    height: 60%;
+    width: 100%;
+    margin: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cajaCheck{
+    margin: 10px;
+}
+
+.buttonSend{
+    height: 50px;
+    width: 300px;
+}
+
+.crearCuenta{
     height: 100%;
+    width: 100%;
+    border: 1px solid #567492;
+    background-color: #ed3237;
 }
