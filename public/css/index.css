@@ -183,22 +183,23 @@ footer {
 }
 .top-carrito div{
   display: flex;
-  border: 1px solid red;
+  border: 1px solid black;
   align-items: center;
   margin-left: 3px;
 
 }
 
 .productos{
-  border: 3px solid red;
-  
+  border: 3px solid black;
+  display: flex;
+  justify-content: space-between;
   width: 800px;
   height: 150px;
   margin-bottom: 10px;
 }
 
 .total{
-  border: 3px solid red;
+  border: 3px solid black;
   width: 15%;
   height: 400px;
   text-align: center;
@@ -206,9 +207,18 @@ footer {
 
 .botonComprar{
   
-  border: 1px solid red;
+  border: 1px solid black;
   display: inline-block;
   padding: 7px;
+}
+.logoo1{
+  height: 100%;
+}
+
+.div-mas-vendidos{
+  width: 300px;
+  height: auto;
+  margin-bottom: 10px;
 }
 
 /* //////////////////// BOTTOM CARRITO /////////////////////////// */
@@ -219,13 +229,15 @@ footer {
 }
 
 .bottom-carrito{
-  border: 1px solid red;
+  border: 1px solid black;
   display: inline-block;
   margin: 5px;
   padding: 0px 5px 0px 5px;
 }
 
 .productos2{
-  border: 3px solid red;
+  border: 3px solid black;
   text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
