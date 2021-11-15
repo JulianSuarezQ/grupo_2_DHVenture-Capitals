@@ -6,4 +6,11 @@ body{
     padding: 0px;
     margin: auto;
 }
-
+main{
+    display: flex;
+    justify-content: center;
+}
+.register{
+    display: flex;
+    justify-items: baseline;
+}
