@@ -23,3 +23,7 @@ app.get("/login.html", (req, res) => {
 app.get("/carrito.html", (req, res) => {
   res.sendFile(path.resolve(__dirname, "./views/carrito.html"));
 });
+
+app.post("/login", (req, res) => {
+  res.redirect("/")
+});
