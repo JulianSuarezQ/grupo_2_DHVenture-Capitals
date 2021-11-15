@@ -24,6 +24,10 @@ app.get("/carrito.html", (req, res) => {
   res.sendFile(path.resolve(__dirname, "./views/carrito.html"));
 });
 
+app.get("/producto", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./views/producto-1.html"));
+});
+
 app.post("/login", (req, res) => {
-  res.redirect("/")
+  res.redirect("/");
 });
