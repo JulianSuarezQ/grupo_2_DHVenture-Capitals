@@ -15,7 +15,11 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: red;
+  background-color: #014f86;
+}
+
+.header-right i {
+  color: white;
 }
 
 .header-center {
@@ -114,7 +118,7 @@ article {
 footer {
   padding-top: 30px;
 
-  background-color: #bdbdbd;
+  background-color: #f1f1f1;
 }
 
 .ul-footer {
@@ -167,26 +171,25 @@ footer {
 }
 
 /* ///////////////////// carrito ///////////////////////////// */
-  .main{
+.main {
   display: flex;
-   justify-content:space-between; 
+  justify-content: space-between;
 
-/* //////////////////// TOP CARRITO /////////////////////////// */ 
-}  
-.top-carrito{
+  /* //////////////////// TOP CARRITO /////////////////////////// */
+}
+.top-carrito {
   display: flex;
   /* flex-wrap: wrap; */
   margin-left: 10px;
 }
-.top-carrito h5{
+.top-carrito h5 {
   margin-left: 20px;
 }
-.top-carrito div{
+.top-carrito div {
   display: flex;
   border: 1px solid black;
   align-items: center;
   margin-left: 3px;
-
 }
 
 .productos{
@@ -223,7 +226,7 @@ footer {
 
 /* //////////////////// BOTTOM CARRITO /////////////////////////// */
 
-.main2{
+.main2 {
   display: flex;
   justify-content: space-evenly;
 }

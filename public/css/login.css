@@ -1,0 +1,262 @@
+* {
+    box-sizing: border-box;
+  }
+  
+ body {
+    margin: 0;
+    padding: 0;
+    background-color: red
+}
+  
+  .logo {
+    width: 80px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: red;
+  }
+  
+  .header-center {
+    display: none;
+  }
+  
+  .header-center-mobile {
+    text-align: center;
+  }
+  
+  .main-navbar {
+    display: none;
+    background-color: white;
+  }
+  
+  .main-navbar ul {
+    list-style: none;
+    margin: 0px;
+  }
+  
+  .main-navbar a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    display: inline-block;
+  }
+/* hasta acá el header*/
+
+.formulario{
+    padding: 5%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+
+.form-box{
+
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: stretch;
+    position: relative;
+
+
+    width: 300px;
+    padding: 30px;
+    background: white;
+    text-align: center;
+    border: solid black;
+}
+
+.form-title{
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.form-box input [type= "email"],
+.form-box input [type= "password"],
+.form-box input [type= "submit"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    padding: 14px 10px;
+    text-align: justify;
+
+}
+
+.form-box-inside{
+    color: red;
+    border: black;
+    font-style: normal;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+.text-form{
+    color: red;
+    border: black;
+    font-style: normal;
+    text-decoration: none;
+    font-size: 20px;
+    justify-content: center;
+    text-align: left;
+    padding: 5px 0px 5px;
+}
+.remember{
+    color: black;
+    font-size: 15px;
+    text-decoration: none;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.rest-pass{
+    color: blue;
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+.boton-iniciar{
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+
+
+
+/*footer*/
+
+ footer {
+    padding-top: 30px;
+  
+    background-color: #bdbdbd;
+  }
+  
+  .ul-footer {
+    text-align: center;
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+  }
+  
+  .ul-footer a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .li-footer {
+    margin-bottom: 10px;
+  }
+  
+  .section-redesSociales {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .copyright {
+    padding: 5px;
+  }
+  
+  @media (min-width: 768px) {
+    .main-navbar {
+      display: inherit;
+    }
+  
+    .center-navbar {
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .header-center {
+      display: inherit;
+    }
+    .header-center-simple {
+      display: none;
+    }
+    .header-center-mobile {
+      display: none;
+    }
+    .formulario {
+        padding: 2;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+    
+    .form-box {
+
+        display:flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-self: stretch;
+        position: relative;
+    
+    
+        width: 300px;
+        padding: 40px;
+        background: white;
+        text-align: center;
+        border: solid black;
+    }
+    
+      .form-title{
+        color: blue;
+        font-weight: bold;
+        font-size: 30px;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    
+    .form-box input [type= "email"],
+    .form-box input [type= "password"],
+    .form-box input [type= "submit"]{
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        padding: 14px 10px;
+        text-align: justify;
+    
+    }
+    
+    .text-form{
+        color: red;
+        border: black;
+        font-style: normal;
+        text-decoration: none;
+        font-size: 20px;
+        justify-content: center;
+        text-align: left;
+        padding: 5px 0px 5px;
+    }
+    .remember{
+        color: black;
+        font-size: 15px;
+        text-decoration: none;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    .rest-pass{
+        color: blue;
+        font-size: 15px;
+        padding-bottom: 10px;
+    }
+    .boton-iniciar{
+        color: red;
+        font-size: 15px;
+        font-weight: bold;
+    }
+  }
