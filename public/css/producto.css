@@ -1,0 +1,20 @@
+*{
+    box-sizing: border-box;
+}
+
+.productos-4-columnas {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.productos-relacionados h3{
+    border: solid 3px black;
+    display: inline-block;
+    padding: 5px;
+}
+
+.ficha-producto{
+    display: flex;
+    justify-content: space-around;
+}
+
