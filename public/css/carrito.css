@@ -3,6 +3,7 @@
   display: flex;
 justify-content:space-between; 
   }
+
 /* //////////////////// TOP CARRITO /////////////////////////// */ 
  
 .top-carrito{
@@ -11,16 +12,16 @@ justify-content:space-between;
   align-items: center;
   margin-left: 10px;
 }
+
 .top-carrito h5{
   margin-left: 20px;
 }
+
 .top-carrito div{
   display: flex;
   border: 1px solid black;
   margin-left: 3px;
   height: 10%;
-  
-
 }
 
 .productos{
@@ -29,8 +30,14 @@ justify-content:space-between;
   height: 150px;
   margin-bottom: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
+
+/* .productos div{
+    width: 100%;
+    
+} */
+
 .logoo1{
     height: 100%;
 }
@@ -42,13 +49,7 @@ justify-content:space-between;
   text-align: center;
 }
 
-.botonComprar{
 
-  border: 1px solid black;
-  display: inline-block;
-  padding: 3px;
-  padding: 7px;
-}
 
 /* //////////////////// BOTTOM CARRITO /////////////////////////// */
 
