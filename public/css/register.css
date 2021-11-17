@@ -28,8 +28,6 @@ main{
     word-wrap: break-word;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .1875rem;
-    margin-right: -6px;
-    margin-left: -6px;
     margin-bottom: 1em;
 }
 
