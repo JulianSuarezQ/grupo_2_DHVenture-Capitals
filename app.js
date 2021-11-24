@@ -13,27 +13,23 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./views/index.html"));
+  res.sendFile(path.resolve(__dirname, "./src/views/index.html"));
 });
 
-app.get("/login.html", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./views/login.html"));
+app.get("/login", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./src/views/login.html"));
 });
 
-app.get("/register.html", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./views/register.html"));
+app.get("/register", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./src/views/register.html"));
 });
 
-app.get("/carrito.html", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./views/carrito.html"));
-});
-
-app.get("/producto-1.html", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./views/producto-1.html"));
+app.get("/carrito", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./src/views/carrito.html"));
 });
 
 app.get("/producto", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./views/producto-1.html"));
+  res.sendFile(path.resolve(__dirname, "./src/views/producto-1.html"));
 });
 
 app.post("/login", (req, res) => {
