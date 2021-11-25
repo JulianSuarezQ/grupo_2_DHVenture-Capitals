@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   padding: 0px;
   margin: auto;
 }
@@ -11,11 +11,24 @@ body{
   width: 80px;
 }
 
+h5 {
+  text-align: center;
+}
+
+.header-ontop {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #f1f1f1;
+  height: 30px;
+}
+
 .header-top {
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: #014f86;
+  box-shadow: 0px 0px 2px 1px black;
 }
 
 .header-right i {
@@ -28,6 +41,20 @@ body{
 
 .header-center-mobile {
   text-align: center;
+}
+
+input {
+  position: relative;
+  margin-right: none;
+  border: none;
+  border-radius: 5px;
+  width: 300px;
+  height: 23px;
+}
+
+button {
+  margin-left: none;
+  position: relative;
 }
 
 .main-navbar {
