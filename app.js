@@ -18,7 +18,6 @@ app.listen(port, () =>  console.log('Servidor corriendo en el puerto' + " " + po
 app.use('/', mainRouter);
 
 
-
 app.post('/login', (req, res) => {
   res.redirect('/');
 });
