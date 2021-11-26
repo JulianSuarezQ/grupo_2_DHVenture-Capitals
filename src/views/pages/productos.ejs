@@ -19,18 +19,36 @@
 <body>
     <header class="main-header"><%- include('../partials/header') %></header>
 
-    <% if (edit == true) { %>
+    <%if (edit == true){ %>
       <main>
         <div class="contenedor">
-          <h3>EDITAR PRODUCTO</h3>    
-          <form action="/src/controllers/productosController.js" method="post"><%- include('../partials/formProductos') %></form>
-          <button class="buttonSend" type="submit">Confirmar cambios</button>
+          <h3><a href="/productos">AGREGAR PRODUCTOS</a> | <a href="/productos/edit">EDITAR PRODUCTO</a></h3>    
+          <form class="formSearch" action="/productos/search" method="GET">
+            <input class = "buscador" for="search" name="name" placeholder="Busca tu Producto">
+            <input class = "buttonBuscador" type="submit" valvue="search" id="search">
+          </form>
+          <% if(resultado == true){ %>
+            <div class="products">
+              <% for(let i = 0; i < productos.length; i++){ %> 
+                <a href=""><article>
+                  <img src="/img/<%=productos[i].img%>" alt="">
+                  <div class="div-article">
+                    <p class="precios"><%=productos[i].precio%></p>
+                    <p class="descuentos"><%=productos[i].descuento%></p>
+                  </div>
+                  <h1 class="descripcion"><%=productos[i].name%></h1>
+                </article>
+              <% } %>
+            </div>
+          <%}else{ %> 
+            <p>No hay resultados</p>
+          <% } %>  
         </div>
     </main>
     <% }else{ %>
     <main>
         <div class="contenedor">
-          <h3>AGREGAR PRODUCTOS</h3>    
+          <h3><a href="/productos">AGREGAR PRODUCTOS</a> | <a href="/productos/edit">EDITAR PRODUCTO</a></h3>    
           <form action="/src/controllers/productosController.js" method="post" ><%- include('../partials/formProductos') %> </form>
           <button class="buttonSend" type="submit">Cargar</button>
         </div>

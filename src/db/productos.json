@@ -1,3 +1,20 @@
 [
-    
+    {
+        "name": "zapatillas nike",
+        "desc": "modelo 2018",
+        "img": "descarga-4.jpg",
+        "categoria": "mujer",
+        "talle": 39,
+        "precio": "$12323",
+        "descuento": "10%"
+    },
+    {
+        "name": "camiseta Argentina",
+        "desc": "modelo 2021",
+        "img": "masVendidos1.jpeg",
+        "categoria": "seleccion Argentina",
+        "talle": 39,
+        "precio": "$12323",
+        "descuento": "10%"
+    }
 ]
