@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/carrito.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <title>carrito</title>
+</head>
+<body>
+    <header class="main-header">
+        <%- include('../partials/header') %>
+      </header>
+    
+        <div class="top-carrito">
+            <h2>MI CARRITO<i class="fas fa-shopping-cart"></i></h3>
+            <h5>productos</h5>
+            <div>N</div>
+        </div>
+    <nav class="main">
+    <div class="TodosLosProductos">
+        <nav class="productos">
+            <img src="img/descarga-1.jpg" class="logoo1">
+        <div>
+            <h3>Zapatillas Nike</h3>
+            <p>talle 43</p>
+        </div>
+        </nav>
+
+        <nav class="productos">
+            <img src="img/descarga-2.jpg" class="logoo1">
+            <div>
+                <h3>Remera nike</h3>
+                <p>talle S</p>
+            </div>
+        </nav>
+
+        <nav class="productos">
+            <img src="img/descarga-3.jpg" class="logoo1">
+        <div>
+            <h3>Remera Nike Blanca</h3>
+            <p>talle M</p>
+        </div>
+        </nav>    
+    </div>
+        <nav class="total">
+            <h3>Codigo de descuento</h3>
+            <div>
+            <label></label>
+            <input type="codigo de descuento" name="codigoDescuentoS">
+            </div>
+            <h3>Resumen</h3>
+            <p>info</p>
+            <input type="submit" value="COMPRAR">
+        </nav>
+    </nav>
+<div class="bottom-carrito">
+<h3>RECOMENDADO PARA VOS</h3>
+</div>
+<div class="main2">
+    <nav class="productos2">
+        <img src="img/descarga-1.jpg" class="logoo">
+        <div>
+            <h3>Zapatillas Nike</h3>
+            <p>talle 43</p>
+        </div>
+    </nav>
+
+    <nav class="productos2">
+        <img src="img/descarga-2.jpg" class="logoo">
+        <div>
+            <h3>Remera nike</h3>
+            <p>talle S</p>
+        </div>
+    </nav>
+
+    <nav class="productos2">
+        <img src="img/descarga-3.jpg" class="logoo">
+        <div>
+            <h3>Remera Nike Blanca</h3>
+            <p>talle M</p>
+        </div>
+    </nav>
+    <nav class="productos2">
+        <img src="img/descarga-4.jpg" class="logoo">
+        <div>
+            <h3>Zapatillas Nike Blanca</h3>
+            <p>talle 41</p>
+        </div>
+    </nav>
+</div>
+
+<footer class="footer-home">
+    <%- include('../partials/footer') %>
+    </footer>
+</body>
+</html>
