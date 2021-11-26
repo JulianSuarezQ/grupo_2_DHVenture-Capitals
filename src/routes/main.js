@@ -10,5 +10,4 @@ router.get('/register', mainController.register);
 router.get('/producto-1', mainController.producto1);
 
 
-
 module.exports = router
