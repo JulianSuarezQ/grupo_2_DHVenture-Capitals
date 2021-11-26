@@ -4,7 +4,7 @@
   "description": "e-commerce",
   "main": "./app.js",
   "scripts": {
-    "start": "nodemon ./src/app.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",

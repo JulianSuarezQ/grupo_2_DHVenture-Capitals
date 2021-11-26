@@ -1,7 +1,12 @@
+const path = require('path');
+const fs = require ('fs');
+
 const productosController = {
     productos: function(req,res){
-        res.render('productos');
+        //const bandera = edit();
+        res.render('productos', {edit: false});
     }
 }
+
 
 module.exports = productosController;

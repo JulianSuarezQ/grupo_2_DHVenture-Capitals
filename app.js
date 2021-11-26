@@ -14,9 +14,9 @@ app.set('views', (viewsPath));
 
 app.listen(port, () =>  console.log('Servidor corriendo en el puerto' + " " + port));
 
-app.use('/productos', productosRouter);
-
 app.use("/", mainRouter);
+
+app.use('/productos', productosRouter);
 
 app.post("/login", (req, res) => {
   res.redirect("/");

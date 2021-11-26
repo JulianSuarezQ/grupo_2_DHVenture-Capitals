@@ -4,115 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/productos.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
     <title>Productos</title>
 </head>
 <body>
-    <header class="main-header">
-        <div class="header-top">
-          <div class="header-left">
-            <img src="img/logo4.png" alt="" class="logo" />
-          </div>
-  
-          <div class="header-center-simple">
-            <h4>Scaloneta Shop</h4>
-          </div>
-  
-          <div class="header-center">
-            <input type="search" placeholder="Que quieres buscar" />
-            <input type="submit" value="Buscar" />
-          </div>
-  
-          <div class="header-right">
-            <a href="/login.html"><i class="fas fa-user"></i></a>
-            <a href=""><i class="fas fa-heart"></i></a>
-            <a href="/carrito.html"><i class="fas fa-shopping-cart"></i></a>
-          </div>
-        </div>
-  
-        <div class="header-center-mobile">
-          <input type="search" placeholder="Que quieres buscar" />
-          <input type="submit" value="Buscar" />
-        </div>
-  
-        <nav class="main-navbar">
-          <ul class="center-navbar">
-            <li><a href="">Categorias |</a></li>
-            <li><a href="">Hombre |</a></li>
-            <li><a href="">Mujer |</a></li>
-            <li><a href="">Marcas |</a></li>
-            <li><a href="">Liquidacion |</a></li>
-            <li><a href="">Novedades |</a></li>
-          </ul>
-        </nav>
-    </header>
+    <header class="main-header"><%- include('../partials/header') %></header>
 
-    <main>
+    <% if (edit == true) { %>
+      <main>
         <div class="contenedor">
-          <h3>Agregar un Productos</h3>    
-          <form>
-            <div>
-              <div>
-                <label for="nombre">Nombre</label>
-                <input type="text">
-              </div>
-              <div>
-                <label for="descripcion">Descripcion</label>
-                <input type="text">
-              </div>
-              <div>
-                <label for="img">imagen</label>
-                <input type="file">
-              </div>
-            </div>
-            <div>
-              <div>
-                <label for="Categoria">categoria</label>
-                <input type="text">
-              </div>
-              <div>
-                <label for="nombre">Talle</label>
-                <input type="text">
-              </div>
-              <div>
-                <label for="nombre">Precio</label>
-                <input type="file">
-              </div>
-            </div>
-          </form>
+          <h3>EDITAR PRODUCTO</h3>    
+          <form action="/src/controllers/productosController.js" method="post"><%- include('../partials/formProductos') %></form>
+          <button class="buttonSend" type="submit">Confirmar cambios</button>
         </div>
     </main>
+    <% }else{ %>
+    <main>
+        <div class="contenedor">
+          <h3>AGREGAR PRODUCTOS</h3>    
+          <form action="/src/controllers/productosController.js" method="post" ><%- include('../partials/formProductos') %> </form>
+          <button class="buttonSend" type="submit">Cargar</button>
+        </div>
+    </main>
+    <% } %>
 
-    <footer class="footer-home">
-        <div class="div-footer">
-          <ul class="ul-footer">
-            <li class="li-footer"><a href="">Institucional</a></li>
-            <li class="li-footer"><a href="">Ayuda</a></li>
-            <li class="li-footer"><a href="">Atencion al cliente</a></li>
-          </ul>
-        </div>
-  
-        <div class="section-redesSociales">
-          <div>
-            <h4>Scaloneta Shop</h4>
-          </div>
-          <div>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-twitter"></i>
-          </div>
-        </div>
-        <div class="copyright">
-          <h5>
-            © Copyright - 2017 - 2021 www.scalonetashop.com.ar, TODOS LOS DERECHOS
-            RESERVADOS. Las fotos contenidas en este site, el logotipo y las
-            marcas son propiedad de www.dexter.com.ar y/o de sus respectivos
-            titulares. Está prohibida la reproducción total o parcial, sin la
-            expresa autorización de la administradora de la tienda virtual.
-            Dexter, empresa perteneciente al grupo DABRA S.A. con domicilio en
-            Autopista Panamericana KM 25,6 - Don Torcuato de la Provincia de
-            Buenos Aires – Argentina.
-          </h5>
-        </div>
-      </footer>
+    <footer class="footer-home"><%- include('../partials/footer') %></footer>
 </body>
 </html>
