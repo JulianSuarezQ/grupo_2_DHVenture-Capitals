@@ -2,50 +2,6 @@
   box-sizing: border-box;
 }
 
-body{
-  padding: 0px;
-  margin: auto;
-}
-
-.logo {
-  width: 80px;
-}
-
-.header-top {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #014f86;
-}
-
-.header-right i {
-  color: white;
-}
-
-.header-center {
-  display: none;
-}
-
-.header-center-mobile {
-  text-align: center;
-}
-
-.main-navbar {
-  display: none;
-}
-
-.main-navbar ul {
-  list-style: none;
-  margin: 0px;
-}
-
-.main-navbar a {
-  text-decoration: none;
-  color: black;
-  padding: 5px;
-  display: inline-block;
-}
-
 .img-carrousel {
   width: 100%;
   height: 100%;
@@ -113,59 +69,4 @@ article {
   align-items: center;
   flex-wrap: wrap;
   margin: 10px;
-}
-
-footer {
-  padding-top: 30px;
-
-  background-color: #f1f1f1;
-}
-
-.ul-footer {
-  text-align: center;
-  list-style: none;
-  margin: 0px;
-  padding: 0;
-}
-
-.ul-footer a {
-  text-decoration: none;
-  color: black;
-}
-
-.li-footer {
-  margin-bottom: 10px;
-}
-
-.section-redesSociales {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.copyright {
-  padding: 5px;
-}
-
-@media (min-width: 768px) {
-  .main-navbar {
-    display: inherit;
-  }
-
-  .center-navbar {
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .header-center {
-    display: inherit;
-  }
-  .header-center-simple {
-    display: none;
-  }
-  .header-center-mobile {
-    display: none;
-  }
 }

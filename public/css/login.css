@@ -1,55 +1,8 @@
 * {
-    box-sizing: border-box;
-  }
-  
- body {
-    margin: 0;
-    padding: 0;
-    background-color: white
+  box-sizing: border-box;
 }
-  
-  .logo {
-    width: 80px;
-  }
 
-  .header-top {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #014f86;
-  }
-
-  .header-right i {
-    color: white;
-  }
-  
-  .header-center {
-    display: none;
-  }
-  
-  .header-center-mobile {
-    text-align: center;
-  }
-  
-  .main-navbar {
-    display: none;
-    background-color: white;
-  }
-  
-  .main-navbar ul {
-    list-style: none;
-    margin: 0px;
-  }
-  
-  .main-navbar a {
-    text-decoration: none;
-    color: black;
-    padding: 5px;
-    display: inline-block;
-  }
-/* hasta acá el header*/
-
-main{
+.main-login {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -58,24 +11,23 @@ main{
   margin-top: 90px;
 }
 
-.formulario{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    width: 1100px;
-    height: 90%;
-    word-wrap: break-word;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .1875rem;
-    margin-right: -6px;
-    margin-left: -6px;
-    margin-bottom: 1em;
+.formulario {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 1100px;
+  height: 90%;
+  word-wrap: break-word;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.1875rem;
+  margin-right: -6px;
+  margin-left: -6px;
+  margin-bottom: 1em;
 }
 
 .form-box {
-
-  display:flex;
+  display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
@@ -85,7 +37,6 @@ main{
   position: relative;
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
 
-
   width: 300px;
   padding: 40px;
   background: white;
@@ -93,40 +44,132 @@ main{
   border: ridge grey;
 }
 
-.form-title{
+.form-title {
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.form-box input [type="email"],
+.form-box input [type="password"],
+.form-box input [type="submit"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  padding: 14px 10px;
+  text-align: justify;
+}
+
+.form-box-inside {
+  color: black;
+  border: black;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 20px;
+}
+.text-form i {
+  color: red;
+  padding: 5px;
+}
+
+.text-form {
+  color: black;
+  border: black;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 15px;
+  justify-content: center;
+  text-align: left;
+  padding: 5px 0px 5px;
+}
+.remember {
+  margin: 10px;
+}
+.rest-pass {
+  color: #014f86;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+.boton-iniciar {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #567492;
+  background-color: #014f86;
+}
+
+@media (min-width: 768px) {
+  .main-login {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 30px;
+    margin-top: 90px;
+  }
+
+  .formulario {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    width: 1100px;
+    height: 90%;
+    word-wrap: break-word;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.1875rem;
+    margin-right: -6px;
+    margin-left: -6px;
+    margin-bottom: 1em;
+  }
+
+  .form-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    left: 37%;
+    align-items: center;
+    align-self: stretch;
+    position: relative;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+
+    width: 300px;
+    padding: 40px;
+    background: white;
+    text-align: center;
+    border: ridge grey;
+  }
+  .form-title {
     color: black;
     font-weight: bold;
     font-size: 30px;
     padding-bottom: 20px;
     text-align: center;
-}
+  }
 
-.form-box input [type= "email"],
-.form-box input [type= "password"],
-.form-box input [type= "submit"]{
+  .form-box input [type="email"],
+  .form-box input [type="password"],
+  .form-box input [type="submit"] {
     border: 0;
     background: none;
     display: block;
     margin: 20px auto;
     padding: 14px 10px;
     text-align: justify;
+  }
 
-}
-
-.form-box-inside{
+  .form-box-inside {
     color: black;
     border: black;
     font-style: normal;
     text-decoration: none;
     font-size: 20px;
-}
-.text-form i{
-  color:red;
-  padding: 5px;
-}
+  }
 
-
-.text-form{
+  .text-form {
     color: black;
     border: black;
     font-style: normal;
@@ -135,186 +178,24 @@ main{
     justify-content: center;
     text-align: left;
     padding: 5px 0px 5px;
-}
-.remember{
-  margin: 10px
-}
-.rest-pass{
+  }
+
+  .text-form i {
+    color: red;
+  }
+
+  .remember {
+    margin: 10px;
+  }
+  .rest-pass {
     color: #014f86;
     font-size: 15px;
     padding-bottom: 10px;
+  }
+  .boton-iniciar {
+    height: 100%;
+    width: 100%;
+    border: 1px solid #567492;
+    background-color: #014f86;
+  }
 }
-.boton-iniciar{
-  height: 100%;
-  width: 100%;
-  border: 1px solid #567492;
-  background-color: #014f86;
-  
-}
-
-
-
-
-
-/*footer*/
-
- footer {
-    padding-top: 30px;
-  
-    background-color: #bdbdbd;
-  }
-  
-  .ul-footer {
-    text-align: center;
-    list-style: none;
-    margin: 0px;
-    padding: 0;
-  }
-  
-  .ul-footer a {
-    text-decoration: none;
-    color: black;
-  }
-  
-  .li-footer {
-    margin-bottom: 10px;
-  }
-  
-  .section-redesSociales {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .copyright {
-    padding: 5px;
-  }
-  
-  @media (min-width: 768px) {
-    .main-navbar {
-      display: inherit;
-    }
-  
-    .center-navbar {
-      font-size: 20px;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .header-center {
-      display: inherit;
-    }
-    .header-center-simple {
-      display: none;
-    }
-    .header-center-mobile {
-      display: none;
-    }
-
-    .header-right i {
-      color: white;
-    }
-
-    main{
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      padding-bottom: 30px;
-      margin-top: 90px;
-    }
-    
-    .formulario{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        width: 1100px;
-        height: 90%;
-        word-wrap: break-word;
-        border: 1px solid rgba(0,0,0,.125);
-        border-radius: .1875rem;
-        margin-right: -6px;
-        margin-left: -6px;
-        margin-bottom: 1em;
-    }
-
-    .form-box {
-
-        display:flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        left: 37%;
-        align-items: center;
-        align-self: stretch;
-        position: relative;
-        box-shadow: 0px 0px 10px rgb(100, 100, 100);
-    
-    
-        width: 300px;
-        padding: 40px;
-        background: white;
-        text-align: center;
-        border: ridge grey;
-    }
- .form-title{
-      color: black;
-      font-weight: bold;
-      font-size: 30px;
-      padding-bottom: 20px;
-      text-align: center;
-  }
-  
-  .form-box input [type= "email"],
-  .form-box input [type= "password"],
-  .form-box input [type= "submit"]{
-      border: 0;
-      background: none;
-      display: block;
-      margin: 20px auto;
-      padding: 14px 10px;
-      text-align: justify;
-  
-  }
-  
-  .form-box-inside{
-      color: black;
-      border: black;
-      font-style: normal;
-      text-decoration: none;
-      font-size: 20px;
-  }    
-    
-    .text-form{
-      color: black;
-      border: black;
-      font-style: normal;
-      text-decoration: none;
-      font-size: 15px;
-      justify-content: center;
-      text-align: left;
-      padding: 5px 0px 5px;
-    }
-
-    .text-form i{
-        color:red
-    }
-
-    .remember{
-        margin: 10px
-      }
-    .rest-pass{
-        color: #014f86;
-        font-size: 15px;
-        padding-bottom: 10px;
-    }
-    .boton-iniciar{
-      height: 100%;
-      width: 100%;
-      border: 1px solid #567492;
-      background-color: #014f86;
-      
-    }
-  }
