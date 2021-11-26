@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/register.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <title>Ingresar / Registrarme</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header-top">
+        <div class="header-left">
+          <img src="img/logo4.png" alt="" class="logo" />
+        </div>
+
+        <div class="header-center-simple">
+          <h4>Scaloneta Shop</h4>
+        </div>
+
+        <div class="header-center">
+          <input type="search" placeholder="Que quieres buscar" />
+          <input type="submit" value="Buscar" />
+        </div>
+
+        <div class="header-right">
+          <a href="/login.html"><i class="fas fa-user"></i></a>
+          <a href=""><i class="fas fa-heart"></i></a>
+          <a href="/carrito.html"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+      </div>
+
+      <div class="header-center-mobile">
+        <input type="search" placeholder="Que quieres buscar" />
+        <input type="submit" value="Buscar" />
+      </div>
+
+      <nav class="main-navbar">
+        <ul class="center-navbar">
+          <li><a href="">Categorias |</a></li>
+          <li><a href="">Hombre |</a></li>
+          <li><a href="">Mujer |</a></li>
+          <li><a href="">Marcas |</a></li>
+          <li><a href="">Liquidacion |</a></li>
+          <li><a href="">Novedades |</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="contenedor">
+        <form class="register">
+          <h2>REGISTRARME</h2>
+          <div class="content-form">
+            <div class="datosPersonales">
+              <h2>Datos personales</h2>
+              <div class="elementos">
+                <div>
+                  <div class="dat-Title"><i>*</i><label>Nombre</label></div>
+                  <input class="input" type="text" required />
+                </div>
+                <div>
+                  <div class="dat-Title"><i>*</i><label>Apellido</label></div>
+                  <input class="input" type="text" required />
+                </div>
+                <div>
+                  <div class="dat-Title">
+                    <i>*</i><label>Fecha de nacimento</label>
+                  </div>
+                  <div class="fechaNac">
+                    <input
+                      type="date"
+                      class="fechaNacInput"
+                      name="fechaNacimiento"
+                      placeholder="Fecha nacimiento"
+                    />
+                  </div>
+                </div>
+                <div class="documento">
+                  <div>
+                    <div class="dat-Title"><i>*</i><label>Tipo</label></div>
+                    <select class="input">
+                      <option>DNI</option>
+                    </select>
+                  </div>
+                  <div>
+                    <div class="dat-Title">
+                      <i>*</i><label>Número de Documento</label>
+                    </div>
+                    <input class="nroDocumento" type="number" required />
+                  </div>
+                </div>
+                <div>
+                  <div class="dat-Title"><i>*</i><label>Género</label></div>
+                  <select class="input">
+                    <option>Hombre</option>
+                    <option>Mujer</option>
+                    <option>Prefiero no decir</option>
+                  </select>
+                </div>
+                <div>
+                  <div class="dat-Title"><i>*</i><label>telefono</label></div>
+                  <input class="input" type="tel" name="" id="" />
+                </div>
+              </div>
+            </div>
+            <div class="sobreTuCuenta">
+              <h2>Sobre tu Cuenta</h2>
+              <div class="elementos">
+                <div>
+                  <div class="dat-Title"><i>*</i><label>Email</label></div>
+                  <input class="input" type="email" />
+                </div>
+                <div>
+                  <div class="dat-Title">
+                    <i>*</i><label>Confirmar Email</label>
+                  </div>
+                  <input class="input" type="email" />
+                </div>
+                <div>
+                  <div class="dat-Title"><i>*</i><label>Contraseña</label></div>
+                  <input class="input" type="password" />
+                </div>
+                <div>
+                  <div class="dat-Title">
+                    <i>*</i><label>Confirmar Contraseña</label>
+                  </div>
+                  <input class="input" type="password" />
+                </div>
+                <div>
+                  <div class="dat-Title">
+                    <label>¿Cúales son de tu interes?</label>
+                  </div>
+                  <select class="input">
+                    <option>Futbol</option>
+                    <option>Basquet</option>
+                    <option>Natacion</option>
+                  </select>
+                </div>
+                <div>
+                  <div class="dat-Title">
+                    <label>¿Cúal es tu equipo de futbol?</label>
+                  </div>
+                  <input class="input" type="text" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="footer-form">
+          <div class="cajaCheck">
+            <input type="checkbox" /><label
+              >Acepto las Políticas de Privacidad y Términos y
+              Condiciones</label
+            >
+          </div>
+          <div class="cajaCheck">
+            <input type="checkbox" /><label
+              >Quiero recibir emails de promociones y noticias</label
+            >
+          </div>
+          <div class="buttonSend">
+            <button class="crearCuenta">Crear mi Cuenta</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer-home"><%- include('../partials/footer') %></footer>
+  </body>
+</html>
