@@ -6,6 +6,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <link rel="stylesheet" href="/css/index.css" />
   <link rel="stylesheet" href="/css/producto.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
   <link
     rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -21,42 +23,8 @@
 <body>
 
     <header class="main-header">
-        <div class="header-top">
-          <div class="header-left">
-            <img src="img/logo4.png" alt="" class="logo" />
-          </div>
-  
-          <div class="header-center-simple">
-            <h4>Scaloneta Shop</h4>
-          </div>
-  
-          <div class="header-center">
-            <input type="search" placeholder="Que quieres buscar" />
-            <input type="submit" value="Buscar" />
-          </div>
-  
-          <div class="header-right">
-            <a href="/login.html"><i class="fas fa-user"></i></a>
-            <a href=""><i class="fas fa-heart"></i></a>
-            <a href="/carrito.html"><i class="fas fa-shopping-cart"></i></a>
-          </div>
-        </div>
-  
-        <div class="header-center-mobile">
-          <input type="search" placeholder="Que quieres buscar" />
-          <input type="submit" value="Buscar" />
-        </div>
-  
-        <nav class="main-navbar">
-          <ul class="center-navbar">
-            <li><a href="">Categorias |</a></li>
-            <li><a href="">Hombre |</a></li>
-            <li><a href="">Mujer |</a></li>
-            <li><a href="">Marcas |</a></li>
-            <li><a href="">Liquidacion |</a></li>
-            <li><a href="">Novedades |</a></li>
-          </ul>
-        </nav>
+      <%- include('../partials/header') %>
+
 </header>
 <h1>Zapatillas Adidas Daily 3.0</h1>
   <div class="ficha-producto">
@@ -122,27 +90,7 @@
 </div>
 
 <footer class="footer-home">
-    <div class="div-footer">
-        <ul class="ul-footer">
-            <li class="li-footer"><a href="">Institucional</a></li>
-            <li class="li-footer"><a href="">Ayuda</a></li>
-            <li class="li-footer"><a href="">Atencion al cliente</a></li>
-        </ul>
-    </div>
-
-    <div class="section-redesSociales">
-        <div>
-            <h4>Scaloneta Shop</h4>
-        </div>
-        <div>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-twitter"></i>
-        </div>
-    </div>
-    <div class="copyright">
-        <h5>© Copyright - 2017 - 2021 www.scalonetashop.com.ar, TODOS LOS DERECHOS RESERVADOS. Las fotos contenidas en este site, el logotipo y las marcas son propiedad de www.dexter.com.ar y/o de sus respectivos titulares. Está prohibida la reproducción total o parcial, sin la expresa autorización de la administradora de la tienda virtual. Dexter, empresa perteneciente al grupo DABRA S.A. con domicilio en Autopista Panamericana KM 25,6 - Don Torcuato de la Provincia de Buenos Aires – Argentina.</h5>
-    </div>
+  <%- include('../partials/footer') %>
 
 </footer>
 
