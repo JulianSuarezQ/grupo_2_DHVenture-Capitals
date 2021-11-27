@@ -6,5 +6,4 @@ router.get('/', productosController.productos);
 router.get('/edit', productosController.edit);
 router.get('/search', productosController.search)
 
-
 module.exports = router;

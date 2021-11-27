@@ -22,7 +22,6 @@ const productosController = {
         for(let i = 0; i< productosDB.length; i++){
             if (productosDB[i].name.includes(busca)){
                 productosResultantes.push(productosDB[i]);
-                console.log(productosResultantes)
             }
         }
         
