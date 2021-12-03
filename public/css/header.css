@@ -11,6 +11,13 @@ h5 {
   text-align: center;
 }
 
+a{
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  display: inline-block;
+}
+
 .header-ontop {
   display: flex;
   align-items: center;
@@ -27,7 +34,7 @@ h5 {
   box-shadow: 0px 0px 2px 1px black;
 }
 
-.header-right i {
+.header-right i{
   color: white;
 }
 
@@ -46,6 +53,7 @@ h5 {
   border-radius: 5px;
   width: 300px;
   height: 23px;
+  margin-top: 5px;
 }
 
 .button-header {
@@ -73,7 +81,6 @@ h5 {
   .main-navbar {
     display: inherit;
   }
-
   .center-navbar {
     font-size: 20px;
     font-weight: bold;
