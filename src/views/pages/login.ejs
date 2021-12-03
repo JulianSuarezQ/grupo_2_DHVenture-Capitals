@@ -18,10 +18,11 @@
   </head>
   <body>
     <header class="main-header"><%- include('../partials/header') %></header>
+
     <main class="main-login">
       <section class="formulario">
         <form action="login" method="post" class="form-box">
-          <h1 class="form-title">Ingresar / Registrarse</h1>
+          <h1 class="form-title">Ingresar / <a href="register"> Registrarme </a> </h1>
           <div class="form-box-inside">
             <div class="text-form">
               <i>*</i><label for="email">Email:</label>
@@ -64,6 +65,7 @@
         </form>
       </section>
     </main>
+    
     <footer class="footer-home"><%- include('../partials/footer') %></footer>
   </body>
 </html>

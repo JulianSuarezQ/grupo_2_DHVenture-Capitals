@@ -1,3 +1,4 @@
+
 const mainController = {
   index: function (req, res) {
     res.render("index");
@@ -11,8 +12,8 @@ const mainController = {
   register: function (req, res) {
     res.render("register");
   },
-  producto: function (req, res) {
-    res.render("producto-1");
+  descripcionProducto: function (req, res) {
+    res.render("DescripcionProducto");
   },
 };
 
