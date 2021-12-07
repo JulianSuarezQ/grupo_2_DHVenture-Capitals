@@ -19,7 +19,7 @@ app.listen(port, () =>  console.log('Servidor corriendo en el puerto' + " " + po
 
 app.use("/", mainRouter);
 
-app.use('/productos', productosRouter);
+app.use('/products', productosRouter);
 
 app.use('/register', registerRouter);
 

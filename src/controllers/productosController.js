@@ -2,14 +2,14 @@ const path = require('path');
 const fs = require ('fs');
 
 const productosController = {
-    productos: function(req,res){
-        res.render('productos', {edit: false});
-    },
 
-    edit: function (req, res){
-        res.render('productos',{
-            edit: true,
-            resultado: false,
+    list: function(req, res){
+        const productosDB = TodosLosProductos();
+
+        res.render('products', {
+            productos: productosDB,
+            list: true,
+            resultado:true
         });
     },
 
@@ -27,13 +27,15 @@ const productosController = {
         
         let result = (productosResultantes != []);
 
-        //res.send(productosResultantes)
-
         res.render('products',{
-            edit: true,
+            list: true,
             resultado: true,
             productos: productosResultantes,
         })
+    },
+        
+    create: function(req,res){
+        res.render('products', {list: false});
     },
     
     descriptionProduct: function (req, res) {
