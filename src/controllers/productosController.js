@@ -29,12 +29,16 @@ const productosController = {
 
         //res.send(productosResultantes)
 
-        res.render('productos',{
+        res.render('products',{
             edit: true,
             resultado: true,
             productos: productosResultantes,
         })
-    }
+    },
+    
+    descriptionProduct: function (req, res) {
+        res.render("descripcionProducto");
+    },
 }
 
 const TodosLosProductos = function(){
