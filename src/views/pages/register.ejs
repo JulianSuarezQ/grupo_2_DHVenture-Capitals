@@ -17,48 +17,12 @@
     <title>Ingresar / Registrarme</title>
   </head>
   <body>
-    <header class="main-header">
-      <div class="header-top">
-        <div class="header-left">
-          <img src="img/logo4.png" alt="" class="logo" />
-        </div>
-
-        <div class="header-center-simple">
-          <h4>Scaloneta Shop</h4>
-        </div>
-
-        <div class="header-center">
-          <input type="search" placeholder="Que quieres buscar" />
-          <input type="submit" value="Buscar" />
-        </div>
-
-        <div class="header-right">
-          <a href="/login.html"><i class="fas fa-user"></i></a>
-          <a href=""><i class="fas fa-heart"></i></a>
-          <a href="/carrito.html"><i class="fas fa-shopping-cart"></i></a>
-        </div>
-      </div>
-
-      <div class="header-center-mobile">
-        <input type="search" placeholder="Que quieres buscar" />
-        <input type="submit" value="Buscar" />
-      </div>
-
-      <nav class="main-navbar">
-        <ul class="center-navbar">
-          <li><a href="">Categorias |</a></li>
-          <li><a href="">Hombre |</a></li>
-          <li><a href="">Mujer |</a></li>
-          <li><a href="">Marcas |</a></li>
-          <li><a href="">Liquidacion |</a></li>
-          <li><a href="">Novedades |</a></li>
-        </ul>
-      </nav>
-    </header>
+    <header class="main-header"><%- include('../partials/header') %></header>
+    
     <main>
       <div class="contenedor">
         <form class="register">
-          <h2>REGISTRARME</h2>
+          <h2 class="form-title"><a href="login">INGRESA</a> | <a href="register"> REGISTRARME</a></h2>
           <div class="content-form">
             <div class="datosPersonales">
               <h2>Datos personales</h2>
@@ -85,13 +49,13 @@
                   </div>
                 </div>
                 <div class="documento">
-                  <div>
+                  <div class="tipo">
                     <div class="dat-Title"><i>*</i><label>Tipo</label></div>
                     <select class="input">
                       <option>DNI</option>
                     </select>
                   </div>
-                  <div>
+                  <div class="num">
                     <div class="dat-Title">
                       <i>*</i><label>Número de Documento</label>
                     </div>
@@ -173,6 +137,8 @@
         </div>
       </div>
     </main>
+
     <footer class="footer-home"><%- include('../partials/footer') %></footer>
+
   </body>
 </html>
