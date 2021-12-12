@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/productos.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <title>Productos</title>
+</head>
+<body>
+    <header class="main-header"><%- include('../partials/header') %></header>
+
+    <%if (list == true){ %>
+      <main>
+        <div class="contenedor">
+          <h3><a href="/products">LISTA DE PRODUCTOS</a> | <a href="/products/create">AGREGAR PRODUCTOS</a></h3>    
+          <form class="formSearch" action="/products/search" method="GET">
+            <input class = "buscador" for="search" name="name" placeholder="Busca tu Producto">
+            <input class = "buttonBuscador" type="submit" valvue="search" id="search">
+          </form>
+          <% if(productos.length>0 ){ %>
+            <div class="products">
+              <% for(let i = 0; i < productos.length; i++){ %> 
+                <article><a href="">
+                  <img src="/img/<%=productos[i].image%>" alt="">
+                  <div class="div-article">
+                    <p class="precios"><%=productos[i].price%></p>
+                    <p class="descuentos"><%=productos[i].descount%></p>
+                  </div>
+                  <h1 class="descripcion"><%=productos[i].name%></h1>
+                </a>
+                </article>
+              <% } %>
+            </div>
+          <%}else{ %> 
+            <p>No hay resultados</p>
+          <% } %>
+        </div>
+    </main>
+    <% }else{ %>
+    <main>
+        <div class="contenedor">
+          <h3><a href="/products">LISTA DE PRODUCTOS</a> | <a href="/products/create">AGREGAR PRODUCTOS</a></h3>    
+          <form action="/src/controllers/productosController.js" method="post" >
+            <div class="form1">
+              <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="name" id="nombre">
+              </div>
+              <div>
+                <label for="descripcion">Descripcion</label>
+                <input type="text" name="desc" id="descripcion">
+              </div>
+              <div>
+                <label for="img">imagen</label>
+                <input type="file" name="img" id="img">
+              </div>
+            </div>
+            <div class="form2">
+              <div>
+                <label for="categoria">Categoria</label>
+                <input type="text" name="categoria" id="categoria">
+              </div>
+              <div>
+                <label for="color">color</label>
+                <input type="text" name="color" id="color">
+              </div>
+
+              <div>
+                <label for="precio">Precio</label>
+                <input type="text" name="precio" id="precio">
+              </div>
+              <div>
+                <label for="talle">talle</label>
+                <select name="size" id="talle">
+                  <option value="XL">XL</option>
+                  <option value="L">L</option>
+                  <option value="M">M</option>
+                  <option value="S">S</option>
+                </select>
+              </div>
+            </div>
+         </form>
+          <button class="buttonSend" type="submit">Cargar</button>
+        </div>
+    </main>
+    <% } %>
+
+    <footer class="footer-home"><%- include('../partials/footer') %></footer>
+</body>
+</html>

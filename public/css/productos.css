@@ -36,6 +36,7 @@ form .form2{
 form .form1 div,
 form .form2 div{
     width: 80%;
+    height: 100%;
     margin: 5px 0 5px 0;
 }
 
@@ -66,8 +67,18 @@ input {
 .buttonBuscador{
     width: 20%;
     padding: 5px;
+    margin-bottom: 10px;
 }
 
 .products{
     margin: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.products article{
+    margin: 15px;
 }
