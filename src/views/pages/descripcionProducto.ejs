@@ -2,18 +2,9 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <link rel="stylesheet" href="/css/index.css" />
+  <%- include('../partials/head') %>
+  
   <link rel="stylesheet" href="/css/DescripcionProducto.css" />
-  <link rel="stylesheet" href="/css/header.css" />
-  <link rel="stylesheet" href="/css/footer.css" />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-    crossorigin="anonymous"/>
-
   <title><%= productos.name %></title>
    
 </head>
@@ -24,8 +15,7 @@
 
     <header class="main-header">
       <%- include('../partials/header') %>
-
-</header>
+    </header>
 
   <h1><%= productos.name %></h1>
   <div class="ficha-producto">

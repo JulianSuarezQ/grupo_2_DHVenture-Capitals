@@ -8,6 +8,7 @@ router.get('/create', productosController.create);
 router.post('/', upload.single('image'), productosController.store);
 router.get('/search', productosController.search);
 router.get('/description', productosController.descriptionProduct)
-router.get('/:id', productosController.detail); 
+router.get('/:id', productosController.detail);
+router.get('/edit/:id', productosController.edit);
 
 module.exports = router;

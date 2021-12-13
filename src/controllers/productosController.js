@@ -56,7 +56,7 @@ const productosController = {
             ...req.body
 		};
 
-		// Agregamos el producto al array en formato Js
+		// Agrego el producto al array en formato Js
 		todosLosProductos.push(newProduct);
 		let productosJSON = JSON.stringify(todosLosProductos, null, 2);
 		fs.writeFileSync(productsFilePath, productosJSON);
@@ -68,7 +68,13 @@ const productosController = {
 		let productoMostrar = todosLosProductos.find( element => element.id == idProducto);
 		// Paso el producto que encontré al ejs.
 		res.render('descripcionProducto', {productos: productoMostrar})
-	}
+	},
+
+    edit: (req, res) => {
+		let idProducto = req.params.id
+		let productoMostrar = todosLosProductos.find( element => element.id == idProducto)
+		res.render('product-edit-form', {productToEdit: productoMostrar})
+	},
 }
 
 
