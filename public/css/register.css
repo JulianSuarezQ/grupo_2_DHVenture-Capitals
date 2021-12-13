@@ -86,11 +86,11 @@ main {
   justify-items: space-around;
 }
 
-.documento .tipo{
+.documento .tipo {
   width: 30%;
 }
 
-.documento .num{
+.documento .num {
   width: 70%;
 }
 
@@ -109,7 +109,7 @@ main {
   background-color: #fff;
 }
 
-i {
+form div i {
   color: red;
   padding: 5px;
 }
@@ -158,20 +158,16 @@ i {
   background-color: #ed3237;
 }
 
-
-
 /*pc*/
 
-
-@media (max-width: 769px){
+@media (max-width: 769px) {
   /*tablets*/
   .content-form {
     display: flex;
     flex-wrap: wrap;
   }
-  
 }
 
-@media (max-width: 361px){
+@media (max-width: 361px) {
   /*celulares*/
 }
