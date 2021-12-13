@@ -23,26 +23,21 @@
 <body>
 
     <header class="main-header">
-      <%- include('../partials/header') %>
+      <%- include('../partials/header', {title: productos.name }) %>
 
 </header>
-<h1>Zapatillas Adidas Daily 3.0</h1>
+<h1><%= productos.name %></h1>
   <div class="ficha-producto">
     
-    <img width="600" height="500" src="https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/3bbb6b65391a4c5ebe45aba50160b664_9366/Zapatillas_Daily_3.0_Negro_FW7033_01_standard.jpg"><br>
-    <h2 class="precio">$9.499,00</h2><br>
+    <img width="600" height="500" src="/images/products/<%= productos.image %>"><br>
+    <h2 class="precio">$<%= productos.price %></h2><br>
     
 
     <div class="caracteristicas">
     <h3>Características del producto</h3>
     <p>
-      <strong>Horma:</strong> Clásica<br/>
-      <strong>Sistema:</strong> Atado de cordones<br/>
-      <strong>Exterior:</strong> Lona prelavada<br/>
-      <strong>Tipo de plantilla:</strong> OrthoLite®<br/>
-      <strong>Suela:</strong> Caucho de apariencia vulcanizada<br/>
-      <strong>Color del artículo:</strong> Core Black / Cloud White / Core Black<br/>
-      <strong>Número de artículo:</strong> FW7033<br/>
+      <%= productos.description %>
+    </p>
     </div>
   </div>
   <input type="button" value="Añadir al carrito">

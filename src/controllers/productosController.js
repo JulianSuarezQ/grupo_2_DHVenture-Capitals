@@ -1,10 +1,14 @@
 const path = require('path');
 const fs = require ('fs');
 
+const productsFilePath = path.join(__dirname, '../db/productos.json');
+const TodosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+
 const productosController = {
 
     list: function(req, res){
-        const productosDB = TodosLosProductos();
+        const productosDB = TodosLosProductos;
 
         res.render('products', {
             productos: productosDB,
@@ -41,11 +45,31 @@ const productosController = {
     descriptionProduct: function (req, res) {
         res.render("descripcionProducto");
     },
+
+    store: (req, res) => {
+		// Inicio la variable que almacena el formulario completo
+		let newID = TodosLosProductos[products.length-1].id + 1;
+		let newProduct = {
+			id: newID,
+			...req.body,
+			image: req.file == undefined ? "default-image.png": req.file.filename,
+            ...req.body
+		};
+
+		// Agregamos el producto al array en formato Js
+		TodosLosProductos.push(newProduct);
+		let productosJSON = JSON.stringify(TodosLosProductos, null, 2);
+		fs.writeFileSync(productsFilePath, productosJSON);
+		res.redirect('products');
+	},
+    
+    detail: (req, res) => {
+		let idProducto = req.params.id;
+		let productoMostrar = TodosLosProductos.find( element => element.id == idProducto);
+		// Paso el producto que encontré al ejs.
+		res.render('descripcionProducto', {productos: productoMostrar})
+	}
 }
 
-const TodosLosProductos = function(){
-    let archivoJSON = fs.readFileSync(path.resolve(__dirname,'../db/productos.json'),'utf-8');
-    return JSON.parse(archivoJSON);
-}
 
 module.exports = productosController;
