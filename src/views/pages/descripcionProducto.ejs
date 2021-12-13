@@ -14,7 +14,7 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
     crossorigin="anonymous"/>
 
-  <title>Zapatillas Adidas Daily 3.0</title>
+  <title><%= productos.name %></title>
    
 </head>
 
@@ -23,14 +23,17 @@
 <body>
 
     <header class="main-header">
-      <%- include('../partials/header', {title: productos.name }) %>
+      <%- include('../partials/header') %>
 
 </header>
-<h1><%= productos.name %></h1>
+
+  <h1><%= productos.name %></h1>
   <div class="ficha-producto">
     
-    <img width="600" height="500" src="/images/products/<%= productos.image %>"><br>
-    <h2 class="precio">$<%= productos.price %></h2><br>
+    <img width="300" height="200" src="/images/products/<%= productos.image %>"><br>
+    <div>
+      <h2 class="precio">$<%= productos.price %></h2><br>
+    </div>
     
 
     <div class="caracteristicas">

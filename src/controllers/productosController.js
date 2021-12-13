@@ -2,13 +2,13 @@ const path = require('path');
 const fs = require ('fs');
 
 const productsFilePath = path.join(__dirname, '../db/productos.json');
-const TodosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 const productosController = {
 
     list: function(req, res){
-        const productosDB = TodosLosProductos;
+        const productosDB = todosLosProductos;
 
         res.render('products', {
             productos: productosDB,
@@ -19,7 +19,7 @@ const productosController = {
 
     search: function (req, res){
         
-        const productosDB = TodosLosProductos();
+        const productosDB = todosLosProductos;
         let busca = req.query.name;
         let productosResultantes = [];
 
@@ -48,7 +48,7 @@ const productosController = {
 
     store: (req, res) => {
 		// Inicio la variable que almacena el formulario completo
-		let newID = TodosLosProductos[products.length-1].id + 1;
+		let newID = todosLosProductos[products.length-1].id + 1;
 		let newProduct = {
 			id: newID,
 			...req.body,
@@ -57,15 +57,15 @@ const productosController = {
 		};
 
 		// Agregamos el producto al array en formato Js
-		TodosLosProductos.push(newProduct);
-		let productosJSON = JSON.stringify(TodosLosProductos, null, 2);
+		todosLosProductos.push(newProduct);
+		let productosJSON = JSON.stringify(todosLosProductos, null, 2);
 		fs.writeFileSync(productsFilePath, productosJSON);
 		res.redirect('products');
 	},
     
     detail: (req, res) => {
 		let idProducto = req.params.id;
-		let productoMostrar = TodosLosProductos.find( element => element.id == idProducto);
+		let productoMostrar = todosLosProductos.find( element => element.id == idProducto);
 		// Paso el producto que encontré al ejs.
 		res.render('descripcionProducto', {productos: productoMostrar})
 	}
