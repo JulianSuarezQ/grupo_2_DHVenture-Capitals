@@ -1,10 +1,14 @@
 const path = require('path');
 const fs = require ('fs');
 
+const productsFilePath = path.join(__dirname, '../db/productos.json');
+const todosLosProductos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+
 const productosController = {
 
     list: function(req, res){
-        const productosDB = TodosLosProductos();
+        const productosDB = todosLosProductos;
 
         res.render('products', {
             productos: productosDB,
@@ -15,7 +19,7 @@ const productosController = {
 
     search: function (req, res){
         
-        const productosDB = TodosLosProductos();
+        const productosDB = todosLosProductos;
         let busca = req.query.name;
         let productosResultantes = [];
 
@@ -41,11 +45,37 @@ const productosController = {
     descriptionProduct: function (req, res) {
         res.render("descripcionProducto");
     },
+
+    store: (req, res) => {
+		// Inicio la variable que almacena el formulario completo
+		let newID = todosLosProductos[products.length-1].id + 1;
+		let newProduct = {
+			id: newID,
+			...req.body,
+			image: req.file == undefined ? "default-image.png": req.file.filename,
+            ...req.body
+		};
+
+		// Agrego el producto al array en formato Js
+		todosLosProductos.push(newProduct);
+		let productosJSON = JSON.stringify(todosLosProductos, null, 2);
+		fs.writeFileSync(productsFilePath, productosJSON);
+		res.redirect('products');
+	},
+    
+    detail: (req, res) => {
+		let idProducto = req.params.id;
+		let productoMostrar = todosLosProductos.find( element => element.id == idProducto);
+		// Paso el producto que encontré al ejs.
+		res.render('descripcionProducto', {productos: productoMostrar})
+	},
+
+    edit: (req, res) => {
+		let idProducto = req.params.id
+		let productoMostrar = todosLosProductos.find( element => element.id == idProducto)
+		res.render('product-edit-form', {productToEdit: productoMostrar})
+	},
 }
 
-const TodosLosProductos = function(){
-    let archivoJSON = fs.readFileSync(path.resolve(__dirname,'../db/productos.json'),'utf-8');
-    return JSON.parse(archivoJSON);
-}
 
 module.exports = productosController;
