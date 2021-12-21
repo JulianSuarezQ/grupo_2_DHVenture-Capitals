@@ -10,7 +10,6 @@ const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const carritoRouter = require('./routes/carrito');
 
-
 app.use(express.static(publicPath));
 app.set('view engine','ejs');
 app.set('views', (viewsPath));

@@ -48,7 +48,7 @@ const productosController = {
 
     store: (req, res) => {
 		// Inicio la variable que almacena el formulario completo
-		let newID = todosLosProductos[products.length-1].id + 1;
+		let newID = todosLosProductos[todosLosProductos.length-1].id + 1;
 		let newProduct = {
 			id: newID,
 			...req.body,
@@ -60,7 +60,7 @@ const productosController = {
 		todosLosProductos.push(newProduct);
 		let productosJSON = JSON.stringify(todosLosProductos, null, 2);
 		fs.writeFileSync(productsFilePath, productosJSON);
-		res.redirect('products');
+		res.redirect('/products');
 	},
     
     detail: (req, res) => {
