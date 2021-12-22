@@ -608,5 +608,25 @@
     "precio": "12344",
     "size": "M",
     "image": "img-1640106500802-664207871.jpeg"
+  },
+  {
+    "id": 57,
+    "name": "zapatillas",
+    "desc": "deportivas",
+    "categoria": "futbol",
+    "color": "blancas",
+    "precio": "1234",
+    "size": "M",
+    "image": "img-1640179474729-760762379.jpg"
+  },
+  {
+    "id": 58,
+    "name": "afasf",
+    "desc": "asfasf",
+    "categoria": "asfasf",
+    "color": "asfas",
+    "precio": "f12323",
+    "size": "L",
+    "image": "img-1640180819849-168450084.jpg"
   }
 ]

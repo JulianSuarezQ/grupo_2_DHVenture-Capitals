@@ -18,4 +18,5 @@ router.get('/:id', productosController.detail);
 
 router.get('/edit/:id', productosController.edit);
 
+
 module.exports = router;

@@ -75,6 +75,7 @@ const productosController = {
 		let productoMostrar = todosLosProductos.find( element => element.id == idProducto)
 		res.render('product-edit-form', {productToEdit: productoMostrar})
 	},
+    
 }
 
 
