@@ -31,9 +31,9 @@
             <div class="products">
               <% for(let i = 0; i < productos.length; i++){ %> 
                 <article><a href="/products/<%= productos[i].id %> ">
-                  <img src="/img/<%=productos[i].image%>" alt="">
+                  <img src="/images/products/<%=productos[i].image%>" alt="">
                   <div class="div-article">
-                    <p class="precios"><%=productos[i].price%></p>
+                    <p class="precios"><%=productos[i].precio%></p>
                     <p class="descuentos"><%=productos[i].descount%></p>
                   </div>
                   <h1 class="descripcion"><%=productos[i].name%></h1>
@@ -64,6 +64,10 @@
                 <div>
                   <label for="img">imagen</label>
                   <input type="file" name="img" id="img" >
+                </div>
+                <div>
+                  <label for="descount">Descuento</label>
+                  <input type="text" name="descount" id="descount" >
                 </div>
               </div>
               <div class="form2">

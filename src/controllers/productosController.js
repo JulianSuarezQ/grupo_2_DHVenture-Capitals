@@ -48,20 +48,27 @@ const productosController = {
 
     store: (req, res) => {
 		// Inicio la variable que almacena el formulario completo
-		let newID = todosLosProductos[todosLosProductos.length-1].id + 1;
+        if( todosLosProductos.length == 0){
+            var newID = 1;
+        }else{
+		    var newID = todosLosProductos[todosLosProductos.length-1].id + 1;
+        }
+
 		let newProduct = {
 			id: newID,
 			...req.body,
+            precio: parseInt(req.body.precio, 10),
+            descount: parseInt(req.body.descount, 10),
 			image: req.file == undefined ? "default-image.png": req.file.filename,
-            ...req.body
 		};
 
 		// Agrego el producto al array en formato Js
 		todosLosProductos.push(newProduct);
 		let productosJSON = JSON.stringify(todosLosProductos, null, 2);
 		fs.writeFileSync(productsFilePath, productosJSON);
-		res.redirect('/products');
-	},
+
+        res.redirect('/products');
+    },
     
     detail: (req, res) => {
 		let idProducto = req.params.id;
@@ -72,11 +79,10 @@ const productosController = {
 
     edit: (req, res) => {
 		let idProducto = req.params.id
-		let productoMostrar = todosLosProductos.find( element => element.id == idProducto)
+		let productoMostrar = todosLosProductos.find( element => element.id == idProducto);
 		res.render('product-edit-form', {productToEdit: productoMostrar})
 	},
-    
-}
 
+}
 
 module.exports = productosController;
