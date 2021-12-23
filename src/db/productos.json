@@ -107,5 +107,16 @@
     "precio": null,
     "size": "XL",
     "image": "default-image.png"
+  },
+  {
+    "id": 11,
+    "name": "asdasd",
+    "desc": "sdasd",
+    "descount": null,
+    "categoria": "asdasd",
+    "color": "asdasd",
+    "precio": null,
+    "size": "XL",
+    "image": "default-image.png"
   }
 ]

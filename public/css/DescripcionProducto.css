@@ -2,6 +2,113 @@
     box-sizing: border-box;
 }
 
+
+main{
+    height: 1500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.fondo{
+    width: 100%;
+    height: 700px;
+    background-color: rgb(233, 233, 233);
+}
+
+main .contenedor{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 7px;
+    margin: 30px;
+    justify-self: center;
+    background-color: #fff;
+}
+
+.ficha-producto{
+    display: flex;
+    flex-direction: column;
+    margin-right: 200px;
+}
+
+div.img{
+    border: solid 1px #012A4A;
+}
+
+.img img{
+    width: 500px;
+    height: 500px;
+}
+
+.content2{
+    margin-top: 10px;
+}
+
+.discount{
+    color: #39b54a;
+    font-size: 18px;
+}
+
+.precioTach{
+    text-decoration:line-through;
+    color: rgb(139, 139, 139);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.preciofinal{
+    text-decoration: solid;
+    font-size: 35px;
+    font-family:'Times New Roman', Times, serif ;
+}
+
+.discount{
+    margin-left: 5px;
+}
+
+.content2 form{
+    margin: 10px;
+    height: 100px;
+    margin: 10px 5px 10px 0px;
+}   
+
+.nameProduct{
+    display: block;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.comprar, 
+.carrito{
+    height: 50%;
+    width: 100%;
+    background-color: rgb(139, 139, 139);
+    border-radius: 7px;
+}
+
+.comprar{
+    background-color: #3483fa;
+    color: #fff;
+    margin-bottom: 3px;
+    border: solid 2px;
+}
+
+.carrito{
+    background-color: rgba(65,137,230,.15);
+    color: #3483fa;
+    margin-top: 3px;
+    border: solid 2px #3483fa98;
+}
+
+.caracteristicas{
+    margin-top: 10px;
+}
+
 .productos-4-columnas {
     display: flex;
     justify-content: space-evenly;
@@ -16,10 +123,3 @@
 .productos-relacionados li{
     list-style: none;
 }
-
-.ficha-producto{
-    display: flex;
-    justify-content: space-around;
-}
-
-

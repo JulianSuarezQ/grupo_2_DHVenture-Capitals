@@ -10,71 +10,88 @@
 </div>
 
 <body>
+ 
+  <header class="main-header"><%- include('../partials/header') %></header>
+  <main>
+    <div class="fondo">
+      <div class="contenedor">
+        <div class="ficha-producto">
+          <div class="img">
+            <img src="/images/products/<%= productos.image %>">
+          </div>
+        </div>
+        <div class="content2">
 
-    <header class="main-header">
-      <%- include('../partials/header') %>
-    </header>
+          <div>
+            <span class="nameProduct"><%= productos.name %></span>
+            <% if( productos.descount > 0){%> 
+            <div class="precio">
+              <span class="precioTach">$<%= productos.precio %></span>
+            </div>
+            <%let preciofinal = (productos.precio - (productos.precio * productos.descount / 100))%>
+            <span class="preciofinal">$<%= preciofinal.toFixed(2) %></span>
+            <span class="discount"><%= productos.descount%>% OFF</span>
+            <% }else{%>
+              <div class="precio">
+                <h2>$<%= productos.precio.toFixed(2) %></h2>
+              </div>
+            <% } %>  
+          </div>
+          <form action="/products/description" method="post">
+            <input class="comprar" type="submit" name="<%=productos.id%>" value="COMPRAR AHORA">
+            <input class="carrito" type="submit" name="<%=productos.id%>" value="AÑADIR AL CARRITO">
+          </form>
 
-  <h1><%= productos.name %></h1>
-  <div class="ficha-producto">
-    
-    <img width="300" height="200" src="/images/products/<%= productos.image %>"><br>
-    <div>
-      <h2 class="precio">$<%= productos.precio %></h2><br>
-    </div>
-    <div class="caracteristicas">
-    <h3>Características del producto</h3>
-    <p>
-      <%= productos.desc %>
-    </p>
-    <p>Descuento del %<%= productos.descount %> </p>
-    </div>
-  </div>
-  <input type="button" value="Añadir al carrito">
-
-
-<section class="productos-relacionados">
-  <h3>PRODUCTOS RELACIONADOS</h3>
-    <ul class="productos-4-columnas"> 
-    <li>
-      <div><img src="https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/d2f55d1fc6e1437cbdd7a8870143ee73_9366/B22706_00_plp_standard.jpg"></div>
-      <h4>Zapatillas 3MC Vulc</h4>        
-      <h5 class="precio">$9.499,00</h5><br>
-      <input type="button" value="Añadir al carrito">
-    </li>
-
-    <li>
-      <div><img src="https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/3da8f4118a0f4484a448a8910036d260_9366/B22707_00_plp_standard.jpg"></div>
-    
-      <h4>Zapatillas 4MC Vulc</h4>        
-      <h5 class="precio">$9.499,00</h5><br>
-      <input type="button" value="Añadir al carrito">
-    </li>
-
-    <li>
-      <div><img src="https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/2257d46c349744c1a1b5ad0b011d4181_9366/H04558_00_plp_standard.jpg"></div>
-            
-        <h4>Zapatillas Grand Court Base Beyond</h4>        
-        <h5 class="precio">$11.499,00</h5><br>
-        <input type="button" value="Añadir al carrito">
-    </li>
-
-    <li>
-      <div><img src="https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/2932ff2c354640baa09cac0200fd1a25_9366/FZ0961_00_plp_standard.jpg"></div>     
-      <h4>Zapatillas Run 60s 2.0</h4>        
-      <h5 class="precio">$15.999,00</h5><br>
-      <input type="button" value="Añadir al carrito">
-    </li>
+          <div class="caracteristicas">
+            <h3>Características del producto</h3>
+            <span>
+              <%= productos.desc %>
+            </span>
+          </div>
         
-  </ul>
+        </div>
+      </div>
+    </div>
 
-</section>
-</div>
+    <section class="productos-relacionados">
+      <h3>PRODUCTOS RELACIONADOS</h3>
+      <ul class="productos-4-columnas"> 
+        <li>
+          <div><img src="https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/d2f55d1fc6e1437cbdd7a8870143ee73_9366/B22706_00_plp_standard.jpg"></div>
+          <h4>Zapatillas 3MC Vulc</h4>        
+          <h5 class="precio">$9.499,00</h5><br>
+          <input type="button" value="Añadir al carrito">
+        </li>
 
-<footer class="footer-home">
-  <%- include('../partials/footer') %>
+        <li>
+          <div><img src="https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/3da8f4118a0f4484a448a8910036d260_9366/B22707_00_plp_standard.jpg"></div>
+        
+          <h4>Zapatillas 4MC Vulc</h4>        
+          <h5 class="precio">$9.499,00</h5><br>
+          <input type="button" value="Añadir al carrito">
+        </li>
 
-</footer>
+        <li>
+          <div><img src="https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/2257d46c349744c1a1b5ad0b011d4181_9366/H04558_00_plp_standard.jpg"></div>
+                
+            <h4>Zapatillas Grand Court Base Beyond</h4>        
+            <h5 class="precio">$11.499,00</h5><br>
+            <input type="button" value="Añadir al carrito">
+        </li>
+
+        <li>
+          <div><img src="https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/2932ff2c354640baa09cac0200fd1a25_9366/FZ0961_00_plp_standard.jpg"></div>     
+          <h4>Zapatillas Run 60s 2.0</h4>        
+          <h5 class="precio">$15.999,00</h5><br>
+          <input type="button" value="Añadir al carrito">
+        </li>
+          
+      </ul>
+
+    </section>
+  </main>
+
+<footer class="footer-home"><%- include('../partials/footer') %></footer>
 
 </body>
-    </html>
+</html>
