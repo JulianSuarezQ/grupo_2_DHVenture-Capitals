@@ -1,22 +1,20 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const upload = require ('../middlewares/multer');
-const productosController = require('../controllers/productosController');
+const upload = require("../middlewares/multer");
+const productosController = require("../controllers/productosController");
 
+router.get("/", productosController.list);
 
+router.get("/create", productosController.create);
+router.post("/create", upload.single("img"), productosController.store);
 
-router.get('/', productosController.list);
+router.get("/search", productosController.search);
 
-router.get('/create', productosController.create);
-router.post('/create', upload.single('img'), productosController.store);
+router.get("/description", productosController.descriptionProduct);
 
-router.get('/search', productosController.search);
+router.get("/:id", productosController.detail);
 
-router.get('/description', productosController.descriptionProduct);
-
-router.get('/:id', productosController.detail);
-
-router.get('/edit/:id', productosController.edit);
-
+router.get("/edit/:id", productosController.edit);
+router.put("/:edit/:id", productosController.editProduct);
 
 module.exports = router;
