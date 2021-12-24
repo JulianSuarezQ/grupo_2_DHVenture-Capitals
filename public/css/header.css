@@ -30,8 +30,9 @@ a{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #0066af;
-  box-shadow: 0px 0px 2px 1px black;
+  background-color: #75b2ca;
+  border:solid 3px #fff;
+  box-shadow: 0px 0px 3px 3px #013A63;
   width: 100%;
 }
 
@@ -69,10 +70,6 @@ a{
   display: flex;
 
 }
-
-/*.header-center-mobile {
-  text-align: center;
-}*/
 
 .search {
   position: relative;
@@ -155,8 +152,4 @@ a{
   .header-center-simple {
     display: none;
   }
-  /*
-  .header-center-mobile {
-    display: none;
-  }*/
 }

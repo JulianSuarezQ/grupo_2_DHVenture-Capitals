@@ -5,6 +5,7 @@
     "desc": "deportivas",
     "categoria": "deportivas",
     "color": "negras",
+    "descount": 0,
     "precio": 12300,
     "size": "M",
     "image": "img-1640181673420-161660321.jpg"
@@ -76,47 +77,14 @@
     "image": "img-1640183653674-311238926.jpeg"
   },
   {
-    "id": 8,
-    "name": "rlkamkrf",
-    "desc": "alksfmakl",
-    "descount": 123,
-    "categoria": "axfad",
-    "color": "asfa",
-    "precio": 12323,
-    "size": "XL",
-    "image": "default-image.png"
-  },
-  {
-    "id": 9,
-    "name": "asdasd",
-    "desc": "asd",
-    "descount": null,
-    "categoria": "asd",
-    "color": "asd",
-    "precio": 12,
-    "size": "XL",
-    "image": "default-image.png"
-  },
-  {
-    "id": 10,
-    "name": "asda",
-    "desc": "asdas",
-    "descount": null,
-    "categoria": "asda",
-    "color": "asdas",
-    "precio": null,
-    "size": "XL",
-    "image": "default-image.png"
-  },
-  {
-    "id": 11,
-    "name": "asdasd",
-    "desc": "sdasd",
-    "descount": null,
-    "categoria": "asdasd",
-    "color": "asdasd",
-    "precio": null,
-    "size": "XL",
-    "image": "default-image.png"
+    "id": 13,
+    "name": "zapatillas deportivas",
+    "desc": "zapatillas nike negras",
+    "descount": 5,
+    "categoria": "Deportivas",
+    "color": "negras",
+    "precio": 13400,
+    "size": "L",
+    "image": "img-1640356824541-610624294.jpg"
   }
 ]
