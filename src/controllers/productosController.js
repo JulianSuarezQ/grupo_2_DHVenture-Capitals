@@ -66,7 +66,7 @@ const productosController = {
     let productosJSON = JSON.stringify(todosLosProductos, null, 2);
     fs.writeFileSync(productsFilePath, productosJSON);
 
-    res.redirect("/products");
+    return res.redirect("/products");
   },
 
   detail: (req, res) => {
@@ -85,6 +85,7 @@ const productosController = {
     );
     res.render("product-edit-form", { productToEdit: productoMostrar });
   },
+
   editProduct: (req, res) => {
     let producto = {
       ...req.body,

@@ -95,6 +95,14 @@ input{
     margin-right: 20px;
 }
 
+.discount{
+    color: rgb(72, 199, 55);
+}
+
+.name{
+    font-size: 20px;
+}
+
 .buttonBuscador{
     width: 20%;
     margin-top: 5px;

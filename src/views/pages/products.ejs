@@ -38,10 +38,10 @@
                     <% }else{ %> 
                     <%let preciofinal = (productos[i].precio - (productos[i].precio * productos[i].descount / 100))%>
                     <span>$<%=preciofinal.toFixed(2)%></span>
-                    <span><%= productos[i].descount %>% OFF</span>
+                    <span class="discount"><%= productos[i].descount %>% OFF</span>
                     <% } %> 
                   </div>
-                  <h1 class="descripcion"><%=productos[i].name%></h1>
+                  <h1 class="name"><%=productos[i].name%></h1>
                 </a>
                 </article>
               <% } %>

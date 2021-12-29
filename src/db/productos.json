@@ -86,5 +86,60 @@
     "precio": 13400,
     "size": "L",
     "image": "img-1640356824541-610624294.jpg"
+  },
+  {
+    "id": 14,
+    "name": "zapatillas",
+    "desc": "deportivas",
+    "descount": 5,
+    "categoria": "deporte",
+    "color": "negras",
+    "precio": null,
+    "size": "XL",
+    "image": "img-1640616471282-189404035.jpg"
+  },
+  {
+    "id": 15,
+    "name": "camiseta titular 2020",
+    "desc": "camiseta titular que la seleccion argentina utilizo en 2020",
+    "descount": 5,
+    "categoria": "Seleccion Argentina",
+    "color": "celeste y blanca",
+    "precio": 15999,
+    "size": "L",
+    "image": "img-1640788444260-185354882.jpeg"
+  },
+  {
+    "id": 16,
+    "name": "camiseta titular 2021",
+    "desc": "camiseta titular que la seleccion argentina utilizo en 2021",
+    "descount": 0,
+    "categoria": "Seleccion Argentina",
+    "color": "celeste y blanca",
+    "precio": 19999,
+    "size": "M",
+    "image": "img-1640788520811-784627877.jpeg"
+  },
+  {
+    "id": 17,
+    "name": "camiseta suplente 2021",
+    "desc": "camisetasuplente que la seleccion argentina utilizo en 20210",
+    "descount": null,
+    "categoria": "Seleccion Argentina",
+    "color": "azul oscuro",
+    "precio": 18999,
+    "size": "L",
+    "image": "img-1640788583897-383996698.jpeg"
+  },
+  {
+    "id": 18,
+    "name": "camiseta suplente 2020",
+    "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
+    "descount": 5,
+    "categoria": "Seleccion Argentina",
+    "color": "negra, celeste y blanca",
+    "precio": 14000,
+    "size": "XL",
+    "image": "img-1640788795791-294821806.jpeg"
   }
 ]
