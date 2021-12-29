@@ -2,12 +2,15 @@ const path = require("path");
 const fs = require("fs");
 
 const productsFilePath = path.join(__dirname, "../db/productos.json");
+
 const todosLosProductos = JSON.parse(
   fs.readFileSync(productsFilePath, "utf-8")
 );
 
 const productosController = {
+
   list: function (req, res) {
+    
     const productosDB = todosLosProductos;
 
     res.render("products", {
