@@ -9,8 +9,9 @@ const productosRouter = require('./routes/productos');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const carritoRouter = require('./routes/carrito');
+const methodOVerride = require('method-override');
 
-
+app.use(methodOVerride('_method'));
 app.use(express.static(publicPath));
 app.set('view engine','ejs');
 app.set('views', (viewsPath));
@@ -30,3 +31,4 @@ app.use('/carrito', carritoRouter);
 app.post("/login", (req, res) => {
   res.redirect("/");
 });
+

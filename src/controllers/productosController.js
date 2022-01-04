@@ -75,6 +75,23 @@ const productosController = {
 		let productoMostrar = todosLosProductos.find( element => element.id == idProducto)
 		res.render('product-edit-form', {productToEdit: productoMostrar})
 	},
+
+    update: (req , res) =>{
+        let id = req.params.id;
+        modificado = products.map(element => {
+            if (element.id == id){
+               return element = {
+                    id:id,
+                    ...req.body,
+                    image: req.file == undefined ? element.image : req.file.filename
+                }
+            }
+            return element;
+        })
+		let productosJSON = JSON.stringify(modificado, null, 2);
+		fs.writeFileSync(productsFilePath, productosJSON);
+		res.redirect('products');
+    }
 }
 
 
