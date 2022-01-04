@@ -1,6 +1,13 @@
+const fs = require("fs");
+const path = require("path");
+
 const registerController = {
-    register: function(req, res){
+    vista: function(req, res){
         res.render("register")
+    },
+
+    register: (req, res) => {
+        
     }
 };
 
