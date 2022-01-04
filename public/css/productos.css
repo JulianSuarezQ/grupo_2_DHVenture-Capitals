@@ -17,10 +17,16 @@ main .contenedor{
     border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-form{
+.div-article{
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 15px 2px 1px;
+}
+
+main form{
     width: 60%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -33,17 +39,42 @@ form .form2{
     margin: 5px;
 }
 
-form .form1 div,
-form .form2 div{
-    width: 80%;
-    height: 100%;
-    margin: 5px 0 5px 0;
+form .conteiner{
+    display: flex;
+    flex-direction: row;
 }
 
-input {
-    display: block;
-    height: 50%;
+form .form1 div,
+form .form2 div{
     width: 100%;
+    height: 100%;
+    margin: 15px 15px 5px 15px;
+}
+
+.ast{
+    color: red;
+    margin-right: 5px;
+}
+
+.talle{
+    width: 100%;
+    height: 100%;
+    margin-top: 2px;
+}
+
+.talle select{
+    display: block;
+    background-color: #fff;
+    border: 1px solid #567492;
+    height: 70%;
+    width: 100%;
+}
+
+input{
+    display: block;
+    height: 70%;
+    width: 100%;
+    padding: 2px;
     border: 1px solid #567492;
     background-color: #fff;
 }
@@ -64,8 +95,17 @@ input {
     margin-right: 20px;
 }
 
+.discount{
+    color: rgb(72, 199, 55);
+}
+
+.name{
+    font-size: 20px;
+}
+
 .buttonBuscador{
     width: 20%;
+    margin-top: 5px;
     padding: 5px;
     margin-bottom: 10px;
 }

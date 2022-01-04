@@ -1,4 +1,4 @@
--> Retro Sprint 1
+-> Retro Sprint 4
 
 1. Comenzar a hacer - >
    Revisión de código del compañero.

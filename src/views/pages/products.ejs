@@ -30,13 +30,18 @@
           <% if(productos.length>0 ){ %>
             <div class="products">
               <% for(let i = 0; i < productos.length; i++){ %> 
-                <article><a href="">
-                  <img src="/img/<%=productos[i].image%>" alt="">
+                <article><a href="/products/<%= productos[i].id %> ">
+                  <img src="/images/products/<%=productos[i].image%>" alt="">
                   <div class="div-article">
-                    <p class="precios"><%=productos[i].price%></p>
-                    <p class="descuentos"><%=productos[i].descount%></p>
+                    <% if(productos[i].descount <= 0){%> 
+                    <span class="precios">$<%=productos[i].precio%></span>
+                    <% }else{ %> 
+                    <%let preciofinal = (productos[i].precio - (productos[i].precio * productos[i].descount / 100))%>
+                    <span>$<%=preciofinal.toFixed(2)%></span>
+                    <span class="discount"><%= productos[i].descount %>% OFF</span>
+                    <% } %> 
                   </div>
-                  <h1 class="descripcion"><%=productos[i].name%></h1>
+                  <h1 class="name"><%=productos[i].name%></h1>
                 </a>
                 </article>
               <% } %>
@@ -50,47 +55,52 @@
     <main>
         <div class="contenedor">
           <h3><a href="/products">LISTA DE PRODUCTOS</a> | <a href="/products/create">AGREGAR PRODUCTOS</a></h3>    
-          <form action="/src/controllers/productosController.js" method="post" >
-            <div class="form1">
-              <div>
-                <label for="nombre">Nombre</label>
-                <input type="text" name="name" id="nombre">
+          <form action="/products/create" method="POST" enctype="multipart/form-data">
+            <div class="conteiner">
+              <div class="form1">
+                <div>
+                  <i class="ast">*</i><label for="nombre">Nombre</label>
+                  <input type="text" name="name" id="nombre">
+                </div>
+                <div>
+                  <i class="ast">*</i><label for="descripcion">Descripcion</label>
+                  <input type="text" name="desc" id="descripcion">
+                </div>
+                <div>
+                  <i class="ast">*</i><label for="img">imagen</label>
+                  <input type="file" name="img" id="img" >
+                </div>
+                <div>
+                  <label for="descount">Descuento</label>
+                  <input type="text" name="descount" id="descount" placeholder=" ej: 5, 10, ...">
+                </div>
               </div>
-              <div>
-                <label for="descripcion">Descripcion</label>
-                <input type="text" name="desc" id="descripcion">
-              </div>
-              <div>
-                <label for="img">imagen</label>
-                <input type="file" name="img" id="img">
+              <div class="form2">
+                <div>
+                  <i class="ast">*</i><label for="categoria">Categoria</label>
+                  <input type="text" name="categoria" id="categoria">
+                </div>
+                <div>
+                  <i class="ast">*</i><label for="color">color</label>
+                  <input type="text" name="color" id="color">
+                </div>
+                <div>
+                  <i class="ast">*</i><label for="precio">Precio</label>
+                  <input type="text" name="precio" id="precio">
+                </div>
+                <div class="talle">
+                  <i class="ast">*</i><label for="talle">talle</label>
+                  <select name="size" id="talle">
+                    <option value="XL">XL</option>
+                    <option value="L">L</option>
+                    <option value="M">M</option>
+                    <option value="S">S</option>
+                  </select>
+                </div>
               </div>
             </div>
-            <div class="form2">
-              <div>
-                <label for="categoria">Categoria</label>
-                <input type="text" name="categoria" id="categoria">
-              </div>
-              <div>
-                <label for="color">color</label>
-                <input type="text" name="color" id="color">
-              </div>
-
-              <div>
-                <label for="precio">Precio</label>
-                <input type="text" name="precio" id="precio">
-              </div>
-              <div>
-                <label for="talle">talle</label>
-                <select name="size" id="talle">
-                  <option value="XL">XL</option>
-                  <option value="L">L</option>
-                  <option value="M">M</option>
-                  <option value="S">S</option>
-                </select>
-              </div>
-            </div>
+            <button class="buttonSend" type="submit">Cargar</button>
          </form>
-          <button class="buttonSend" type="submit">Cargar</button>
         </div>
     </main>
     <% } %>
