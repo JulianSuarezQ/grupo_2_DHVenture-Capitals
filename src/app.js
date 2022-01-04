@@ -4,6 +4,7 @@ const path = require("path");
 const app = express();
 const publicPath = path.resolve(__dirname, "../public");
 const viewsPath = path.resolve(__dirname, "./views/pages");
+
 const mainRouter = require("./routes/main");
 const productosRouter = require("./routes/productos");
 const loginRouter = require("./routes/login");
