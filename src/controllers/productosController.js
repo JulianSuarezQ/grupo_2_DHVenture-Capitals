@@ -86,32 +86,29 @@ const productosController = {
     let productoMostrar = todosLosProductos.find(
       (element) => element.id == idProducto
     );
-    res.render("product-edit-form", { productToEdit: productoMostrar });
+    res.render("product-edit-form", { productToEdit: productoMostrar});
   },
 
-  update: (req , res) =>{
-    let id = req.params.id;
-    modificado = products.map(element => {
+  update: (req , res) => {
+    const id = req.params.id;
+
+    let modificado = todosLosProductos.map(element => {
         if (element.id == id){
-           return element = {
-                id:id,
-                ...req.body,
-                image: req.file == undefined ? element.image : req.file.filename
+            return element = {
+              id: element.id,
+              ...req.body,
+              precio: parseInt(req.body.precio, 10),
+              descount: parseInt(req.body.descount, 10),
+              image: req.file == undefined ? element.image : req.file.filename
             }
         }
         return element;
     })
+
     let productosJSON = JSON.stringify(modificado, null, 2);
     fs.writeFileSync(productsFilePath, productosJSON);
-    res.redirect('products');
-},
-
-  editProduct: (req, res) => {
-    let producto = {
-      ...req.body,
-    };
-    console.log(producto.precio);
-  }
+    res.redirect('/products');
+  },
 };
 
 module.exports = productosController;

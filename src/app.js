@@ -2,7 +2,6 @@ const port = 3000;
 const express = require("express");
 const path = require("path");
 const app = express();
-<<<<<<< HEAD
 const publicPath = path.resolve(__dirname, '../public');
 const viewsPath = path.resolve(__dirname, './views/pages');
 const mainRouter = require('./routes/main');
@@ -13,22 +12,9 @@ const carritoRouter = require('./routes/carrito');
 const methodOVerride = require('method-override');
 
 app.use(methodOVerride('_method'));
-=======
-const publicPath = path.resolve(__dirname, "../public");
-const viewsPath = path.resolve(__dirname, "./views/pages");
-
-const mainRouter = require("./routes/main");
-const productosRouter = require("./routes/productos");
-const loginRouter = require("./routes/login");
-const registerRouter = require("./routes/register");
-const carritoRouter = require("./routes/carrito");
-const methodOverride = require("method-override");
-
->>>>>>> fc49f05b99ad42fdebfd56a6a73ccb1d9901f91e
 app.use(express.static(publicPath));
 app.set("view engine", "ejs");
 app.set("views", viewsPath);
-app.use(methodOverride("_method"));
 
 app.listen(port, () =>
   console.log("Servidor corriendo en el puerto" + " " + port)

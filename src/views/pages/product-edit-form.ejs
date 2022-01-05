@@ -10,17 +10,12 @@
     <div class="container products-wrapper">
       <div class="row">
         <div class="col-12">
-          <h2 class="products-title">
-            Estás editando: <i><%= productToEdit.name %></i>
-          </h2>
+          <h2 class="products-title">Estás editando: <%= productToEdit.name %></h2>
         </div>
       </div>
 
       <div class="products-div">
-        <form
-          action="/products/edit/<%= productToEdit.id %>?_method=PUT"
-          method="POST"
-        >
+        <form action="/products/edit/<%= productToEdit.id %>?_method=PUT"method="POST" enctype="multipart/form-data">
           <div class="row product-detail">
             <div class="">
               <label for="name" class="form-label">Nombre del producto:</label>
@@ -34,10 +29,8 @@
               />
             </div>
             <div class="col-12">
-              <label for="description" class="form-label">Descripción:</label>
-              <input name="description" id="description" class="form-input">
-<%= productToEdit.description %></input
-              >
+              <label for="desc" class="form-label">Descripción:</label>
+              <input name="desc" id="description" class="form-input" value="<%= productToEdit.desc %>"/>
             </div>
             <div class="">
               <label for="category" class="form-label">Categoría:</label>
@@ -64,18 +57,18 @@
             <div class="">
               <label for="price" class="form-label">Precio del producto:</label>
               <input
-                type="text"
+                type="number"
                 id="price"
-                name="price"
+                name="precio"
                 placeholder="Ej: 5678"
                 class="form-input"
-                value="<%= productToEdit.price %>"
+                value="<%= productToEdit.precio %>"
               />
             </div>
             <div class="">
               <label for="discount" class="form-label">Descuento:</label>
               <input
-                type="text"
+                type="number"
                 id="discount"
                 name="discount"
                 placeholder="Ej: 15"
