@@ -6,8 +6,7 @@ const publicPath = path.resolve(__dirname, '../public');
 const viewsPath = path.resolve(__dirname, './views/pages');
 const mainRouter = require('./routes/main');
 const productosRouter = require('./routes/productos');
-const loginRouter = require('./routes/login');
-const registerRouter = require('./routes/register');
+const usersRouter = require('./routes/users');
 const carritoRouter = require('./routes/carrito');
 const methodOVerride = require('method-override');
 
@@ -24,11 +23,9 @@ app.use("/", mainRouter);
 
 app.use("/products", productosRouter);
 
-app.use("/register", registerRouter);
+app.use("/register", usersRouter);
 
-app.use("/login", loginRouter);
-
-app.use("/carrito", carritoRouter);
+app.use("/users", usersRouter);
 
 app.post("/login", (req, res) => {
   res.redirect("/");
