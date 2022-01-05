@@ -59,7 +59,7 @@ const productosController = {
     let newProduct = {
       id: newID,
       ...req.body,
-      precio: parseInt(req.body.precio, 10),
+      precio: parseInt(req.body.price, 10),
       descount: parseInt(req.body.descount, 10),
       image: req.file == undefined ? "default-image.png" : req.file.filename,
     };
@@ -97,7 +97,7 @@ const productosController = {
             return element = {
               id: element.id,
               ...req.body,
-              precio: parseInt(req.body.precio, 10),
+              precio: parseInt(req.body.price, 10),
               descount: parseInt(req.body.descount, 10),
               image: req.file == undefined ? element.image : req.file.filename
             }

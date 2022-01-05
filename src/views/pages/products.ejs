@@ -34,11 +34,11 @@
                   <img src="/images/products/<%=productos[i].image%>" alt="">
                   <div class="div-article">
                     <% if(productos[i].descount <= 0){%> 
-                    <span class="precios">$<%=productos[i].precio%></span>
+                    <span class="precios">$<%=productos[i].price%></span>
                     <% }else{ %> 
-                    <%let preciofinal = (productos[i].precio - (productos[i].precio * productos[i].descount / 100))%>
+                    <%let preciofinal = (productos[i].price - (productos[i].price * productos[i].discount / 100))%>
                     <span>$<%=preciofinal.toFixed(2)%></span>
-                    <span class="discount"><%= productos[i].descount %>% OFF</span>
+                    <span class="discount"><%= productos[i].discount %>% OFF</span>
                     <% } %> 
                   </div>
                   <h1 class="name"><%=productos[i].name%></h1>
@@ -72,13 +72,13 @@
                 </div>
                 <div>
                   <label for="descount">Descuento</label>
-                  <input type="text" name="descount" id="descount" placeholder=" ej: 5, 10, ...">
+                  <input type="text" name="discount" id="discount" placeholder=" ej: 5, 10, ...">
                 </div>
               </div>
               <div class="form2">
                 <div>
                   <i class="ast">*</i><label for="categoria">Categoria</label>
-                  <input type="text" name="categoria" id="categoria">
+                  <input type="text" name="category" id="categoria">
                 </div>
                 <div>
                   <i class="ast">*</i><label for="color">color</label>
@@ -86,7 +86,7 @@
                 </div>
                 <div>
                   <i class="ast">*</i><label for="precio">Precio</label>
-                  <input type="text" name="precio" id="precio">
+                  <input type="text" name="price" id="precio">
                 </div>
                 <div class="talle">
                   <i class="ast">*</i><label for="talle">talle</label>

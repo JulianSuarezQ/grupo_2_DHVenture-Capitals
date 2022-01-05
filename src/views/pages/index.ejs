@@ -39,11 +39,11 @@
             <img src="/images/products/<%=productos[i].image%>" alt="">
             <div class="div-article">
               <% if(productos[i].descount <= 0){%> 
-              <span class="precios">$<%=productos[i].precio%></span>
+              <span class="precios">$<%=productos[i].price%></span>
               <% }else{ %> 
-              <%let preciofinal = (productos[i].precio - (productos[i].precio * productos[i].descount / 100))%>
+              <%let preciofinal = (productos[i].price - (productos[i].price * productos[i].discount / 100))%>
               <span>$<%=preciofinal.toFixed(2)%></span>
-              <span class="discount"><%= productos[i].descount %>% OFF</span>
+              <span class="discount"><%= productos[i].discount %>% OFF</span>
               <% } %> 
             </div>
             <h1 class="name"><%=productos[i].name%></h1>
@@ -60,11 +60,11 @@
                 <img src="/images/products/<%=productos[i].image%>" alt="">
                 <div class="div-article">
                   <% if(productos[i].descount <= 0){%> 
-                  <span class="precios">$<%=productos[i].precio%></span>
+                  <span class="precios">$<%=productos[i].price%></span>
                   <% }else{ %> 
-                  <%let preciofinal = (productos[i].precio - (productos[i].precio * productos[i].descount / 100))%>
+                  <%let preciofinal = (productos[i].price - (productos[i].price * productos[i].discount / 100))%>
                   <span>$<%=preciofinal.toFixed(2)%></span>
-                  <span class="discount"><%= productos[i].descount %>% OFF</span>
+                  <span class="discount"><%= productos[i].discount %>% OFF</span>
                   <% } %> 
                 </div>
                 <h1 class="name"><%=productos[i].name%></h1>

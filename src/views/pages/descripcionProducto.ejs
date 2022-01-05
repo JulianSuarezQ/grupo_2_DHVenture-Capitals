@@ -24,16 +24,16 @@
 
           <div>
             <span class="nameProduct"><%= productos.name %></span>
-            <% if( productos.descount > 0){%> 
+            <% if( productos.discount > 0){%> 
             <div class="precio">
-              <span class="precioTach">$<%= productos.precio %></span>
+              <span class="precioTach">$<%= productos.price %></span>
             </div>
-            <%let preciofinal = (productos.precio - (productos.precio * productos.descount / 100))%>
+            <%let preciofinal = (productos.price - (productos.price * productos.discount / 100))%>
             <span class="preciofinal">$<%= preciofinal.toFixed(2) %></span>
-            <span class="discount"><%= productos.descount%>% OFF</span>
+            <span class="discount"><%= productos.discount%>% OFF</span>
             <% }else{%>
               <div class="precio">
-                <h2>$<%= productos.precio.toFixed(2) %></h2>
+                <h2>$<%= productos.price.toFixed(2) %></h2>
               </div>
             <% } %>  
           </div>
