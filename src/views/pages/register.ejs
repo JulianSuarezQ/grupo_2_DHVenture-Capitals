@@ -30,11 +30,17 @@
                 <div>
                   <div class="dat-Title"><i>*</i><label for="name">Nombre</label></div>
                   <input class="input" type="text" name="name" />
+                  <% if(locals.errors && errors.name){ %>
+                    <span class="error"><%= errors.name.msg %></span>
+                    <% } %> 
                 </div>
 
                 <div>
                   <div class="dat-Title"><i>*</i><label for="lastname">Apellido</label></div>
-                  <input class="input" type="text" name="lastname" required/>
+                  <input class="input" type="text" name="lastname" />
+                  <% if(locals.errors && errors.lastname){ %>
+                    <span class="error"><%= errors.lastname.msg %></span>
+                    <% } %> 
                 </div>
                 <div>
                   <div class="dat-Title">
@@ -47,6 +53,9 @@
                       name="fechaNacimiento"
                       placeholder="Fecha nacimiento"
                     />
+                    <% if(locals.errors && errors.date){ %>
+                      <span class="error"><%= errors.date.msg %></span>
+                      <% } %> 
                   </div>
                 </div>
                 <div class="documento">
@@ -60,20 +69,26 @@
                     <div class="dat-Title">
                       <i>*</i><label>Número de Documento</label>
                     </div>
-                    <input class="nroDocumento" type="number" name="doc" required />
+                    <input class="nroDocumento" type="text" name="doc"  />
+                    <% if(locals.errors && errors.doc){ %>
+                      <span class="error"><%= errors.doc.msg %></span>
+                      <% } %> 
                   </div>
                 </div>
                 <div>
                   <div class="dat-Title"><i>*</i><label>Género</label></div>
                   <select class="input" name="genero">
+                    <option>Prefiero no decir</option>
                     <option>Hombre</option>
                     <option>Mujer</option>
-                    <option>Prefiero no decir</option>
                   </select>
                 </div>
                 <div>
                   <div class="dat-Title"><i>*</i><label for="tel">telefono</label></div>
                   <input class="input" type="tel" name="tel" id="tel"/>
+                  <% if(locals.errors && errors.tel){ %>
+                    <span class="error"><%= errors.tel.msg %></span>
+                    <% } %> 
                 </div>
               </div>
             </div>
@@ -82,8 +97,8 @@
               <div class="elementos">
                 <div>
                   <div class="dat-Title"><i>*</i><label>Email</label></div>
-                  <input class="input" type="email" name="email" />
-                  <% if(errors != undefined){ %>
+                  <input class="input" type="text" name="email" />
+                  <% if(locals.errors && errors.email){ %>
                     <span class="error"><%= errors.email.msg %></span>
                     <% } %>  
                 </div>
@@ -91,23 +106,35 @@
                   <div class="dat-Title">
                     <i>*</i><label>Confirmar Email</label>
                   </div>
-                  <input class="input" type="email" name="emailConfirm"/>
+                  <input class="input" type="text" name="emailConfirm"/>
+                  <% if(locals.errors && errors.emailConfirm){ %>
+                    <span class="error"><%= errors.emailConfirm.msg %></span>
+                    <% } %> 
                 </div>
                 <div>
                   <div class="dat-Title"><i>*</i><label>Contraseña</label></div>
                   <input class="input" type="password" name="password"/>
+                  <% if(locals.errors && errors.password){ %>
+                    <span class="error"><%= errors.password.msg %></span>
+                  <% } %> 
                 </div>
                 <div>
                   <div class="dat-Title">
                     <i>*</i><label>Confirmar Contraseña</label>
                   </div>
                   <input class="input" type="password" name="passwordConfirm"/>
+                  <% if(locals.errors && errors.passwordConfirm){ %>
+                    <span class="error"><%= errors.passwordConfirm.msg %></span>
+                  <% } %> 
                 </div>
                 <div>
                   <div class="dat-Title">
                     <label>foto de perfil</label>
                   </div> 
                   <input type="file" name="img">
+                  <% if(locals.errors && errors.img){ %>
+                    <span class="error"><%= errors.img.msg %></span>
+                  <% } %> 
                 </div>
                 <div>
                   <div class="dat-Title">
