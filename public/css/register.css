@@ -158,6 +158,10 @@ form div i {
   background-color: #ed3237;
 }
 
+.error{
+  color: rgb(206, 17, 17);
+}
+
 /*pc*/
 
 @media (max-width: 769px) {

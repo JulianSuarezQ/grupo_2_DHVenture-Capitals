@@ -1,14 +1,15 @@
-
 [
   {
     "id": 1,
     "name": "camiseta titular 2020",
     "desc": "camiseta titular1 que la seleccion argentina utilizo en 2020",
-    "discount": 5,
     "category": "Seleccion Argentina",
-    "color": "celeste y blanca",
-    "price": 15999,
     "size": "L",
+    "price": "14999",
+    "discount": "5",
+    "color": "celeste y blanca",
+    "precio": 14999,
+    "descount": null,
     "image": "img-1640788444260-185354882.jpeg"
   },
   {
@@ -87,5 +88,18 @@
     "price": null,
     "size": "XL",
     "image": "img-1640616471282-189404035.jpg"
+  },
+  {
+    "id": 15,
+    "name": "asdasd",
+    "desc": "asdasda",
+    "discount": "2",
+    "category": "asas",
+    "color": "asdas",
+    "price": "1232",
+    "size": "XL",
+    "precio": 1232,
+    "descount": null,
+    "image": "img-1641479703170-271746154.jpeg"
   }
 ]
