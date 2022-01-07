@@ -50,6 +50,7 @@ const productosController = {
 
   store: (req, res) => {
     // Inicio la variable que almacena el formulario completo
+    console.log(req.body)
     if (todosLosProductos.length == 0) {
       var newID = 1;
     } else {
