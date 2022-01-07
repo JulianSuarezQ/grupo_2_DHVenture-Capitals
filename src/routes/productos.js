@@ -17,4 +17,7 @@ router.get("/:id", productosController.detail);
 router.get("/edit/:id", productosController.edit);
 router.put('/edit/:id' , upload.single('image') , productosController.update);
 
+router.get("/delete/:id" , productosController.PagDelete);
+router.delete("/delete/:id" , productosController.delete);
+
 module.exports = router;

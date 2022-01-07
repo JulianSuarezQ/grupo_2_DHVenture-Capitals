@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELETE</title>
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <header class="main-header"><%- include('../partials/header') %></header>
+
+    <form action="/products/delete/<%=productos.id%>?_method=DELETE" method="POST">
+        <h3>ESTAS SEGURO QUE QUIERES BORRAR EL PRODUCTO?</h3>
+        <button type="submit">Borrar</button>
+    </form>
+    
+<br>
+<footer class="footer-home"><%- include('../partials/footer') %></footer>
+</body>
+</html>
+
+
+

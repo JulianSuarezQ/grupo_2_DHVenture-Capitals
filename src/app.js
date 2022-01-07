@@ -2,6 +2,7 @@ const port = 3000;
 const express = require("express");
 const path = require("path");
 const app = express();
+const session = require("express-session");
 const publicPath = path.resolve(__dirname, '../public');
 const viewsPath = path.resolve(__dirname, './views/pages');
 const mainRouter = require('./routes/main');
@@ -10,6 +11,7 @@ const usersRouter = require('./routes/users');
 const carritoRouter = require('./routes/carrito');
 const methodOVerride = require('method-override');
 
+app.use(session({secret: "shh"}))
 app.use(methodOVerride('_method'));
 app.use(express.static(publicPath));
 app.set("view engine", "ejs");

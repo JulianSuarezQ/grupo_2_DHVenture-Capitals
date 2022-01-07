@@ -109,6 +109,34 @@ const productosController = {
     fs.writeFileSync(productsFilePath, productosJSON);
     res.redirect('/products');
   },
+  PagDelete : (req , res) => {
+    let idProducto = req.params.id;
+    let productoMostrar = todosLosProductos.find(
+      (element) => element.id == idProducto
+    );
+    res.render("delete", { productos: productoMostrar });
+  },
+
+  delete: (req , res) =>{
+    const id = req.params.id;
+      let allUsers = todosLosProductos.findAll();
+      let finalUsers = todosLosProductos.filter(oneUser => oneUser.id !== id);
+      fs.writeFileSync(productsFilePath, JSON.stringify(finalUsers, null, ' '));
+      return true;
+  
+    /* const id = req.params.id;
+
+    let eliminado = todosLosProductos.map(element => {
+        if (element.id == id){
+            return null
+        }
+        return element
+    })
+
+    let productosJSON = JSON.stringify(eliminado, null, 2);
+    fs.writeFileSync(productsFilePath, productosJSON);
+    res.redirect('/products'); */
+  }
 };
 
 module.exports = productosController;
