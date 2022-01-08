@@ -20,15 +20,21 @@
                 id="email"
                 placeholder="Ingrese su email"
               />
+              <% if (locals.errors && errors.email){%>
+                  <span><%= errors.email.msg %></span>
+              <%}%>
             </div>
             <div class="text-form">
               <div><i>*</i><label for="password">Contraseña</label></div>
               <input class="password"
                 type="password"
-                name="passwordUsuario"
+                name="password"
                 id="password"
                 placeholder="Ingrese su password"
               />
+              <% if (locals.errors && errors.password){%>
+                <span><%= errors.password.msg %></span>
+            <%}%>
             </div>
             <div class="remember">
               <label for="rememberMe">Recordarme</label>

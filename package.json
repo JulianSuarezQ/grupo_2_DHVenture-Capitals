@@ -18,15 +18,11 @@
   },
   "homepage": "https://github.com/JulianSuarezQ/grupo_2_ScalonetaShop#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "ejs": "^3.1.6",
-<<<<<<< HEAD
     "express": "^4.17.2",
     "express-session": "^1.17.2",
-=======
-    "express": "^4.17.1",
-    "express-validation": "^3.0.8",
->>>>>>> f5ad638d6b74798dac410df24bb2caf410595f54
     "express-validator": "^6.14.0",
     "method-override": "^3.0.0",
     "multer": "^1.4.4"

@@ -1,13 +1,15 @@
 const express = require("express");
+const { body , check } = require("express-validator");
 const router = express.Router();
 const usersController = require("../controllers/usersController");
 const upload = require("../middlewares/multer");
-const validate = require("../middlewares/validateRegisterMiddelware")
+const validateRegister = require("../middlewares/validateRegisterMiddelware")
 
 router.get('/register', usersController.register);
-router.post('/createUser', upload.single("img"), validate ,usersController.createUser);
+router.post('/createUser', upload.single("img"), validateRegister ,usersController.createUser);
 
 router.get('/login', usersController.login);
+router.post('/login', validateRegister ,usersController.processLogin)
 
 
 module.exports = router;

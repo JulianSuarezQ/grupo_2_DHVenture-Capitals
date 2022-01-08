@@ -9,6 +9,18 @@ const usersController = {
         res.render("login")
     },
 
+	processLogin: (req , res) =>{
+
+		let validation = validationResult(req);
+		if(validation.errors.length > 0){
+			return res.render('login', {
+				errors: validation.mapped(),
+				oldData: req.body
+			});
+		}
+		
+	},
+
     register: (req, res) =>{
         res.render("register",{
 			errors: undefined
