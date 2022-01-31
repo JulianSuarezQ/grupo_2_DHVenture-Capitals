@@ -10,7 +10,7 @@ const usersController = {
     },
 
 	processLogin: (req , res) =>{
-
+		
 		let validation = validationResult(req);
 		if(validation.errors.length > 0){
 			return res.render('login', {
@@ -18,7 +18,7 @@ const usersController = {
 				oldData: req.body
 			});
 		}
-		
+		res.redirect('/');
 	},
 
     register: (req, res) =>{
