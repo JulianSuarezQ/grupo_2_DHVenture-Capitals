@@ -1,5 +1,6 @@
 const bcryptjs = require('bcryptjs');
 const {validationResult} = require('express-validator');
+const { redirect } = require('express/lib/response');
 
 const user = require('../models/Users');
 
@@ -18,6 +19,8 @@ const usersController = {
 				oldData: req.body
 			});
 		}
+
+		else {res.redirect('/')}
 		
 	},
 

@@ -124,7 +124,6 @@ const productosController = {
       let finalUsers = todosLosProductos.filter(oneUser => oneUser.id !== id);
       fs.writeFileSync(productsFilePath, JSON.stringify(finalUsers, null, ' '));
       return true;
-  
     /* const id = req.params.id;
 
     let eliminado = todosLosProductos.map(element => {
@@ -137,6 +136,7 @@ const productosController = {
     let productosJSON = JSON.stringify(eliminado, null, 2);
     fs.writeFileSync(productsFilePath, productosJSON);
     res.redirect('/products'); */
+    res.redirect('/products')
   }
 };
 
