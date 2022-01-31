@@ -9,7 +9,7 @@ router.get('/register', usersController.register);
 router.post('/createUser', upload.single("img"), validateRegister ,usersController.createUser);
 
 router.get('/login', usersController.login);
-router.post('/login', validateRegister ,usersController.processLogin)
+router.post('/login', validateRegister, usersController.processLogin)
 
 
 module.exports = router;

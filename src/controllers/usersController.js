@@ -1,7 +1,10 @@
 const bcryptjs = require('bcryptjs');
 const {validationResult} = require('express-validator');
-
+const fs = require("fs");
+const path = require("path");
 const user = require('../models/Users');
+
+const usersFilePath = path.join(__dirname, "../db/users.json");
 
 const usersController = {
 
@@ -13,6 +16,33 @@ const usersController = {
 
 		let validation = validationResult(req);
 		if(validation.errors.length > 0){
+			let usuarioALoguearse = {};
+			let usersJSON = fs.readFileSync(usersFilePath, "utf-8");
+			let users;
+			if (usersJSON == "") {
+				users = [];
+			} else {
+				users = JSON.parse(usersJSON);
+			}
+
+			for (let i = 0; i < users.length; i++) {
+				if (users[i].email == req.body.email) {
+					if (bcryptjs.compareSync(req.body.password, users[i].password)) {
+						let usuarioALoguearse = users[i];
+						break;
+					}
+				}
+			}
+
+			if(usuarioALoguearse == undefined) {
+				return res.render('login', {errors: [
+					{msg: 'Credenciales invalidas'}
+				]})
+			}
+
+			req.session.usuarioLogueado = usuarioALoguearse;
+
+		} else {
 			return res.render('login', {
 				errors: validation.mapped(),
 				oldData: req.body
