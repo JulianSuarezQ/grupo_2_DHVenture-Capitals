@@ -1,101 +1,84 @@
-const bcryptjs = require('bcryptjs');
-const {validationResult} = require('express-validator');
+const bcryptjs = require("bcryptjs");
+const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
-const user = require('../models/Users');
+const user = require("../models/Users");
 
 const usersFilePath = path.join(__dirname, "../db/users.json");
 
 const usersController = {
+  login: (req, res) => {
+    res.render("login");
+  },
 
-    login: (req, res) =>{
-        res.render("login")
-    },
+  processLogin: (req, res) => {
+    let userLog = req.body.email;
+    let userlogPass = req.body.password;
+    let validation = validationResult(req);
+    if (validation.errors.length > 0) {
+      let usuarioALoguearse = {};
+      let usersJSON = fs.readFileSync(usersFilePath, "utf-8");
+      let users;
+      if (usersJSON == "") {
+        users = [];
+      } else {
+        users = JSON.parse(usersJSON);
+      }
+      let usuario = users.filter((logUser) => logUser.email == userLog);
 
-	processLogin: (req , res) =>{
+      let isOkPass;
+      usuario.forEach((usuario) => {
+        isOkPass = bcryptjs.compareSync(userlogPass, usuario.password);
+      });
 
-		let validation = validationResult(req);
-		if(validation.errors.length > 0){
-			let usuarioALoguearse = {};
-			let usersJSON = fs.readFileSync(usersFilePath, "utf-8");
-			let users;
-			if (usersJSON == "") {
-				users = [];
-			} else {
-				users = JSON.parse(usersJSON);
-			}
+      if (isOkPass) {
+        res.redirect("/");
+      }
+    }
+  },
 
-			for (let i = 0; i < users.length; i++) {
-				if (users[i].email == req.body.email) {
-					if (bcryptjs.compareSync(req.body.password, users[i].password)) {
-						let usuarioALoguearse = users[i];
-						break;
-					}
-				}
-			}
+  register: (req, res) => {
+    res.render("register", {
+      errors: undefined,
+    });
+  },
 
-			if(usuarioALoguearse == undefined) {
-				return res.render('login', {errors: [
-					{msg: 'Credenciales invalidas'}
-				]})
-			}
+  createUser: (req, res) => {
+    let validation = validationResult(req);
 
-			req.session.usuarioLogueado = usuarioALoguearse;
+    if (validation.errors.length > 0) {
+      return res.render("register", {
+        errors: validation.mapped(),
+        oldData: req.body,
+      });
+    }
 
-		} else {
-			return res.render('login', {
-				errors: validation.mapped(),
-				oldData: req.body
-			});
-		}
-		
-	},
+    let userInDB = user.repitEmail("email", req.body.email);
 
-    register: (req, res) =>{
-        res.render("register",{
-			errors: undefined
-		})
-    },
+    if (userInDB) {
+      return res.render("register", {
+        errors: {
+          email: {
+            msg: "Este email ya está registrado",
+          },
+        },
+        oldData: req.body,
+      });
+    }
 
-    createUser: (req, res) => {
+    let UserNew = {
+      ...req.body,
+      password: bcryptjs.hashSync(req.body.password, 10),
+      passwordconfirm: undefined,
+      tel: parseInt(req.body.tel, 10),
+      doc: parseInt(req.body.doc, 10),
+      img: req.file.filename,
+    };
 
-		let validation = validationResult(req);
+    let userCreated = user.create(UserNew);
 
-		if(validation.errors.length > 0){
-			return res.render('register', {
-				errors: validation.mapped(),
-				oldData: req.body
-			});
-		}
-
-        let userInDB = user.repitEmail('email', req.body.email);
-        
-        if (userInDB) {
-			return res.render('register', {
-				errors: {
-					email: {
-						msg: 'Este email ya está registrado'
-					}
-				},
-				oldData: req.body
-			});
-		}
-        
-		let UserNew = {
-			...req.body,
-			password: bcryptjs.hashSync(req.body.password, 10),
-			passwordconfirm: undefined,
-			tel: parseInt(req.body.tel, 10),
-			doc: parseInt(req.body.doc, 10),
-			img: req.file.filename
-		}
-
-
-        let userCreated = user.create(UserNew);
-
-		return res.redirect('/');
-    },
-
-}
+    return res.redirect("/");
+  },
+};
 
 module.exports = usersController;
