@@ -11,11 +11,16 @@ const usersRouter = require('./routes/users');
 const carritoRouter = require('./routes/carrito');
 const methodOVerride = require('method-override');
 
-app.use(session({secret: "shh"}))
+app.use(session({
+  secret: "shh",
+  resave: true,
+  saveUninitialized: true
+}));
 app.use(methodOVerride('_method'));
 app.use(express.static(publicPath));
 app.set("view engine", "ejs");
 app.set("views", viewsPath);
+app.use(express.urlencoded({ extended: false }));
 
 app.listen(port, () =>
   console.log("Servidor corriendo en el puerto" + " " + port)
