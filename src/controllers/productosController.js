@@ -119,12 +119,12 @@ const productosController = {
   },
 
   delete: (req , res) =>{
-    // no funciona
     const id = req.params.id;
-    let finalProducts = todosLosProductos.filter(oneProduct => oneProduct.id !== id);
+    let finalProducts = todosLosProductos.filter(oneProduct => oneProduct.id != id);
     fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
     res.redirect('/products');
   }
+  
 };
 
 module.exports = productosController;

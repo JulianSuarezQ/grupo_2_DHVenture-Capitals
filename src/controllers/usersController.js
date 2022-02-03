@@ -1,101 +1,95 @@
-const bcryptjs = require('bcryptjs');
-const {validationResult} = require('express-validator');
+const bcryptjs = require("bcryptjs");
+const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
-const user = require('../models/Users');
+const user = require("../models/Users");
 
 const usersFilePath = path.join(__dirname, "../db/users.json");
 
 const usersController = {
 
-    login: (req, res) =>{
-        res.render("login")
-    },
+  //RENDER LOGIN
+  
+  login: (req, res) => {
+    res.render("login");
+  },
 
-	processLogin: (req , res) =>{
-		
-		let validation = validationResult(req);
-		if(validation.errors.length > 0){
-			let usuarioALoguearse = {};
-			let usersJSON = fs.readFileSync(usersFilePath, "utf-8");
-			let users;
-			if (usersJSON == "") {
-				users = [];
-			} else {
-				users = JSON.parse(usersJSON);
-			}
+  // PROCESO DE LOGIN
 
-			for (let i = 0; i < users.length; i++) {
-				if (users[i].email == req.body.email) {
-					if (bcryptjs.compareSync(req.body.password, users[i].password)) {
-						let usuarioALoguearse = users[i];
-						break;
-					}
-				}
-			}
+  processLogin: (req, res) => {
+    let userLog = req.body.email;
+    let userlogPass = req.body.password;
+    let validation = validationResult(req);
+    if (validation.errors.length > 0) {
+      let usuarioALoguearse = {};
+      let usersJSON = fs.readFileSync(usersFilePath, "utf-8");
+      let users;
+      if (usersJSON == "") {
+        users = [];
+      } else {
+        users = JSON.parse(usersJSON);
+      }
+      let usuario = users.filter((logUser) => logUser.email == userLog);
 
-			if(usuarioALoguearse == undefined) {
-				return res.render('login', {errors: [
-					{msg: 'Credenciales invalidas'}
-				]})
-			}
+      let isOkPass = undefined;
+      usuario.forEach((usuario) => {
+        isOkPass = bcryptjs.compareSync(userlogPass, usuario.password);
+      });
 
-			req.session.usuarioLogueado = usuarioALoguearse;
+      if (isOkPass) {
+        res.redirect("/");
+      }
 
-		} else {
-			return res.render('login', {
-				errors: validation.mapped(),
-				oldData: req.body
-			});
-		}
-		res.redirect('/');
-	},
+    }
+  },
 
-    register: (req, res) =>{
-        res.render("register",{
-			errors: undefined
-		})
-    },
+  //RENDER DE REGISTER
 
-    createUser: (req, res) => {
+  register: (req, res) => {
+    res.render("register", {
+      errors: undefined,
+    });
+  },
 
-		let validation = validationResult(req);
+  //CREAR USUARIO NUEVO
 
-		if(validation.errors.length > 0){
-			return res.render('register', {
-				errors: validation.mapped(),
-				oldData: req.body
-			});
-		}
+  createUser: (req, res) => {
+    let validation = validationResult(req);
 
-        let userInDB = user.repitEmail('email', req.body.email);
-        
-        if (userInDB) {
-			return res.render('register', {
-				errors: {
-					email: {
-						msg: 'Este email ya está registrado'
-					}
-				},
-				oldData: req.body
-			});
-		}
-        
-		let UserNew = {
-			...req.body,
-			password: bcryptjs.hashSync(req.body.password, 10),
-			passwordconfirm: undefined,
-			tel: parseInt(req.body.tel, 10),
-			doc: parseInt(req.body.doc, 10),
-			img: req.file.filename
-		}
+    if (validation.errors.length > 0) {
+      return res.render("register", {
+        errors: validation.mapped(),
+        oldData: req.body,
+      });
+    }
 
+    let userInDB = user.repitEmail("email", req.body.email);
 
-        let userCreated = user.create(UserNew);
+    if (userInDB) {
+      return res.render("register", {
+        errors: {
+          email: {
+            msg: "Este email ya está registrado",
+          },
+        },
+        oldData: req.body,
+      });
+    }
 
-		return res.redirect('/');
-    },
+    let UserNew = {
+      ...req.body,
+      password: bcryptjs.hashSync(req.body.password, 10),
+      passwordconfirm: undefined,
+      tel: parseInt(req.body.tel, 10),
+      doc: parseInt(req.body.doc, 10),
+      img: req.file.filename,
+    };
 
-}
+    let userCreated = user.create(UserNew);
+
+    return res.redirect("/");
+  },
+
+};
 
 module.exports = usersController;
