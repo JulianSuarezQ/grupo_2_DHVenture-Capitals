@@ -3,6 +3,8 @@ const router = express.Router();
 const upload = require("../middlewares/multer");
 const productosController = require("../controllers/productosController");
 
+// '/products/....'
+
 router.get("/", productosController.list);
 
 router.get("/create", productosController.create);
@@ -18,6 +20,6 @@ router.get("/edit/:id", productosController.edit);
 router.put('/edit/:id' , upload.single('img') , productosController.update);
 
 router.get("/delete/:id" , productosController.PagDelete);
-router.delete("/delete/:id" , productosController.delete);
+router.post("/delete/:id" , productosController.delete);
 
 module.exports = router;
