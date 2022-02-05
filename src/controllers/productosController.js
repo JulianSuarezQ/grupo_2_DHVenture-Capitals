@@ -110,6 +110,7 @@ const productosController = {
     fs.writeFileSync(productsFilePath, productosJSON);
     res.redirect('/products');
   },
+  
   PagDelete : (req , res) => {
     let idProducto = req.params.id;
     let productoMostrar = todosLosProductos.find(
@@ -119,12 +120,14 @@ const productosController = {
   },
 
   delete: (req , res) =>{
+
     const id = req.params.id;
     let finalProducts = todosLosProductos.filter(oneProduct => oneProduct.id != id);
     fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
-    res.redirect('/products');
+    return res.redirect('/products');
+
   }
-  
+
 };
 
 module.exports = productosController;

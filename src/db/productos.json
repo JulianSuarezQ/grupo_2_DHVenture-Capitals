@@ -42,27 +42,5 @@
   "price": 12000,
   "size": "M",
   "image": "img-1640183536229-944603604.jpg"
- },
- {
-  "id": 6,
-  "name": "camiceta",
-  "desc": "seleccion argentina",
-  "discount": 10,
-  "category": "deportivas",
-  "color": "blanca y celeste",
-  "price": 12312,
-  "size": "L",
-  "image": "img-1640183644488-33677681.jpeg"
- },
- {
-  "id": 7,
-  "name": "camiceta",
-  "desc": "seleccion argentina",
-  "discount": 10,
-  "category": "deportivas",
-  "color": "blanca y celeste",
-  "price": 12312,
-  "size": "L",
-  "image": "img-1640183653674-311238926.jpeg"
  }
 ]
