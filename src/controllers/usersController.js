@@ -7,9 +7,14 @@ const user = require("../models/Users");
 const usersFilePath = path.join(__dirname, "../db/users.json");
 
 const usersController = {
+
+  //RENDER LOGIN
+  
   login: (req, res) => {
     res.render("login");
   },
+
+  // PROCESO DE LOGIN
 
   processLogin: (req, res) => {
     let userLog = req.body.email;
@@ -26,7 +31,7 @@ const usersController = {
       }
       let usuario = users.filter((logUser) => logUser.email == userLog);
 
-      let isOkPass;
+      let isOkPass = undefined;
       usuario.forEach((usuario) => {
         isOkPass = bcryptjs.compareSync(userlogPass, usuario.password);
       });
@@ -34,14 +39,19 @@ const usersController = {
       if (isOkPass) {
         res.redirect("/");
       }
+
     }
   },
+
+  //RENDER DE REGISTER
 
   register: (req, res) => {
     res.render("register", {
       errors: undefined,
     });
   },
+
+  //CREAR USUARIO NUEVO
 
   createUser: (req, res) => {
     let validation = validationResult(req);
@@ -79,6 +89,7 @@ const usersController = {
 
     return res.redirect("/");
   },
+
 };
 
 module.exports = usersController;

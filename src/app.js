@@ -32,6 +32,7 @@ app.use("/products", productosRouter);
 
 app.use("/register", usersRouter);
 
+
 app.use("/users", usersRouter);
 
 app.post("/login", (req, res) => {
