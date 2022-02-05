@@ -1,7 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const carritoController = require('../controllers/carritoController');
+const carritoController = require("../controllers/carritoController");
+const userLogged = require("../middlewares/userLoggedMiddleware");
 
-router.get('/', carritoController.carrito);
+router.get("/", userLogged, carritoController.carrito);
 
 module.exports = router;
