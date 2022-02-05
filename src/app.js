@@ -30,6 +30,8 @@ app.use("/", mainRouter);
 
 app.use("/products", productosRouter);
 
+app.use("/carrito", carritoRouter)
+
 app.use("/register", usersRouter);
 
 app.use("/users", usersRouter);
@@ -38,3 +40,14 @@ app.post("/login", (req, res) => {
   res.redirect("/");
 });
 
+app.use(function(req, res, next){
+  res.status(404);
+
+  if (req.accepts('html')) {
+    res.render('not-found', { url: req.url });
+    return;
+  }
+
+  next();
+
+});

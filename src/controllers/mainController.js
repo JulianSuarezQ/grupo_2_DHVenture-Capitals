@@ -8,6 +8,7 @@ const todosLosProductos = JSON.parse(
 );
 
 const mainController = {
+  
   index: function (req, res) {
     let productos = todosLosProductos;
 
@@ -15,6 +16,7 @@ const mainController = {
       productos: productos,
     });
   },
+
 };
 
 module.exports = mainController;

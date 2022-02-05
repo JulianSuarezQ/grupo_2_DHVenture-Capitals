@@ -11,17 +11,6 @@
   "image": "img-1640788520811-784627877.jpeg"
  },
  {
-  "id": 3,
-  "name": "camiseta suplente 2021",
-  "desc": "camisetasuplente que la seleccion argentina utilizo en 20210",
-  "discount": 0,
-  "category": "Seleccion Argentina",
-  "color": "azul oscuro",
-  "price": 18999,
-  "size": "L",
-  "image": "img-1640788583897-383996698.jpeg"
- },
- {
   "id": 4,
   "name": "camiseta suplente 2020",
   "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
@@ -42,95 +31,104 @@
   "price": 12000,
   "size": "M",
   "image": "img-1640183536229-944603604.jpg"
- }, {
-    "id": 6,
-    "name": "camiseta suplente 2020",
-    "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
-    "discount": 5,
-    "category": "Seleccion Argentina",
-    "color": "negra, celeste y blanca",
-    "price": 14000,
-    "size": "XL",
-    "image": "img-1640788795791-294821806.jpeg"
-   }, {
-    "id": 7,
-    "name": "camiseta suplente 2020",
-    "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
-    "discount": 5,
-    "category": "Seleccion Argentina",
-    "color": "negra, celeste y blanca",
-    "price": 14000,
-    "size": "XL",
-    "image": "img-1640788795791-294821806.jpeg"
-   }, {
-    "id": 8,
-    "name": "camiseta suplente 2020",
-    "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
-    "discount": 5,
-    "category": "Seleccion Argentina",
-    "color": "negra, celeste y blanca",
-    "price": 14000,
-    "size": "XL",
-    "image": "img-1640788795791-294821806.jpeg"
-   }, {
-    "id": 9,
-    "name": "camiseta suplente 2020",
-    "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
-    "discount": 5,
-    "category": "Seleccion Argentina",
-    "color": "negra, celeste y blanca",
-    "price": 14000,
-    "size": "XL",
-    "image": "img-1640788795791-294821806.jpeg"
-   }, {
-    "id": 10,
-    "name": "camiseta suplente 2020",
-    "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
-    "discount": 5,
-    "category": "Seleccion Argentina",
-    "color": "negra, celeste y blanca",
-    "price": 14000,
-    "size": "XL",
-    "image": "img-1640788795791-294821806.jpeg"
-   }, {
-    "id": 11,
-    "name": "camiseta suplente 2020",
-    "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
-    "discount": 5,
-    "category": "Seleccion Argentina",
-    "color": "negra, celeste y blanca",
-    "price": 14000,
-    "size": "XL",
-    "image": "img-1640788795791-294821806.jpeg"
-   }, {
-    "id": 12,
-    "name": "camiseta suplente 2020",
-    "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
-    "discount": 5,
-    "category": "Seleccion Argentina",
-    "color": "negra, celeste y blanca",
-    "price": 14000,
-    "size": "XL",
-    "image": "img-1640788795791-294821806.jpeg"
-   }, {
-    "id": 13,
-    "name": "camiseta suplente 2020",
-    "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
-    "discount": 5,
-    "category": "Seleccion Argentina",
-    "color": "negra, celeste y blanca",
-    "price": 14000,
-    "size": "XL",
-    "image": "img-1640788795791-294821806.jpeg"
-   }, {
-    "id": 14,
-    "name": "camiseta suplente 2020",
-    "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
-    "discount": 5,
-    "category": "Seleccion Argentina",
-    "color": "negra, celeste y blanca",
-    "price": 14000,
-    "size": "XL",
-    "image": "img-1640788795791-294821806.jpeg"
-   }
+ },
+ {
+  "id": 6,
+  "name": "camiseta suplente 2020",
+  "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
+  "discount": 5,
+  "category": "Seleccion Argentina",
+  "color": "negra, celeste y blanca",
+  "price": 14000,
+  "size": "XL",
+  "image": "img-1640788795791-294821806.jpeg"
+ },
+ {
+  "id": 7,
+  "name": "camiseta suplente 2020",
+  "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
+  "discount": 5,
+  "category": "Seleccion Argentina",
+  "color": "negra, celeste y blanca",
+  "price": 14000,
+  "size": "XL",
+  "image": "img-1640788795791-294821806.jpeg"
+ },
+ {
+  "id": 8,
+  "name": "camiseta suplente 2020",
+  "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
+  "discount": 5,
+  "category": "Seleccion Argentina",
+  "color": "negra, celeste y blanca",
+  "price": 14000,
+  "size": "XL",
+  "image": "img-1640788795791-294821806.jpeg"
+ },
+ {
+  "id": 9,
+  "name": "camiseta suplente 2020",
+  "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
+  "discount": 5,
+  "category": "Seleccion Argentina",
+  "color": "negra, celeste y blanca",
+  "price": 14000,
+  "size": "XL",
+  "image": "img-1640788795791-294821806.jpeg"
+ },
+ {
+  "id": 10,
+  "name": "camiseta suplente 2020",
+  "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
+  "discount": 5,
+  "category": "Seleccion Argentina",
+  "color": "negra, celeste y blanca",
+  "price": 14000,
+  "size": "XL",
+  "image": "img-1640788795791-294821806.jpeg"
+ },
+ {
+  "id": 11,
+  "name": "camiseta suplente 2020",
+  "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
+  "discount": 5,
+  "category": "Seleccion Argentina",
+  "color": "negra, celeste y blanca",
+  "price": 14000,
+  "size": "XL",
+  "image": "img-1640788795791-294821806.jpeg"
+ },
+ {
+  "id": 12,
+  "name": "camiseta suplente 2020",
+  "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
+  "discount": 5,
+  "category": "Seleccion Argentina",
+  "color": "negra, celeste y blanca",
+  "price": 14000,
+  "size": "XL",
+  "image": "img-1640788795791-294821806.jpeg"
+ },
+ {
+  "id": 13,
+  "name": "camiseta suplente 2020",
+  "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
+  "discount": 5,
+  "category": "Seleccion Argentina",
+  "color": "negra, celeste y blanca",
+  "price": 14000,
+  "size": "XL",
+  "image": "img-1640788795791-294821806.jpeg"
+ },
+ {
+  "id": 14,
+  "name": "camiseta suplente 2020",
+  "desc": "camiseta suplente que la seleccion argentina utilizo en 2020",
+  "discount": 5,
+  "category": "Seleccion Argentina",
+  "color": "negra, celeste y blanca",
+  "price": 14000,
+  "size": "XL",
+  "image": "img-1640788795791-294821806.jpeg"
+ }
 ]

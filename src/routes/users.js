@@ -15,7 +15,8 @@ router.post('/createUser', upload.single("img"), validateRegister ,usersControll
 
 router.get('/login', usersController.login);
 //falta poner un validateLogin
-router.post('/login', validateRegister , usersController.processLogin)
+router.post('/login', validateRegister , usersController.processLogin);
+
 
 
 module.exports = router;
