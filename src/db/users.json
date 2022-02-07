@@ -20,20 +20,20 @@
  {
   "id": 2,
   "name": "Esteban",
-  "lastname": "Karlen Aguirre",
-  "fechaNacimiento": "2001-10-08",
+  "lastname": "Karlen ",
+  "fechaNacimiento": "",
   "tipo": "DNI",
-  "doc": 3232123,
-  "genero": "Prefiero no decir",
-  "tel": 12345678,
+  "doc": 23452525,
+  "genero": "Hombre",
+  "tel": 3463710534,
   "email": "esti.boca10mil@gmail.com",
   "emailConfirm": "esti.boca10mil@gmail.com",
-  "password": "$2a$10$yYdo3RM0WNhzToBAvLUlleat92JQ0GTGyxZDNlICKq6h2CO132Bcy",
-  "passwordConfirm": "holas1234",
+  "password": "$2a$10$EVQJdSLjoLfHNy0YRt02JOKf1j2Ih8YtDprKQOb9eVv9emnyUW5e2",
+  "passwordConfirm": "Hola1234",
   "interes": "Futbol",
   "club": "boca",
   "Policies": "on",
   "promotions": "on",
-  "img": "img-1643661028546-678986747.jpg"
+  "img": "img-1644267479311-728465435.jpg"
  }
 ]
