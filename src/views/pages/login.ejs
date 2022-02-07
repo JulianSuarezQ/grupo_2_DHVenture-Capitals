@@ -11,40 +11,40 @@
     <main class="main-login">
         <form class="form-box" action="/users/login" method="post">
           <span class="form-title"><a href="login">INGRESA</a> | <a href="register"> REGISTRARME</a></span>
-          <div class="form-box-inside">
+          <div class="logged">
+            <div class="form-box-inside">
+              <div class="text-form">
+                <div><i>*</i><label for="email">Email</label></div>
+                <input class="email"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Ingrese su email"
+                />
+                <% if (locals.errors && errors.email){%>
+                    <span><%= errors.email.msg %></span>
+                <%}%>
+              </div>
+            </div>
+
             <div class="text-form">
-              <div><i>*</i><label for="email">Email</label></div>
-              <input class="email"
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Ingrese su email"
+              <div><i>*</i><label for="password">Contraseña</label></div>
+              <input
+                class="password"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Contraseña *"
               />
-              <% if (locals.errors && errors.email){%>
-                  <span><%= errors.email.msg %></span>
-              <%}%>
+              <% if (locals.errors && errors.password){%>
+              <div class="text-danger" style="color: red">
+                <%= errors.password.msg %>
+              </div>
             </div>
-
-          </div>
-          <div class="text-form">
-            <div><i>*</i><label for="password">Contraseña</label></div>
-            <input
-              class="password"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Contraseña *"
-            />
-            <% if (locals.errors && errors.password){%>
-            <div class="text-danger" style="color: red">
-              <%= errors.password.msg %>
-            </div>
-
             <%}%> <% if (locals.errorsLogin && errorsLogin.email){%>
             <div class="text-danger" style="color: red">
               <%= errorsLogin.email.msg %>
             </div>
-
             <%}%>
           </div>
           <div class="remember">
