@@ -38,6 +38,7 @@ app.use("/carrito", carritoRouter);
 
 app.use("/register", usersRouter);
 
+
 app.use("/users", usersRouter);
 
 app.use(function (req, res, next) {

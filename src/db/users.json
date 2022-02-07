@@ -16,5 +16,24 @@
   "club": "Boca jr",
   "Policies": "on",
   "img": "img-1641484808397-984897767.jpg"
+ },
+ {
+  "id": 2,
+  "name": "Esteban",
+  "lastname": "Karlen ",
+  "fechaNacimiento": "",
+  "tipo": "DNI",
+  "doc": 23452525,
+  "genero": "Hombre",
+  "tel": 3463710534,
+  "email": "esti.boca10mil@gmail.com",
+  "emailConfirm": "esti.boca10mil@gmail.com",
+  "password": "$2a$10$EVQJdSLjoLfHNy0YRt02JOKf1j2Ih8YtDprKQOb9eVv9emnyUW5e2",
+  "passwordConfirm": "Hola1234",
+  "interes": "Futbol",
+  "club": "boca",
+  "Policies": "on",
+  "promotions": "on",
+  "img": "img-1644267479311-728465435.jpg"
  }
 ]
