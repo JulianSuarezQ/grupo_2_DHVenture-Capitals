@@ -8,13 +8,15 @@ const todosLosProductos = JSON.parse(
 );
 
 const mainController = {
-  index: function (req, res) {
+  index: function (req , res) {
     let productos = todosLosProductos;
-
     res.render("index", {
       productos: productos,
     });
   },
+  mantenimiento: function (req , res){
+    res.render('en-mantenimiento')
+  }
 };
 
 module.exports = mainController;

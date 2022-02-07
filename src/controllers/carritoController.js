@@ -15,11 +15,10 @@ const carritoController = {
     },
  
     addProduct: function(req,res){
-      console.log(req.session.isLogged);
-      //req.session.isLogged = undefined -> me redirecciona a home 
-      if(req.session.isLogged){
-        console.log(carro);
-        if(!carro){
+
+      if(req.session.userLogged){
+        res.redirect('/mantenimiento')
+        if(carro == NaN ){
           let carro = [];
         }
         console.log(carro);

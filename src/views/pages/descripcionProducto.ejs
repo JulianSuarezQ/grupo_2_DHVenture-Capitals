@@ -53,11 +53,16 @@
               </span>
             </div>
 
+          <div class="caracteristicas">
+            <h3>Características del producto</h3>
+            <span>
+              <%= productos.desc %>
+            </span>
+          </div>
+        <% if (locals.isLogged) {%>
           <button class="editar" ><a href="/products/edit/<%= productos.id%>">Editar Producto</a></button>
-
-
           <button class="editar"> <a href="/products/delete/<%= productos.id%>">Borrar Producto</a> </button>
-        
+        <%}%>
         </div>
       </div>
     </div>
