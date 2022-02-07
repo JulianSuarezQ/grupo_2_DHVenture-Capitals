@@ -27,30 +27,22 @@
             <div>N</div>
         </div>
     <nav class="main">
+
     <div class="TodosLosProductos">
-        <nav class="productos">
-            <img src="img/descarga-1.jpg" class="logoo1">
-        <div>
-            <h3>Zapatillas Nike</h3>
-            <p>talle 43</p>
-        </div>
-        </nav>
+        <%if(carro){ %> 
+            <%for(let i = 0; i < carro.length; i++){ %> 
+            <nav class="productos">
+                <img src="img/<%=carro[i].img %> " class="logoo1">
+                <div>
+                    <h3><%= carro[i].name %></h3>
+                    <p>talle: <%= carro[i].size %></p>
+                </div>
+            </nav>
+            <% } %> 
+        <%}else{%> 
+            <span>No hay productos en el carrito</span>
+        <%}%>
 
-        <nav class="productos">
-            <img src="img/descarga-2.jpg" class="logoo1">
-            <div>
-                <h3>Remera nike</h3>
-                <p>talle S</p>
-            </div>
-        </nav>
-
-        <nav class="productos">
-            <img src="img/descarga-3.jpg" class="logoo1">
-        <div>
-            <h3>Remera Nike Blanca</h3>
-            <p>talle M</p>
-        </div>
-        </nav>    
     </div>
         <nav class="total">
             <h3>Codigo de descuento</h3>

@@ -38,19 +38,24 @@
               </div>
             <% } %>  
           </div>
-          <form action="/products/description" method="post">
-            <input class="comprar" type="submit" name="<%=productos.id%>" value="COMPRAR AHORA">
-            <input class="carrito" type="submit" name="<%=productos.id%>" value="AÑADIR AL CARRITO">
-          </form>
 
-          <div class="caracteristicas">
-            <h3>Características del producto</h3>
-            <span>
-              <%= productos.desc %>
-            </span>
-          </div>
+            <form action="/products/buy/<%= productos.id %>" method="POST">
+              <input class="comprar" type="submit" name="<%=productos.id%>" value="COMPRAR AHORA">
+            </form>
+            <form action="/carrito/<%=productos.id%>" method="POST">
+              <input class="carrito" type="submit" name="<%=productos.id%>" value="AÑADIR AL CARRITO">
+            </form>
+
+            <div class="caracteristicas">
+              <h3>Características del producto</h3>
+              <span>
+                <%= productos.desc %>
+              </span>
+            </div>
 
           <button class="editar" ><a href="/products/edit/<%= productos.id%>">Editar Producto</a></button>
+
+
           <button class="editar"> <a href="/products/delete/<%= productos.id%>">Borrar Producto</a> </button>
         
         </div>
