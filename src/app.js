@@ -36,6 +36,7 @@ app.use("/products", productosRouter);
 
 app.use("/carrito", carritoRouter);
 
+
 app.use("/register", usersRouter);
 
 

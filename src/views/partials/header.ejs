@@ -37,12 +37,14 @@
 
 <nav class="main-navbar">
   <ul class="center-navbar">
-    <li><a href="">Categorias |</a></li>
+    <li><a href="/mantenimiento">Categorias |</a></li>
+    <% if (locals.isLogged) {%>
     <li><a href="/products">Mis Productos |</a></li>
-    <li><a href="">Hombre |</a></li>
-    <li><a href="">Mujer |</a></li>
-    <li><a href="">Marcas |</a></li>
-    <li><a href="">Liquidacion |</a></li>
-    <li><a href="">Novedades</a></li>
+    <% }%>
+    <li><a href="/mantenimiento">Hombre |</a></li>
+    <li><a href="/mantenimiento">Mujer |</a></li>
+    <li><a href="/mantenimiento">Marcas |</a></li>
+    <li><a href="/mantenimiento">Liquidacion |</a></li>
+    <li><a href="/mantenimiento">Novedades</a></li>
   </ul>
 </nav>
