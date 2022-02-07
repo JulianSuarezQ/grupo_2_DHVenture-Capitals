@@ -33,7 +33,8 @@
   
   <section class="section-mas-vendidos">
       <h2>Mas vendidos</h2>
-      <div class="div-mas-vendidos">  
+      <div class="div-mas-vendidos">
+      <% if (productos.length >= 4 ) { %>
         <% for(let i = 0; i < 4; i++){ %> 
           <article><a href="/products/<%= productos[i].id %> ">
             <img src="/images/products/<%=productos[i].image%>" alt="">
@@ -49,12 +50,16 @@
             <h1 class="name"><%=productos[i].name%></h1>
           </a>
           </article>
-        <% } %>     
+        <% } %>
+      <% }else{ %>
+        <span>No hay suficientes productos cargados</span>
+      <% } %> 
   </section>
 
   <section class="recomendados">
       <h2>Recomendados para vos!</h2>
       <div class="div-recomendados">
+          <% if (productos.length >= 8) { %>
             <% for(let i = 4; i < 8; i++){ %> 
               <article><a href="/products/<%= productos[i].id %> ">
                 <img src="/images/products/<%=productos[i].image%>" alt="">
@@ -71,6 +76,9 @@
               </a>
               </article>
             <% } %>
+          <% }else{ %>
+            <span>No hay suficientes productos cargados</span>
+          <% } %>
       </div>
 
   </section>
