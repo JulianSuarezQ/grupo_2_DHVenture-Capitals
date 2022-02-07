@@ -21,12 +21,18 @@
     </form>
   </div>
 
+  <% if (locals.isLogged) {%>
+  <div class="header-right-logged">
+    <h6>Bienvenido <%= locals.userLogged %></h6>
+    <a href="../../carrito"><i class="fas fa-shopping-cart"></i></a>
+    <a href="../../users/logout"><i class="fas fa-sign-out-alt"></i></a>
+  </div>
+  <% } else { %>
   <div class="header-right">
     <a href="../../users/login"><i class="fas fa-user"></i></a>
-    <a href=""><i class="fas fa-heart"></i></a>
-    <a href="../../users/carrito"><i class="fas fa-shopping-cart"></i></a>
+    <a href="../../carrito"><i class="fas fa-shopping-cart"></i></a>
   </div>
-
+  <% }%>
 </div>
 
 <nav class="main-navbar">
