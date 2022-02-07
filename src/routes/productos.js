@@ -2,24 +2,35 @@ const express = require("express");
 const router = express.Router();
 const upload = require("../middlewares/multer");
 const productosController = require("../controllers/productosController");
+const userLogged = require("../middlewares/userLoggedMiddleware");
 
 // '/products/....'
 
-router.get("/", productosController.list);
+router.get("/", userLogged, productosController.list);
 
-router.get("/create", productosController.create);
-router.post("/create", upload.single("img"), productosController.store);
+router.get("/create", userLogged, productosController.create);
+router.post(
+  "/create",
+  userLogged,
+  upload.single("img"),
+  productosController.store
+);
 
-router.get("/search", productosController.search);
+router.get("/search", userLogged, productosController.search);
 
-router.get("/description", productosController.descriptionProduct);
+router.get("/description", userLogged, productosController.descriptionProduct);
 
-router.get("/:id", productosController.detail);
+router.get("/:id", userLogged, productosController.detail);
 
-router.get("/edit/:id", productosController.edit);
-router.put('/edit/:id' , upload.single('img') , productosController.update);
+router.get("/edit/:id", userLogged, productosController.edit);
+router.put(
+  "/edit/:id",
+  userLogged,
+  upload.single("img"),
+  productosController.update
+);
 
-router.get("/delete/:id" , productosController.PagDelete);
-router.post("/delete/:id" , productosController.delete);
+router.get("/delete/:id", userLogged, productosController.PagDelete);
+router.post("/delete/:id", userLogged, productosController.delete);
 
 module.exports = router;

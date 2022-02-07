@@ -15,6 +15,12 @@ const usersController = {
     });
   },
 
+  //RENDER LOGOUT
+  logOut: (req, res) => {
+    delete req.session.userLogged;
+    res.redirect("/");
+  },
+
   // PROCESO DE LOGIN
 
   processLogin: (req, res) => {
@@ -33,10 +39,15 @@ const usersController = {
       let usuario = users.filter((logUser) => logUser.email == userLog);
       let isOkPass;
       usuario.forEach((usuario) => {
+        userName = usuario.name;
         isOkPass = bcryptjs.compareSync(userlogPass, usuario.password);
       });
 
       if (isOkPass) {
+        //guardar usuario en session
+        delete usuario.password; //borra la propiedad de password para no tener la info en el request por seguridad
+        req.session.userLogged = userName;
+        console.log(req.session.userLogged);
         res.redirect("/");
       } else {
         return res.render("login", {

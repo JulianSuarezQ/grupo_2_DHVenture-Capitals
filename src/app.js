@@ -11,13 +11,15 @@ const usersRouter = require("./routes/users");
 const carritoRouter = require("./routes/carrito");
 const methodOVerride = require("method-override");
 
+//session
 app.use(
   session({
     secret: "shh",
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
   })
 );
+
 app.use(methodOVerride("_method"));
 app.use(express.static(publicPath));
 app.set("view engine", "ejs");
