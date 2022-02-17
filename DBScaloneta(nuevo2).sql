@@ -105,9 +105,9 @@ DROP TABLE IF EXISTS `products`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
   `id_product` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
+  `name` varchar(45) NOT NULL,
   `discount` int NOT NULL,
-  `detail` varchar(200) DEFAULT NULL,
+  `detail` varchar(200) NOT NULL,
   `stock` int NOT NULL,
   `id_category` int NOT NULL,
   `color` varchar(150) NOT NULL,
@@ -200,4 +200,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-16 20:12:46
+-- Dump completed on 2022-02-17  9:27:52
