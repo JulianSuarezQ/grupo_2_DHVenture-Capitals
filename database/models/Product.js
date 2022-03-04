@@ -57,7 +57,6 @@ module.exports = (sequelize, dataTypes) => {
     Product.belongsTo(models.Category, {
       as: "category",
       foreingKey: "id_category",
-      otherKey: "id_cart",
       timestamps: false,
     });
   };
@@ -67,6 +66,7 @@ module.exports = (sequelize, dataTypes) => {
       as: "carts",
       through: "cart_product",
       foreingKey: "id_product",
+      otherKey: 'id_Cart'
     });
   };
 

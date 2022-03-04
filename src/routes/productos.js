@@ -4,6 +4,7 @@ const upload = require("../middlewares/multer");
 const productosController = require("../controllers/productosController");
 const userLogged = require("../middlewares/userLoggedMiddleware");
 
+
 // '/products/....'
 
 router.get("/", userLogged, productosController.list);

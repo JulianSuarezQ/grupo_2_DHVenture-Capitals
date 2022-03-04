@@ -1,12 +1,10 @@
 const path = require("path");
 const fs = require("fs");
-
 const productsFilePath = path.join(__dirname, "../db/productos.json");
-
+//let db = require('../../database/models');
 const todosLosProductos = JSON.parse(
   fs.readFileSync(productsFilePath, "utf-8")
 );
-
 const productosController = {
 
   list: function (req, res) {
@@ -41,6 +39,10 @@ const productosController = {
   },
 
   create: function (req, res) {
+    /* db.Products.findAll()
+                .then(function(productos){
+                  res.render("products", { productos: productos }); 
+                }) */
     res.render("products", { list: false });
   },
 
