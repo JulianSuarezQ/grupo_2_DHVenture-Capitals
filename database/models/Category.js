@@ -25,8 +25,8 @@ module.exports = (sequelize, dataTypes) => {
 
   Category.associate = function (models) {
     Category.hasMeny(models.Products, {
-      as: "products",
-      foreingKey: "id_rol",
+      as: "category",
+      foreingKey: "id_category",
     });
   };
 
