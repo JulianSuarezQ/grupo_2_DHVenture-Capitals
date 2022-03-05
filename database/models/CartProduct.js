@@ -1,3 +1,5 @@
+const Cart = require("./Cart");
+
 module.exports = (sequelize, dataTypes) => {
   const alias = "CartProducts";
   const cols = {
@@ -24,6 +26,20 @@ module.exports = (sequelize, dataTypes) => {
   };
 
   const CartProduct = sequelize.define(alias, cols, config);
+
+  CartProduct.associate = function(modelos){
+    CartProduct.hasMany(modelos.Carts, {
+      as: "cartProducts",
+      foreignKey: "id_cart"
+    })
+  }
+
+  CartProduct.associate = function(modelos){
+    CartProduct.hasMany(modelos.Product, {
+      as: "cartProducts",
+      foreignKey: "id_product"
+    })
+  }
 
   return CartProduct;
 };

@@ -69,5 +69,12 @@ module.exports = (sequelize, dataTypes) => {
     });
   };
 
+  User.associate = function (models) {
+    User.belongsTo(models.Carts, {
+      as: "user_carts",
+      foreingKey: "id_rol",
+    });
+  };
+
   return User;
 };
