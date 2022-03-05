@@ -4,8 +4,8 @@ module.exports = (sequelize, dataTypes) => {
     idCart: {
       type: dataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
       autoIncrement: true,
-      primareyKey: true,
     },
     idUser: {
       //fk
@@ -37,16 +37,16 @@ module.exports = (sequelize, dataTypes) => {
   const Cart = sequelize.define(alias, cols, config);
 
   Cart.associate = function (models) {
-    Cart.belongsTo(models.Products, {
+    Cart.belongsTo(models.CartProducts, {
       as: "cart",
       foreingKey: "id_cart",
     });
   };
 
-  User.associate = function (models) {
-    User.belongsTo(models.Carts, {
+  Cart.associate = function (models) {
+    Cart.belongsTo(models.Users, {
       as: "userCarts",
-      foreingKey: "id_cart",
+      foreingKey: "id_user",
     });
   };
 

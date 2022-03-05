@@ -3,7 +3,7 @@ module.exports = (sequelize, dataTypes) => {
   const cols = {
     idRol: {
       type: dataTypes.INTEGER,
-      primareyKey: true,
+      primaryKey: true,
       allowNull: false,
     },
     description: {
@@ -20,7 +20,7 @@ module.exports = (sequelize, dataTypes) => {
 
   //asociacion de tabla con su FK
   Rol.associate = function (models) {
-    Rol.hasMeny(models.Users, {
+    Rol.hasMany(models.Users, {
       as: "users",
       foreingKey: "id_rol",
     });

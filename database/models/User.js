@@ -3,7 +3,7 @@ module.exports = (sequelize, dataTypes) => {
   const cols = {
     idUser: {
       type: dataTypes.INTEGER,
-      primareyKey: true,
+      primaryKey: true,
       autoIncrement: true,
       allowNull: false,
     },
@@ -75,6 +75,6 @@ module.exports = (sequelize, dataTypes) => {
       foreingKey: "id_rol",
     });
   };
-
+  
   return User;
 };
