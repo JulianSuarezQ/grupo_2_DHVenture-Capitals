@@ -1,20 +1,18 @@
 const path = require("path");
 const fs = require("fs");
 const productsFilePath = path.join(__dirname, "../db/productos.json");
-
-const Products = require("../../database/models")
-
-/*const todosLosProductos = JSON.parse(
+const db = require("../../database/models")
+const todosLosProductos = JSON.parse(
   fs.readFileSync(productsFilePath, "utf-8")
-);*/
+);
 
 const productosController = {
 
   list: function (req, res) {
     
-    //const productosDB = todosLosProductos;
+    const productosDB = todosLosProductos;
 
-    db.products.findAll()
+    db.Products.findAll()
       .then(function(products){
         res.render("products", {
         productos: products,
@@ -22,7 +20,7 @@ const productosController = {
         resultado: true,
       });
     });
-  },
+  }, 
 
   search: function (req, res) {
     const productosDB = todosLosProductos;
@@ -45,11 +43,10 @@ const productosController = {
   },
 
   create: function (req, res) {
-    /* db.Products.findAll()
-                .then(function(productos){
-                  res.render("products", { productos: productos }); 
-                }) */
-    res.render("products", { list: false });
+      db.Category.findAll()
+        .then(function(categorias){
+       res.render("products", { categorias: categorias , list: false }); 
+    })
   },
 
   descriptionProduct: function (req, res) {
@@ -57,28 +54,19 @@ const productosController = {
   },
 
   store: (req, res) => {
-    // Inicio la variable que almacena el formulario completo
-    console.log(req.body)
-    if (todosLosProductos.length == 0) {
-      var newID = 1;
-    } else {
-      var newID = todosLosProductos[todosLosProductos.length - 1].id + 1;
-    }
-
-    let newProduct = {
-      id: newID,
-      ...req.body,
-      precio: parseInt(req.body.price, 10),
-      descount: parseInt(req.body.descount, 10),
-      image: req.file == undefined ? "default-image.png" : req.file.filename,
-    };
-
-    // Agrego el producto al array en formato Js
-    todosLosProductos.push(newProduct);
-    let productosJSON = JSON.stringify(todosLosProductos, null, 2);
-    fs.writeFileSync(productsFilePath, productosJSON);
-
-    return res.redirect("/products");
+      db.Product.create({
+        name: req.body.name,
+        discount: parseInt(req.body.descount, 10),
+        detail: req.body.desc,
+        stock: req.body.stock, //hacer
+        idCategory: req.body.category,
+        color: req.body.color,
+        price: parseInt(req.body.price, 10),
+        size: req.body.size,
+        img: req.body.img,
+        image: req.file == undefined ? "default-image.png" : req.file.filename,
+    })
+    res.redirect('/products'); 
   },
 
   detail: (req, res) => {

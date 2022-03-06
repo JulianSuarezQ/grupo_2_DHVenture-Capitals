@@ -7,7 +7,7 @@ const userLogged = require("../middlewares/userLoggedMiddleware");
 
 // '/products/....'
 
-router.get("/", userLogged, productosController.list);
+ router.get("/", userLogged, productosController.list); 
 
 router.get("/create", userLogged, productosController.create);
 router.post("/create",userLogged,upload.single("img"),productosController.store);

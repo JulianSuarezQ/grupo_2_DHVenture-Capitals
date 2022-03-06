@@ -78,7 +78,12 @@
               <div class="form2">
                 <div>
                   <i class="ast">*</i><label for="categoria">Categoria</label>
-                  <input type="text" name="category" id="categoria">
+                  <select type="text" name="category" id="categoria">
+                    <% for(let i =0 ; i <= categorias.length ; i++){ %>
+                      <option value="<%=categorias[i].idCategory%>"> <%=categorias[i].name %></option>
+                   <% } %>
+
+                  </select>
                 </div>
                 <div>
                   <i class="ast">*</i><label for="color">color</label>
