@@ -2,9 +2,16 @@ const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
+
 const user = require("../models/Users");
 
+const db = require("../../database/models")
+
 const usersFilePath = path.join(__dirname, "../db/users.json");
+
+function leerArchivo() {
+  return fs.readFileSync(usersFilePath, "utf-8");
+}
 
 const usersController = {
   //RENDER LOGIN
@@ -113,8 +120,6 @@ const usersController = {
   },
 };
 
-function leerArchivo() {
-  return fs.readFileSync(usersFilePath, "utf-8");
-}
+
 
 module.exports = usersController;

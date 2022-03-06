@@ -1,14 +1,14 @@
 module.exports = (sequelize, dataTypes) => {
   const alias = "Products";
   const cols = {
-    idProduct: {
+    id_product: {
       type: dataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
       allowNull: false,
     },
     name: {
-      type: dataTypes.STRING,
+      type: dataTypes.STRING(45),
       allowNull: false,
       unique: true,
     },
@@ -17,19 +17,19 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: false,
     },
     detail: {
-      type: dataTypes.STRING,
+      type: dataTypes.STRING(200),
       allowNull: false,
     },
     stock: {
       type: dataTypes.INTEGER,
       allowNull: false,
     },
-    idCategory: {
+    id_category: {
       type: dataTypes.INTEGER,
       allowNull: false,
     },
     color: {
-      type: dataTypes.STRING,
+      type: dataTypes.STRING(150),
       allowNull: false,
     },
     price: {
@@ -37,11 +37,11 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: false,
     },
     size: {
-      type: dataTypes.STRING,
+      type: dataTypes.STRING(3),
       allowNull: false,
     },
     img: {
-      type: dataTypes.STRING,
+      type: dataTypes.STRING(45),
       allowNull: false,
     },
   };
@@ -52,22 +52,21 @@ module.exports = (sequelize, dataTypes) => {
 
   const Product = sequelize.define(alias, cols, config);
 
-  //asociacion de tabla con su FK
-  Product.associate = function (models) {
+  //asociacion 
+  /*Product.associate = function (models) {
     Product.belongsTo(models.Category, {
       as: "category",
       foreingKey: "id_category",
-      otherKey: "id_cart",
       timestamps: false,
     });
   };
 
   Product.associate = function (models) {
-    Product.belongsTo(models.Carts, {
+    Product.belongsTo(models.CartProducts, {
       as: "Product",
       foreingKey: "id_product",
     });
-  };
+  }*/
 
   return Product;
 };

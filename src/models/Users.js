@@ -5,10 +5,16 @@ const fileName =  "../db/users.json";
 
 const pathUsers = path.join(__dirname, fileName);
 
+const db = require("../../database/models")
+
 const users = {
 
     getData: function () {
 		return JSON.parse(fs.readFileSync(pathUsers, 'utf-8'));
+		/*db.Users.findAll()
+			.then(function(users){
+				return users
+			})*/
 	},
      
     findAll: function () {
