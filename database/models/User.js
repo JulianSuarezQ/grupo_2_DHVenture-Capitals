@@ -1,13 +1,13 @@
 module.exports = (sequelize, dataTypes) => {
   const alias = "Users";
   const cols = {
-    idUser: {
+    id_user: {
       type: dataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
     },
-    idRol: {
+    id_rol: {
       type: dataTypes.INTEGER,
       allowNull: false,
     },
@@ -28,7 +28,7 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.STRING,
       allowNull: false,
     },
-    birthDay: {
+    birth_day: {
       type: dataTypes.DATE,
       allowNull: false,
     },
@@ -45,7 +45,7 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: false,
     },
     polices: {
-      type: dataTypes.INTEGER,
+      type: dataTypes.BOOLEAN,
       allowNull: false,
     },
     img: {
@@ -72,7 +72,7 @@ module.exports = (sequelize, dataTypes) => {
   User.associate = function (models) {
     User.belongsTo(models.Carts, {
       as: "user_carts",
-      foreingKey: "id_rol",
+      foreingKey: "id_user",
     });
   };
   

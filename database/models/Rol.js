@@ -1,7 +1,7 @@
 module.exports = (sequelize, dataTypes) => {
   const alias = "Rols";
   const cols = {
-    idRol: {
+    id_rol: {
       type: dataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,

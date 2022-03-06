@@ -1,18 +1,18 @@
 const path = require("path");
 const fs = require("fs");
+const sequelize = require("sequelize")
 const productsFilePath = path.join(__dirname, "../db/productos.json");
 const db = require("../../database/models")
-const todosLosProductos = JSON.parse(
-  fs.readFileSync(productsFilePath, "utf-8")
-);
 
 const productosController = {
 
-  list: function (req, res) {
-    
-    const productosDB = todosLosProductos;
-
-    db.Products.findAll()
+  list: function (req, res) { 
+    db.Products.findAll({
+      include: [
+        {association: 'category' },
+        {association: 'products'}
+      ],
+    })
       .then(function(products){
         res.render("products", {
         productos: products,

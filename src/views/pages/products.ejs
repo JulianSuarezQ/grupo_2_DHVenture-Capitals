@@ -31,9 +31,9 @@
             <div class="products">
               <% for(let i = 0; i < productos.length; i++){ %> 
                 <article><a href="/products/<%= productos[i].id %> ">
-                  <img src="/images/products/<%=productos[i].image%>" alt="">
+                  <img src="/images/products/<%=productos[i].img%>" alt="">
                   <div class="div-article">
-                    <% if(productos[i].descount <= 0){%> 
+                    <% if(productos[i].discount <= 0){%> 
                     <span class="precios">$<%=productos[i].price%></span>
                     <% }else{ %> 
                     <%let preciofinal = (productos[i].price - (productos[i].price * productos[i].discount / 100))%>

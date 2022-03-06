@@ -9,12 +9,12 @@ module.exports = (sequelize, dataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    idCart: {
+    id_cart: {
       //fg
       type: dataTypes.INTEGER,
       allowNull: false,
     },
-    idProduct: {
+    id_product: {
       //fg
       type: dataTypes.INTEGER,
       allowNull: false,
@@ -28,14 +28,14 @@ module.exports = (sequelize, dataTypes) => {
   const CartProduct = sequelize.define(alias, cols, config);
 
   CartProduct.associate = function(modelos){
-    CartProduct.hasMany(modelos.Carts, {
+    CartProduct.belongsTo(modelos.Carts, {
       as: "cartProducts",
       foreignKey: "id_cart"
     })
   }
 
   CartProduct.associate = function(modelos){
-    CartProduct.hasMany(modelos.Products, {
+    CartProduct.belongsTo(modelos.Products, {
       as: "cartProducts",
       foreignKey: "id_product"
     })
