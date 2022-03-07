@@ -65,16 +65,13 @@ module.exports = (sequelize, dataTypes) => {
   User.associate = function (models) {
     User.belongsTo(models.Rols, {
       as: "rols",
-      foreingKey: "id_rol",
+      foreignKey: "id_rol",
+    });
+    User.belongsTo(models.Carts, {
+      as: "user_carts",
+      foreignKey: "id_user",
     });
   };
 
-  User.associate = function (models) {
-    User.belongsTo(models.Carts, {
-      as: "user_carts",
-      foreingKey: "id_user",
-    });
-  };
-  
   return User;
 };

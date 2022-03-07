@@ -9,9 +9,9 @@ const productosController = {
   list: function (req, res) { 
     db.Products.findAll({
       include: [
-        {association: 'category' },
-        {association: 'products'}
-      ],
+        {association: "category"},
+        {association: "cart"}
+      ]
     })
       .then(function(products){
         res.render("products", {

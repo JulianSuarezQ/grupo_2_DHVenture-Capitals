@@ -29,16 +29,13 @@ module.exports = (sequelize, dataTypes) => {
 
   CartProduct.associate = function(modelos){
     CartProduct.belongsTo(modelos.Carts, {
-      as: "cartProducts",
+      as: "cart",
       foreignKey: "id_cart"
-    })
-  }
-
-  CartProduct.associate = function(modelos){
+    });
     CartProduct.belongsTo(modelos.Products, {
-      as: "cartProducts",
+      as: "Products",
       foreignKey: "id_product"
-    })
+    });
   }
 
   return CartProduct;
