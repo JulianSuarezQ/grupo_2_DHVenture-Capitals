@@ -64,7 +64,7 @@
                 </div>
                 <div>
                   <i class="ast">*</i><label for="descripcion">Descripcion</label>
-                  <input type="text" name="desc" id="descripcion">
+                  <input type="text" name="detail" id="descripcion">
                 </div>
                 <div>
                   <i class="ast">*</i><label for="img">imagen</label>
@@ -79,10 +79,9 @@
                 <div>
                   <i class="ast">*</i><label for="categoria">Categoria</label>
                   <select type="text" name="category" id="categoria">
-                    <% for(let i =0 ; i <= categorias.length ; i++){ %>
-                      <option value="<%=categorias[i].idCategory%>"> <%=categorias[i].name %></option>
-                   <% } %>
-
+                    <% for(let i = 0 ; i < categorias.length ; i++){ %>
+                      <option value="<%= categorias[i].dataValues.id_category %>"><%= categorias[i].dataValues.name %></option>
+                    <% } %>
                   </select>
                 </div>
                 <div>

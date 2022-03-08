@@ -43,9 +43,16 @@ const productosController = {
   },
 
   create: function (req, res) {
-      db.Category.findAll()
+      db.Category.findAll({
+        includes: [
+          {association: "products"}
+        ]
+      })
         .then(function(categorias){
-       res.render("products", { categorias: categorias , list: false }); 
+          res.render("products", { 
+            categorias: categorias,
+            list: false 
+        }); 
     })
   },
 
@@ -54,17 +61,17 @@ const productosController = {
   },
 
   store: (req, res) => {
-      db.Product.create({
+    console.log(req.body)
+      db.Products.create({
         name: req.body.name,
-        discount: parseInt(req.body.descount, 10),
-        detail: req.body.desc,
-        stock: req.body.stock, //hacer
-        idCategory: req.body.category,
+        discount: parseInt(req.body.discount, 10),
+        detail: req.body.detail,
+        stock: 1, //hacer
+        id_category: req.body.id_category,
         color: req.body.color,
         price: parseInt(req.body.price, 10),
         size: req.body.size,
-        img: req.body.img,
-        image: req.file == undefined ? "default-image.png" : req.file.filename,
+        img:"default-image.png" 
     })
     res.redirect('/products'); 
   },
