@@ -59,7 +59,8 @@
               <%= productos.detail %>
             </span>
           </div>
-        <% if (locals.isLogged) {%>
+          <%console.log(locals)%>
+        <% if (locals.userLogged.id_rol == 1) {%>
           <button class="editar" ><a href="/products/edit/<%= productos.id%>">Editar Producto</a></button>
           <button class="editar"> <a href="/products/delete/<%= productos.id%>">Borrar Producto</a> </button>
         <%}%>

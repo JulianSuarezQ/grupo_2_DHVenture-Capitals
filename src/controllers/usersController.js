@@ -27,7 +27,7 @@ const usersController = {
   //RENDER LOGOUT
   logOut: (req, res) => {
     delete req.session.userLogged;
-    delete req.cookie.user;
+    delete res.cookie.user;
     res.redirect("/");
   },
 

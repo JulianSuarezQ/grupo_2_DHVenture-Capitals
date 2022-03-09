@@ -22,11 +22,13 @@
     <%if (list == true){ %>
       <main>
         <div class="contenedor">
-          <h3><a href="/products">LISTA DE PRODUCTOS</a> | <a href="/products/create">AGREGAR PRODUCTOS</a></h3>    
-          <form class="formSearch" action="/products/search" method="GET">
+          <% if (locals.userLogged.id_rol == 1) {%>
+          <h3><a href="/products">LISTA DE PRODUCTOS</a> | <a href="/products/create">AGREGAR PRODUCTOS</a></h3>  
+          <% } %>  
+         <!--  <form class="formSearch" action="/products/search" method="GET">
             <input class = "buscador" for="search" name="name" placeholder="Busca tu Producto">
             <input class = "buttonBuscador" type="submit" valvue="search" id="search">
-          </form>
+          </form> -->
           <% if(productos.length>0 ){ %>
             <div class="products">
               <% for(let i = 0; i < productos.length; i++){ %> 
