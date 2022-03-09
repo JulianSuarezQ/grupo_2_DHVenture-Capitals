@@ -46,11 +46,20 @@ a {
 
 /* -header con user logeado- */
 .header-right-logged {
-  width: 100px;
-  margin-right: 5px;
+  width: 150px;
+  margin-right: 15px;
   display: flex;
+  justify-content: space-around;
+  align-items: center;
   flex-direction: row;
 }
+
+.header-right-logged .Bienvenido{
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
 
 .header-right-logged h6 {
   color: black;

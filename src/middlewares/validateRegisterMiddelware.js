@@ -5,8 +5,10 @@ const { body } = require('express-validator');
 module.exports = [
     body('name')
         .notEmpty().withMessage('El campo no puede estar vacio')
-        .isLength({min: 4}).withMessage('Debe completar el nombre de minimo 4 caracteres'),
-    body('last_name').notEmpty().withMessage('Debe completar el apellido'),
+        .isLength({min: 2}).withMessage('Debe completar el nombre con al menos 2 caracteres'),
+    body('last_name')
+        .notEmpty().withMessage('El campo no puede estar vacio')
+        .isLength({min: 2}).withMessage('Debe completar el apellido con al menos 2 caracteres'),
     body('dni')
         .notEmpty().withMessage('El campo no puede estar vacio').bail()
         .isLength({min: 6, max:8}).withMessage('Debe tener entre 6 y 8 caracteres')
