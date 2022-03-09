@@ -2,7 +2,8 @@ const path = require("path");
 const fs = require("fs");
 const sequelize = require("sequelize")
 const productsFilePath = path.join(__dirname, "../db/productos.json");
-const db = require("../../database/models")
+const db = require("../../database/models");
+const res = require("express/lib/response");
 
 const productosController = {
 
@@ -56,10 +57,6 @@ const productosController = {
     })
   },
 
-  descriptionProduct: function (req, res) {
-    res.render("descripcionProducto");
-  },
-
   store: (req, res) => {
     console.log(req.body)
       db.Products.create({
@@ -76,14 +73,19 @@ const productosController = {
     res.redirect('/products'); 
   },
 
+  descriptionProduct: function (req, res) {
+    res.render("descripcionProducto");
+  },
+
   detail: (req, res) => {
     let idProducto = req.params.id;
-    let productoMostrar = todosLosProductos.find(
-      (element) => element.id == idProducto
-    );
-    // Paso el producto que encontré al ejs.
-    res.render("descripcionProducto", { productos: productoMostrar });
-  },
+    db.Products.findByPk(idProducto, {
+      include:[{association:'category'}]
+    })
+      .then(function(producto){
+        res.render('descripcionProducto' , {productos: producto});
+    })
+},
 
   edit: (req, res) => {
     let idProducto = req.params.id;

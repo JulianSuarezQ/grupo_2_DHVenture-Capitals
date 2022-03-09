@@ -32,7 +32,7 @@ CREATE TABLE `cart` (
   PRIMARY KEY (`id_cart`),
   KEY `fk_carrito_usuario_idx` (`id_user`),
   CONSTRAINT `fk_carrito_usuario` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `cart_product` (
   KEY `fk_product_idx` (`id_product`),
   CONSTRAINT `fk_cart` FOREIGN KEY (`id_cart`) REFERENCES `cart` (`id_cart`),
   CONSTRAINT `fk_product` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,7 +84,7 @@ CREATE TABLE `category` (
   `name` varchar(45) NOT NULL,
   `detail` varchar(45) NOT NULL,
   PRIMARY KEY (`id_category`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,7 +119,7 @@ CREATE TABLE `products` (
   UNIQUE KEY `name_UNIQUE` (`name`),
   KEY `fk_productos_category_idx` (`id_category`),
   CONSTRAINT `fk_productos_category` FOREIGN KEY (`id_category`) REFERENCES `category` (`id_category`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +143,7 @@ CREATE TABLE `rols` (
   `id_rol` int NOT NULL,
   `description` varchar(45) NOT NULL,
   PRIMARY KEY (`id_rol`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +180,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `fk_Usuario_rol_idx` (`id_rol`),
   CONSTRAINT `fk_Usuario_rol` FOREIGN KEY (`id_rol`) REFERENCES `rols` (`id_rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=309 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

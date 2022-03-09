@@ -30,7 +30,7 @@
           <% if(productos.length>0 ){ %>
             <div class="products">
               <% for(let i = 0; i < productos.length; i++){ %> 
-                <article><a href="/products/<%= productos[i].id %> ">
+                <article><a href="/products/<%= productos[i].id_product %> ">
                   <img src="/images/products/<%=productos[i].img%>" alt="">
                   <div class="div-article">
                     <% if(productos[i].discount <= 0){%> 
