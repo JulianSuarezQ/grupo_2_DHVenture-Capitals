@@ -38,8 +38,8 @@
                 <div>
                   <div class="dat-Title"><i>*</i><label for="last_name">Apellido</label></div>
                   <input class="input" type="text" name="last_name" />
-                  <% if(locals.errors && errors.lastname){ %>
-                    <span class="error"><%= errors.lastname.msg %></span>
+                  <% if(locals.errors && errors.last_name){ %>
+                    <span class="error"><%= errors.last_name.msg %></span>
                     <% } %> 
                 </div>
                 <div>
@@ -53,8 +53,8 @@
                       name="birth_date"
                       placeholder="Fecha nacimiento"
                     />
-                    <% if(locals.errors && errors.date){ %>
-                      <span class="error"><%= errors.date.msg %></span>
+                    <% if(locals.errors && errors.birth_date){ %>
+                      <span class="error"><%= errors.birth_date.msg %></span>
                       <% } %> 
                   </div>
                 </div>
