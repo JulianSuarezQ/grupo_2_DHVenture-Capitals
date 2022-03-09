@@ -58,12 +58,11 @@ const productosController = {
   },
 
   store: (req, res) => {
-    console.log(req.body)
       db.Products.create({
         name: req.body.name,
         discount: parseInt(req.body.discount, 10),
         detail: req.body.detail,
-        stock: req.body.stock, //hacer
+        stock: req.body.stock, 
         id_category: req.body.id_category,
         color: req.body.color,
         price: parseInt(req.body.price, 10),
@@ -89,33 +88,35 @@ const productosController = {
 
   edit: (req, res) => {
     let idProducto = req.params.id;
-    let productoMostrar = todosLosProductos.find(
-      (element) => element.id == idProducto
-    );
-    res.render("product-edit-form", { productToEdit: productoMostrar});
+   let todosProductos = db.Products.findByPk(idProducto, {
+      include:[{association:'category'}]
+    })
+    let todasCategorias = db.Category.findAll()
+    Promise.all([todosProductos , todasCategorias])
+      .then(function([productoMostrar , categoriaMostrar]){
+        res.render("product-edit-form", { productToEdit: productoMostrar , categoriaToEdit: categoriaMostrar}); //ver CATEGORIA
+    })
   },
+
+  
 
   update: (req , res) => {
-    const id = req.params.id;
-
-    let modificado = todosLosProductos.map(element => {
-        if (element.id == id){
-            return element = {
-              id: element.id,
-              ...req.body,
-              precio: parseInt(req.body.price, 10),
-              descount: parseInt(req.body.descount, 10),
-              image: req.file == undefined ? element.image : req.file.filename
-            }
-        }
-        return element;
-    })
-
-    let productosJSON = JSON.stringify(modificado, null, 2);
-    fs.writeFileSync(productsFilePath, productosJSON);
+    db.Products.update({
+      name: req.body.name,
+      discount: parseInt(req.body.discount, 10),
+      detail: req.body.detail,
+      stock: req.body.stock, 
+      id_category: parseInt(req.body.id_category , 10),
+      color: req.body.color,
+      price: parseInt(req.body.price, 10),
+      size: req.body.size,
+      img:"default-image.png" 
+  },{
+    where: { id_product : req.params.id}
+  })
     res.redirect('/products');
   },
-  
+ 
   PagDelete : (req , res) => {
     let idProducto = req.params.id;
     let productoMostrar = todosLosProductos.find(
