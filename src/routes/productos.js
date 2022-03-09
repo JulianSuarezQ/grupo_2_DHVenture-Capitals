@@ -10,7 +10,7 @@ const userLogged = require("../middlewares/userLoggedMiddleware");
  router.get("/", userLogged, productosController.list); 
 
 router.get("/create", userLogged, productosController.create);
-router.post("/create",userLogged,upload.single("img"),productosController.store);
+router.post("/create",userLogged,upload.single("img"), productosController.store);
 
 router.get("/search", userLogged, productosController.search);
 
