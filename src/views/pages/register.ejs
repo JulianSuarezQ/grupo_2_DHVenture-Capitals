@@ -36,21 +36,21 @@
                 </div>
 
                 <div>
-                  <div class="dat-Title"><i>*</i><label for="lastname">Apellido</label></div>
-                  <input class="input" type="text" name="lastname" />
+                  <div class="dat-Title"><i>*</i><label for="last_name">Apellido</label></div>
+                  <input class="input" type="text" name="last_name" />
                   <% if(locals.errors && errors.lastname){ %>
                     <span class="error"><%= errors.lastname.msg %></span>
                     <% } %> 
                 </div>
                 <div>
                   <div class="dat-Title">
-                    <i>*</i><label for="fechaNac">Fecha de nacimento</label>
+                    <i>*</i><label for="birth_date">Fecha de nacimento</label>
                   </div>
                   <div class="fechaNac">
                     <input
                       type="date"
                       class="fechaNacInput"
-                      name="fechaNacimiento"
+                      name="birth_date"
                       placeholder="Fecha nacimiento"
                     />
                     <% if(locals.errors && errors.date){ %>
@@ -63,13 +63,14 @@
                     <div class="dat-Title"><i>*</i><label>Tipo</label></div>
                     <select class="input" name="tipo">
                       <option>DNI</option>
+                      <option>PASAPORTE</option>
                     </select>
                   </div>
                   <div class="num">
                     <div class="dat-Title">
                       <i>*</i><label>Número de Documento</label>
                     </div>
-                    <input class="nroDocumento" type="text" name="doc"  />
+                    <input class="nroDocumento" type="text" name="dni"  />
                     <% if(locals.errors && errors.doc){ %>
                       <span class="error"><%= errors.doc.msg %></span>
                       <% } %> 
@@ -77,10 +78,10 @@
                 </div>
                 <div>
                   <div class="dat-Title"><i>*</i><label>Género</label></div>
-                  <select class="input" name="genero">
-                    <option>Prefiero no decir</option>
-                    <option>Hombre</option>
-                    <option>Mujer</option>
+                  <select class="input" name="gender">
+                    <option value="">Prefiero no decir</option>
+                    <option value="H">Hombre</option>
+                    <option value="M">Mujer</option>
                   </select>
                 </div>
                 <div>
@@ -157,7 +158,7 @@
           </div>
           <div class="footer-form">
             <div class="cajaCheck">
-              <input type="checkbox" name="Policies"/><label
+              <input type="checkbox" name="Polices"/><label
                 >Acepto las Políticas de Privacidad y Términos y
                 Condiciones</label
               >

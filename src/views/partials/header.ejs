@@ -23,7 +23,7 @@
 
   <% if (locals.isLogged) {%>
   <div class="header-right-logged">
-    <h6>Bienvenido <%= locals.userLogged %></h6>
+    <a href="/users/perfil"><h6>Bienvenido <%= locals.userLogged.name %></h6></a>
     <a href="../../carrito"><i class="fas fa-shopping-cart"></i></a>
     <a href="../../users/logout"><i class="fas fa-sign-out-alt"></i></a>
   </div>
@@ -39,7 +39,7 @@
   <ul class="center-navbar">
     <li><a href="/mantenimiento">Categorias |</a></li>
     <% if (locals.isLogged) {%>
-    <li><a href="/products">Mis Productos |</a></li>
+    <li><a href="/products"> Productos |</a></li>
     <% }%>
     <li><a href="/mantenimiento">Hombre |</a></li>
     <li><a href="/mantenimiento">Mujer |</a></li>

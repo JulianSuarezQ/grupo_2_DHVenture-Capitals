@@ -6,8 +6,8 @@ module.exports = [
     body('name')
         .notEmpty().withMessage('El campo no puede estar vacio')
         .isLength({min: 4}).withMessage('Debe completar el nombre de minimo 4 caracteres'),
-    body('lastname').notEmpty().withMessage('Debe completar el apellido'),
-    body('doc')
+    body('last_name').notEmpty().withMessage('Debe completar el apellido'),
+    body('dni')
         .notEmpty().withMessage('El campo no puede estar vacio').bail()
         .isLength({min: 6, max:8}).withMessage('Debe tener entre 6 y 8 caracteres')
         .isNumeric().withMessage('El campo no es valido'),
@@ -19,15 +19,15 @@ module.exports = [
     body('email')
         .notEmpty().withMessage('El campo no puede estar vacio').bail()
         .isEmail().withMessage('El campo debe contener un email'),
-    body('emailConfirm').custom((value,{req}) => {
-        let email = req.body.email;
-        let emailConfirm = req.body.emailConfirm;
-        if (req.body.email === req.body.emailConfirm){
+        
+/*     body('emailConfirm').custom((value,{req}) => {
+        console.log(value)
+        if (value === req.body.emailConfirm){
             return true
         }else{
             throw new Error('Los campos del email no son iguales')
         }
-    }),
+    }),*/
     
     body('password')
         .notEmpty().withMessage('El campo no puede estar vacio')

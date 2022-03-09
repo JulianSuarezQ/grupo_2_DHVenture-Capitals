@@ -15,7 +15,7 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.STRING,
       allowNull: false,
     },
-    lastName: {
+    last_name: {
       type: dataTypes.STRING,
       allowNull: false,
     },
@@ -28,12 +28,12 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.STRING,
       allowNull: false,
     },
-    birth_day: {
+    birth_date: {
       type: dataTypes.DATE,
       allowNull: false,
     },
     dni: {
-      type: dataTypes.INTEGER,
+      type: dataTypes.STRING,
       allowNull: false,
     },
     gender: {
@@ -55,7 +55,7 @@ module.exports = (sequelize, dataTypes) => {
   };
 
   const config = {
-    tableName: "user",
+    tableName: "users",
     timestamps: false,
   };
 
