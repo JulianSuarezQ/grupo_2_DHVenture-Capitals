@@ -27,6 +27,7 @@ const usersController = {
   //RENDER LOGOUT
   logOut: (req, res) => {
     delete req.session.userLogged;
+    delete res.cookie.user;
     res.redirect("/");
   },
 
@@ -48,13 +49,14 @@ const usersController = {
       })
         .then(user => {
           if(bcryptjs.compareSync(req.body.password, user.dataValues.password) == true){
-            console.log(req.body.password, user.dataValues.password, bcryptjs.compareSync(req.body.password, user.dataValues.password));
+            //console.log(req.body.password, user.dataValues.password, bcryptjs.compareSync(req.body.password, user.dataValues.password));
             delete user.dataValues.password;
             req.session.userLogged = user.dataValues;
-            if(req.body.loginRememberMe){
-              res.cookie("user", user.email, { maxAge: 60000 })
+            if(req.body.loginRememberMe == true ){
+              console.log(req.body.loginRememberMe == true)
+              res.cookie("recordame", user.email, { maxAge: 60000 })
             }
-            console.log(req.session.userLogged);
+            console.log("")
             res.redirect("/")
           }
         })
@@ -85,6 +87,7 @@ const usersController = {
 
   createUser: (req, res) => {
     let validation = validationResult(req);
+    console.log(validation.errors );
 
     if (validation.errors.length > 0) {
       return res.render("register", {
@@ -92,6 +95,8 @@ const usersController = {
         oldData: req.body,
       });
     }
+
+    console.log("2");
 
     db.Users.findOne({
       includes: [
@@ -104,6 +109,8 @@ const usersController = {
     })
       .then(user => {
         if(user){
+        console.log("3");
+
           res.render("register", {
             errors: {
               email: {
