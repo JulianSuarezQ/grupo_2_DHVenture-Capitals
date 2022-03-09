@@ -10,7 +10,7 @@ const productosController = {
     db.Products.findAll({
       include: [
         {association: 'category' },
-        {association: 'products'}
+        /* {association: 'product0s'} */
       ],
     })
       .then(function(products){
