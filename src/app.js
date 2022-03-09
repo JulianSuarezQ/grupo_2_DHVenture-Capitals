@@ -10,6 +10,8 @@ const productosRouter = require("./routes/productos");
 const usersRouter = require("./routes/users");
 const carritoRouter = require("./routes/carrito");
 const methodOVerride = require("method-override");
+const cookieParser = require("cookie-parser");
+const rememberMiddleware = require("./middlewares/rememberMiddlewares");
 
 //session
 app.use(
@@ -23,8 +25,10 @@ app.use(
 app.use(methodOVerride("_method"));
 app.use(express.static(publicPath));
 app.set("view engine", "ejs");
+app.use(cookieParser())
 app.set("views", viewsPath);
 app.use(express.urlencoded({ extended: false }));
+app.use(rememberMiddleware);
 
 app.listen(port, () =>
   console.log("Servidor corriendo en el puerto" + " " + port)

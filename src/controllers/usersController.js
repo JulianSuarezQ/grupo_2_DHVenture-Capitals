@@ -27,7 +27,7 @@ const usersController = {
   //RENDER LOGOUT
   logOut: (req, res) => {
     delete req.session.userLogged;
-    delete res.cookie.user;
+    delete req.cookie.user;
     res.redirect("/");
   },
 
@@ -52,10 +52,11 @@ const usersController = {
             //console.log(req.body.password, user.dataValues.password, bcryptjs.compareSync(req.body.password, user.dataValues.password));
             delete user.dataValues.password;
             req.session.userLogged = user.dataValues;
-            if(req.body.loginRememberMe == true ){
-              console.log(req.body.loginRememberMe == true)
-              res.cookie("recordame", user.email, { maxAge: 60000 })
+            console.log(req.body);
+            if(req.body.remember  !== undefined ){
+              res.cookie("remember", user.dataValues.email, { maxAge: 60000 })
             }
+            console.log("remember ",req.body.remember);
             console.log("")
             res.redirect("/")
           }
