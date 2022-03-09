@@ -119,18 +119,28 @@ const productosController = {
  
   PagDelete : (req , res) => {
     let idProducto = req.params.id;
-    let productoMostrar = todosLosProductos.find(
-      (element) => element.id == idProducto
-    );
-    res.render("delete", { productos: productoMostrar });
+    db.Products.findByPk(idProducto,{
+      includes: [
+        {association: "category"}
+      ]
+    })
+      .then(function(productoMostrar){
+        res.render("delete", { productos: productoMostrar });
+  })
   },
 
   delete: (req , res) =>{
-
     const id = req.params.id;
-    let finalProducts = todosLosProductos.filter(oneProduct => oneProduct.id != id);
+    db.Products.destroy({
+      where:{
+        id_product: id
+      }
+    })
+    res.redirect('/products'); 
+
+ /*    let finalProducts = todosLosProductos.filter(oneProduct => oneProduct.id != id);
     fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
-    return res.redirect('/products');
+    return res.redirect('/products'); */
 
   }
 
