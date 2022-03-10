@@ -9,7 +9,6 @@
 </head>
 <body>
     <header class="main-header"><%- include('../partials/header') %></header>
-    <%console.log(productos)%>
     <form action="/products/delete/<%=productos.id_product%>" method="POST">
         <h3>ESTAS SEGURO QUE QUIERES BORRAR EL PRODUCTO?</h3>
         <button type="submit">Borrar</button>
