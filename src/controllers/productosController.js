@@ -63,7 +63,7 @@ const productosController = {
         discount: parseInt(req.body.discount, 10),
         detail: req.body.detail,
         stock: req.body.stock, 
-        id_category: req.body.id_category,
+        id_category: parseInt(req.body.id_category, 10),
         color: req.body.color,
         price: parseInt(req.body.price, 10),
         size: req.body.size,
