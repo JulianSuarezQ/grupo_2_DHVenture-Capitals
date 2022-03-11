@@ -5,8 +5,6 @@ window.addEventListener("load", () => {
     console.log("validation front")
 
     formulario.addEventListener("submit", function(event){
-        event.preventDefault();
-
         let errors = [];
         
         //validation name
@@ -102,6 +100,7 @@ window.addEventListener("load", () => {
         }
 
         if(errors.length == 0){
+/* 
             fetch("http://localhost:3000/users/email/" + email.value)
 
             .then(function(respuesta){
@@ -122,7 +121,7 @@ window.addEventListener("load", () => {
                     });
                 }
             
-            })
+            }) */
         }
 
     })//fin formulario

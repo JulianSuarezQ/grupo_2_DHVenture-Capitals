@@ -1,5 +1,7 @@
 const path = require("path")
 const { body } = require('express-validator');
+const db = require("../../database/models");
+const { error } = require("console");
 
 module.exports = [
     body('name')
@@ -20,9 +22,9 @@ module.exports = [
                 throw new Error('no es un mail valido')
             }
         }),
+
         
     body('emailConfirm').custom((value,{req}) => {
-        console.log("validacion back", value, req.body.email)
         if (value === req.body.email){
             return true
         }else{
