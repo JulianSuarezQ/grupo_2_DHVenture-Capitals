@@ -142,9 +142,16 @@ form div i {
   align-items: center;
 }
 
+.Polices{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .cajaCheck {
   margin: 10px;
 }
+
 
 .buttonSend {
   height: 50px;

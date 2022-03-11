@@ -1,20 +1,35 @@
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const { cookie } = require("express/lib/response");
-const fs = require("fs");
-const path = require("path");
-
-//const user = require("../models/Users");
 
 const db = require("../../database/models")
 
-const usersFilePath = path.join(__dirname, "../db/users.json");
-
-function leerArchivo() {
-  return fs.readFileSync(usersFilePath, "utf-8");
-}
-
 const usersController = {
+
+  userEmail: (req, res) => {
+    db.Users.findOne({
+      where: {
+        email: req.params.email,
+      }
+    })
+      .then(user => {
+        return res.status(200).json({
+          data: user,
+          status: 200
+        })
+      })
+  },
+
+  userId: (req, res) => {
+    db.Users.findByPk(req.params.id)
+      .then(user => {
+        return res.status(200).json({
+          data: user,
+          status: 200
+        })
+      })
+  },
+
   //RENDER LOGIN
 
   login: (req, res) => {
@@ -88,16 +103,14 @@ const usersController = {
 
   createUser: (req, res) => {
     let validation = validationResult(req);
-    console.log(validation.errors );
-
+    //validacion del backend
     if (validation.errors.length > 0) {
+      //retornamos errores al front
       return res.render("register", {
         errors: validation.mapped(),
         oldData: req.body,
       });
     }
-
-    console.log("2");
 
     db.Users.findOne({
       includes: [
@@ -109,9 +122,9 @@ const usersController = {
       }
     })
       .then(user => {
-        if(user){
-        console.log("3");
 
+        if(user){
+          //Validacion del mail registrado
           res.render("register", {
             errors: {
               email: {
@@ -120,7 +133,6 @@ const usersController = {
             },
             oldData: req.body,
           });
-        }else{
           console.log(bcryptjs.hashSync(req.body.password, 10))
           db.Users.create({
             id_rol: 2,

@@ -15,13 +15,13 @@
       crossorigin="anonymous"
     />
     <title>Ingresar / Registrarme</title>
+    <script src="/js/register.js"></script>
   </head>
   <body>
     <header class="main-header"><%- include('../partials/header') %></header>
-    
     <main>
       <div class="contenedor">
-        <form method="POST" action="/users/createUser" enctype="multipart/form-data">
+        <form class="register-form" method="POST" action="/users/createUser" enctype="multipart/form-data">
           <h2 class="form-title"><a href="login">INGRESA</a> | <a href="register"> REGISTRARME</a></h2>
           <div class="content-form">
             <div class="datosPersonales">
@@ -29,7 +29,10 @@
               <div class="elementos">
                 <div>
                   <div class="dat-Title"><i>*</i><label for="name">Nombre</label></div>
-                  <input class="input" type="text" name="name" />
+                  <input class="input" id="name" type="text" name="name" />
+                  <!-- validacion front -->
+                    <span class="errors-name"></span>
+                  <!-- validacion back -->
                   <% if(locals.errors && errors.name){ %>
                     <span class="error"><%= errors.name.msg %></span>
                     <% } %> 
@@ -37,7 +40,10 @@
 
                 <div>
                   <div class="dat-Title"><i>*</i><label for="last_name">Apellido</label></div>
-                  <input class="input" type="text" name="last_name" />
+                  <input class="input" id="last_name" type="text" name="last_name" />
+                  <!-- validacion front -->
+                  <span class="errors-last_name"></span>
+                  <!-- validacion back -->
                   <% if(locals.errors && errors.last_name){ %>
                     <span class="error"><%= errors.last_name.msg %></span>
                     <% } %> 
@@ -98,7 +104,10 @@
               <div class="elementos">
                 <div>
                   <div class="dat-Title"><i>*</i><label>Email</label></div>
-                  <input class="input" type="text" name="email" />
+                  <input class="input" id="email" type="text" name="email" />
+                    <!-- validacion front -->
+                    <span class="errors-email"></span>
+                    <!-- validacion back -->
                   <% if(locals.errors && errors.email){ %>
                     <span class="error"><%= errors.email.msg %></span>
                     <% } %>  
@@ -107,14 +116,17 @@
                   <div class="dat-Title">
                     <i>*</i><label>Confirmar Email</label>
                   </div>
-                  <input class="input" type="text" name="emailConfirm"/>
+                  <input class="input"  type="text" name="emailConfirm"/>
                   <% if(locals.errors && errors.emailConfirm){ %>
                     <span class="error"><%= errors.emailConfirm.msg %></span>
                     <% } %> 
                 </div>
                 <div>
                   <div class="dat-Title"><i>*</i><label>Contraseña</label></div>
-                  <input class="input" type="password" name="password"/>
+                  <input class="input" id="password" type="password" name="password"/>
+                    <!-- validacion front -->
+                    <span class="errors-password"></span>
+                    <!-- validacion back -->
                   <% if(locals.errors && errors.password){ %>
                     <span class="error"><%= errors.password.msg %></span>
                   <% } %> 
@@ -132,7 +144,10 @@
                   <div class="dat-Title">
                     <label>foto de perfil</label>
                   </div> 
-                  <input type="file" name="img">
+                  <input type="file" id="file" name="img"><br>
+                    <!-- validacion front -->
+                    <span class="errors-file"></span>
+                    <!-- validacion back -->
                   <% if(locals.errors && errors.img){ %>
                     <span class="error"><%= errors.img.msg %></span>
                   <% } %> 
@@ -157,16 +172,18 @@
             </div>
           </div>
           <div class="footer-form">
-            <div class="cajaCheck">
-              <input type="checkbox" name="Polices"/><label
-                >Acepto las Políticas de Privacidad y Términos y
-                Condiciones</label
-              >
+            <div class="Polices">
+              <div>
+                <input type="checkbox" name="Polices"/>
+                <label>Acepto las Políticas de Privacidad y Términos y Condiciones</label>
+              </div>
+              <% if(locals.errors && errors.Polices){ %>
+                <span class="error"><%= errors.Polices.msg %></span>
+              <% } %> 
             </div>
             <div class="cajaCheck">
-              <input type="checkbox" name="promotions"/><label
-                >Quiero recibir emails de promociones y noticias</label
-              >
+              <input type="checkbox" name="promotions"/>
+              <label>Quiero recibir emails de promociones y noticias</label>     
             </div>
             <div class="buttonSend">
               <button type="submit" class="crearCuenta">Crear mi Cuenta</button>

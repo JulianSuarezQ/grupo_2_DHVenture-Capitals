@@ -8,6 +8,7 @@ const validateRegister = require("../middlewares/validateRegisterMiddelware");
 const userLogged = require("../middlewares/userLoggedMiddleware");
 const guestLoggedMiddleware = require("../middlewares/guestLoggedMiddleware");
 
+
 //REGISTER
 
 router.get("/register", guestLoggedMiddleware, usersController.register);
@@ -24,5 +25,11 @@ router.post("/login", validateLogin, usersController.processLogin);
 //perfil
 
 router.get("/perfil", usersController.perfil)
+
+//User
+
+router.get("/id/:id",usersController.userId);
+
+router.get("/email/:email",usersController.userEmail);
 
 module.exports = router;
