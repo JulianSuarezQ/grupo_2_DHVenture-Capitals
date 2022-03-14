@@ -21,32 +21,48 @@
     <header class="main-header"><%- include('../partials/header') %></header>
     <main>
       <div class="contenedor">
-        <form class="register-form" method="POST" action="/users/createUser" enctype="multipart/form-data">
-          <h2 class="form-title"><a href="login">INGRESA</a> | <a href="register"> REGISTRARME</a></h2>
+        <form
+          class="register-form"
+          method="POST"
+          action="/users/createUser"
+          enctype="multipart/form-data"
+        >
+          <h2 class="form-title">
+            <a href="login">INGRESA</a> | <a href="register"> REGISTRARME</a>
+          </h2>
           <div class="content-form">
             <div class="datosPersonales">
               <h2>Datos personales</h2>
               <div class="elementos">
                 <div>
-                  <div class="dat-Title"><i>*</i><label for="name">Nombre</label></div>
+                  <div class="dat-Title">
+                    <i>*</i><label for="name">Nombre</label>
+                  </div>
                   <input class="input" id="name" type="text" name="name" />
                   <!-- validacion front -->
-                    <span class="errors-name"></span>
+                  <span class="errors-name"></span>
                   <!-- validacion back -->
                   <% if(locals.errors && errors.name){ %>
-                    <span class="error"><%= errors.name.msg %></span>
-                    <% } %> 
+                  <span class="error"><%= errors.name.msg %></span>
+                  <% } %>
                 </div>
 
                 <div>
-                  <div class="dat-Title"><i>*</i><label for="last_name">Apellido</label></div>
-                  <input class="input" id="last_name" type="text" name="last_name" />
+                  <div class="dat-Title">
+                    <i>*</i><label for="last_name">Apellido</label>
+                  </div>
+                  <input
+                    class="input"
+                    id="last_name"
+                    type="text"
+                    name="last_name"
+                  />
                   <!-- validacion front -->
                   <span class="errors-last_name"></span>
                   <!-- validacion back -->
                   <% if(locals.errors && errors.last_name){ %>
-                    <span class="error"><%= errors.last_name.msg %></span>
-                    <% } %> 
+                  <span class="error"><%= errors.last_name.msg %></span>
+                  <% } %>
                 </div>
                 <div>
                   <div class="dat-Title">
@@ -60,8 +76,8 @@
                       placeholder="Fecha nacimiento"
                     />
                     <% if(locals.errors && errors.birth_date){ %>
-                      <span class="error"><%= errors.birth_date.msg %></span>
-                      <% } %> 
+                    <span class="error"><%= errors.birth_date.msg %></span>
+                    <% } %>
                   </div>
                 </div>
                 <div class="documento">
@@ -76,10 +92,10 @@
                     <div class="dat-Title">
                       <i>*</i><label>Número de Documento</label>
                     </div>
-                    <input class="nroDocumento" type="text" name="dni"  />
+                    <input class="nroDocumento" type="text" name="dni" />
                     <% if(locals.errors && errors.dni){ %>
-                      <span class="error"><%= errors.dni.msg %></span>
-                      <% } %> 
+                    <span class="error"><%= errors.dni.msg %></span>
+                    <% } %>
                   </div>
                 </div>
                 <div>
@@ -91,11 +107,13 @@
                   </select>
                 </div>
                 <div>
-                  <div class="dat-Title"><i>*</i><label for="tel">telefono</label></div>
-                  <input class="input" type="tel" name="tel" id="tel"/>
+                  <div class="dat-Title">
+                    <i>*</i><label for="tel">telefono</label>
+                  </div>
+                  <input class="input" type="tel" name="tel" id="tel" />
                   <% if(locals.errors && errors.tel){ %>
-                    <span class="error"><%= errors.tel.msg %></span>
-                    <% } %> 
+                  <span class="error"><%= errors.tel.msg %></span>
+                  <% } %>
                 </div>
               </div>
             </div>
@@ -105,52 +123,57 @@
                 <div>
                   <div class="dat-Title"><i>*</i><label>Email</label></div>
                   <input class="input" id="email" type="text" name="email" />
-                    <!-- validacion front -->
-                    <span class="errors-email"></span>
-                    <!-- validacion back -->
+                  <!-- validacion front -->
+                  <span class="errors-email"></span>
+                  <!-- validacion back -->
                   <% if(locals.errors && errors.email){ %>
-                    <span class="error"><%= errors.email.msg %></span>
-                    <% } %>  
+                  <span class="error"><%= errors.email.msg %></span>
+                  <% } %>
                 </div>
                 <div>
                   <div class="dat-Title">
                     <i>*</i><label>Confirmar Email</label>
                   </div>
-                  <input class="input"  type="text" name="emailConfirm"/>
+                  <input class="input" type="text" name="emailConfirm" />
                   <% if(locals.errors && errors.emailConfirm){ %>
-                    <span class="error"><%= errors.emailConfirm.msg %></span>
-                    <% } %> 
+                  <span class="error"><%= errors.emailConfirm.msg %></span>
+                  <% } %>
                 </div>
                 <div>
                   <div class="dat-Title"><i>*</i><label>Contraseña</label></div>
-                  <input class="input" id="password" type="password" name="password"/>
-                    <!-- validacion front -->
-                    <span class="errors-password"></span>
-                    <!-- validacion back -->
+                  <input
+                    class="input"
+                    id="password"
+                    type="password"
+                    name="password"
+                  />
+                  <!-- validacion front -->
+                  <span class="errors-password"></span>
+                  <!-- validacion back -->
                   <% if(locals.errors && errors.password){ %>
-                    <span class="error"><%= errors.password.msg %></span>
-                  <% } %> 
+                  <span class="error"><%= errors.password.msg %></span>
+                  <% } %>
                 </div>
                 <div>
                   <div class="dat-Title">
                     <i>*</i><label>Confirmar Contraseña</label>
                   </div>
-                  <input class="input" type="password" name="passwordConfirm"/>
+                  <input class="input" type="password" name="passwordConfirm" />
                   <% if(locals.errors && errors.passwordConfirm){ %>
-                    <span class="error"><%= errors.passwordConfirm.msg %></span>
-                  <% } %> 
+                  <span class="error"><%= errors.passwordConfirm.msg %></span>
+                  <% } %>
                 </div>
                 <div>
                   <div class="dat-Title">
                     <label>foto de perfil</label>
-                  </div> 
-                  <input type="file" id="file" name="img"><br>
-                    <!-- validacion front -->
-                    <span class="errors-file"></span>
-                    <!-- validacion back -->
+                  </div>
+                  <input type="file" id="file" name="img" /><br />
+                  <!-- validacion front -->
+                  <span class="errors-file"></span>
+                  <!-- validacion back -->
                   <% if(locals.errors && errors.img){ %>
-                    <span class="error"><%= errors.img.msg %></span>
-                  <% } %> 
+                  <span class="error"><%= errors.img.msg %></span>
+                  <% } %>
                 </div>
                 <div>
                   <div class="dat-Title">
@@ -166,7 +189,7 @@
                   <div class="dat-Title">
                     <label>¿Cúal es tu equipo de futbol?</label>
                   </div>
-                  <input class="input" type="text" name="club"/>
+                  <input class="input" type="text" name="club" />
                 </div>
               </div>
             </div>
@@ -174,16 +197,19 @@
           <div class="footer-form">
             <div class="Polices">
               <div>
-                <input type="checkbox" name="Polices"/>
-                <label>Acepto las Políticas de Privacidad y Términos y Condiciones</label>
+                <input type="checkbox" name="Polices" />
+                <label
+                  >Acepto las Políticas de Privacidad y Términos y
+                  Condiciones</label
+                >
               </div>
               <% if(locals.errors && errors.Polices){ %>
-                <span class="error"><%= errors.Polices.msg %></span>
-              <% } %> 
+              <span class="error"><%= errors.Polices.msg %></span>
+              <% } %>
             </div>
             <div class="cajaCheck">
-              <input type="checkbox" name="promotions"/>
-              <label>Quiero recibir emails de promociones y noticias</label>     
+              <input type="checkbox" name="promotions" />
+              <label>Quiero recibir emails de promociones y noticias</label>
             </div>
             <div class="buttonSend">
               <button type="submit" class="crearCuenta">Crear mi Cuenta</button>
@@ -194,6 +220,5 @@
     </main>
 
     <footer class="footer-home"><%- include('../partials/footer') %></footer>
-
   </body>
 </html>
