@@ -1,15 +1,15 @@
 module.exports = {
   development: {
-    username: "root",
-    password: "facu2323",
+    username: "admina",
+    password: "admin",
     database: "DB_Scaloneta",
     host: "127.0.0.1",
     dialect: "mysql",
   },
   test: {
     username: "admina",
-    password: "root",
-    database: "database_test",
+    password: "admin",
+    database: "DB_Scaloneta",
     host: "127.0.0.1",
     dialect: "mysql",
   },
