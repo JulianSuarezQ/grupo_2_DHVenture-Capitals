@@ -6,30 +6,6 @@ const db = require("../../database/models")
 
 const usersController = {
 
-  userEmail: (req, res) => {
-    db.Users.findOne({
-      where: {
-        email: req.params.email,
-      }
-    })
-      .then(user => {
-        return res.status(200).json({
-          data: user,
-          status: 200
-        })
-      })
-  },
-
-  userId: (req, res) => {
-    db.Users.findByPk(req.params.id)
-      .then(user => {
-        return res.status(200).json({
-          data: user,
-          status: 200
-        })
-      })
-  },
-
   //RENDER LOGIN
 
   login: (req, res) => {

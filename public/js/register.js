@@ -100,8 +100,8 @@ window.addEventListener("load", () => {
         }
 
         if(errors.length == 0){
-/* 
-            fetch("http://localhost:3000/users/email/" + email.value)
+
+            fetch("http://localhost:3000/apis/users/email/" + email.value)
 
             .then(function(respuesta){
                 return respuesta.json()
@@ -121,7 +121,7 @@ window.addEventListener("load", () => {
                     });
                 }
             
-            }) */
+            })
         }
 
     })//fin formulario

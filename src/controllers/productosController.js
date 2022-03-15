@@ -1,7 +1,6 @@
 const path = require("path");
 const fs = require("fs");
 const sequelize = require("sequelize")
-const productsFilePath = path.join(__dirname, "../db/productos.json");
 const db = require("../../database/models");
 const res = require("express/lib/response");
 

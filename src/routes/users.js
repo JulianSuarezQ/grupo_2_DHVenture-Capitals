@@ -1,10 +1,13 @@
 const express = require("express");
-const { body, check } = require("express-validator");
 const router = express.Router();
+
 const usersController = require("../controllers/usersController");
+
+const { body, check } = require("express-validator");
 const upload = require("../middlewares/multer");
 const validateLogin = require("../middlewares/validateLogin");
 const validateRegister = require("../middlewares/validateRegisterMiddelware");
+
 const userLogged = require("../middlewares/userLoggedMiddleware");
 const guestLoggedMiddleware = require("../middlewares/guestLoggedMiddleware");
 
@@ -26,10 +29,5 @@ router.post("/login", validateLogin, usersController.processLogin);
 
 router.get("/perfil", usersController.perfil)
 
-//User
-
-router.get("/id/:id",usersController.userId);
-
-router.get("/email/:email",usersController.userEmail);
 
 module.exports = router;
