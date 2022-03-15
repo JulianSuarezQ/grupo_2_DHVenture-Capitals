@@ -15,6 +15,7 @@
       crossorigin="anonymous"
     />
     <script src="/js/product.js"></script>
+
     <title>Productos</title>
   </head>
   <body>
@@ -83,12 +84,21 @@
                 <i class="ast">*</i><label for="descripcion">Descripcion</label>
                 <input type="text" name="detail" id="detail" />
               </div>
+              <% if(locals.errors && errors.name){ %>
+              <span class="error"><%= errors.name.msg %></span>
+              <% } %>
               <span class="errors-detail"></span>
+              <% if(locals.errors && errors.detail){ %>
+              <span class="error"><%= errors.detail.msg %></span>
+              <% } %>
               <div>
                 <i class="ast">*</i><label for="img">imagen</label>
                 <input type="file" name="img" id="img" />
               </div>
               <span class="errors-img"></span>
+              <% if(locals.errors && errors.img){ %>
+              <span class="error"><%= errors.img.msg %></span>
+              <% } %>
               <div>
                 <label for="descount">Descuento</label>
                 <input
@@ -114,16 +124,25 @@
                 <i class="ast">*</i><label for="color">color</label>
                 <input type="text" name="color" id="color" />
               </div>
+              <% if(locals.errors && errors.color){ %>
+              <span class="error"><%= errors.color.msg %></span>
+              <% } %>
               <span class="errors-color"></span>
               <div>
                 <i class="ast">*</i><label for="stock">stock</label>
                 <input type="text" name="stock" id="stock" />
               </div>
+              <% if(locals.errors && errors.stock){ %>
+              <span class="error"><%= errors.stock.msg %></span>
+              <% } %>
               <span class="errors-stock"></span>
               <div>
                 <i class="ast">*</i><label for="precio">Precio</label>
                 <input type="text" name="price" id="price" />
               </div>
+              <% if(locals.errors && errors.price){ %>
+              <span class="error"><%= errors.price.msg %></span>
+              <% } %>
               <span class="errors-price"></span>
               <div class="talle">
                 <i class="ast">*</i><label for="talle">talle</label>
