@@ -3,6 +3,7 @@
   <head>
     <%- include('../partials/head',{}) %>
     <link rel="stylesheet" href="/css/productEdit.css" />
+    <script src="/js/editProduct.js"></script>
   </head>
   <body>
     <header class="main-header"><%- include('../partials/header') %></header>
@@ -10,12 +11,19 @@
     <div class="container products-wrapper">
       <div class="row">
         <div class="col-12">
-          <h2 class="products-title">Estás editando: <%= productToEdit.name %></h2>
+          <h2 class="products-title">
+            Estás editando: <%= productToEdit.name %>
+          </h2>
         </div>
       </div>
 
       <div class="products-div">
-        <form action="/products/edit/<%= productToEdit.id_product %>?_method=PUT"method="POST" enctype="multipart/form-data">
+        <form
+          class="edit-form"
+          action="/products/edit/<%= productToEdit.id_product %>?_method=PUT"
+          method="POST"
+          enctype="multipart/form-data"
+        >
           <div class="row product-detail">
             <div class="">
               <label for="name" class="form-label">Nombre del producto:</label>
@@ -28,15 +36,26 @@
                 value="<%= productToEdit.name %>"
               />
             </div>
+            <span class="errors-name"></span>
             <div class="col-12">
               <label for="detail" class="form-label">Descripción:</label>
-              <input name="detail" id="detail" class="form-input" value="<%= productToEdit.detail %>"/>
+              <input
+                name="detail"
+                id="detail"
+                class="form-input"
+                value="<%= productToEdit.detail %>"
+              />
             </div>
+            <span class="errors-detail"></span>
             <div>
               <i class="ast"></i><label for="categoria">Categoria</label>
               <select type="text" name="id_category" id="id_categoria">
                 <% for(let i = 0 ; i < categoriaToEdit.length ; i++){ %>
-                  <option value="<%= categoriaToEdit[i].dataValues.id_category %>"><%=categoriaToEdit[i].dataValues.name %></option>
+                <option
+                  value="<%= categoriaToEdit[i].dataValues.id_category %>"
+                >
+                  <%=categoriaToEdit[i].dataValues.name %>
+                </option>
                 <% } %>
               </select>
             </div>
@@ -62,6 +81,7 @@
                 value="<%= productToEdit.price %>"
               />
             </div>
+            <span class="errors-price"></span>
             <div class="">
               <label for="discount" class="form-label">Descuento:</label>
               <input
@@ -84,9 +104,10 @@
                 value="<%= productToEdit.color %>"
               />
             </div>
+            <span class="errors-color"></span>
             <div>
               <i class="ast"></i><label for="img">imagen</label>
-              <input type="file" name="img" id="img" >
+              <input type="file" name="img" id="img" />
             </div>
             <div class="button-submit">
               <button type="submit" class="buy-now-button">

@@ -1,4 +1,3 @@
-
 window.addEventListener("load", () => {
 
     let formulario = document.querySelector("form.register-form")

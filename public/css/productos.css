@@ -1,124 +1,126 @@
-
-main{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-main .contenedor{
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-    margin-bottom: 40px;
-    padding: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.125);
+main .contenedor {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  margin-bottom: 40px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.div-article{
-    display: flex;
-    justify-content: space-between;
-    padding: 2px 15px 2px 1px;
+.div-article {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 15px 2px 1px;
 }
 
-main form{
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+main form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 form .form1,
-form .form2{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin: 5px;
+form .form2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 5px;
 }
 
-form .conteiner{
-    display: flex;
-    flex-direction: row;
+form .conteiner {
+  display: flex;
+  flex-direction: row;
 }
 
 form .form1 div,
-form .form2 div{
-    width: 100%;
-    height: 100%;
-    margin: 15px 15px 5px 15px;
+form .form2 div {
+  width: 100%;
+  height: 100%;
+  margin: 15px 15px 5px 15px;
 }
 
-.ast{
-    color: red;
-    margin-right: 5px;
+.ast {
+  color: red;
+  margin-right: 5px;
 }
 
-.talle{
-    width: 100%;
-    height: 100%;
-    margin-top: 2px;
+.talle {
+  width: 100%;
+  height: 100%;
+  margin-top: 2px;
 }
 
-.talle select{
-    display: block;
-    background-color: #fff;
-    border: 1px solid #567492;
-    height: 70%;
-    width: 100%;
+.talle select {
+  display: block;
+  background-color: #fff;
+  border: 1px solid #567492;
+  height: 70%;
+  width: 100%;
 }
 
-input{
-    display: block;
-    height: 70%;
-    width: 100%;
-    padding: 2px;
-    border: 1px solid #567492;
-    background-color: #fff;
+input {
+  display: block;
+  height: 70%;
+  width: 100%;
+  padding: 2px;
+  border: 1px solid #567492;
+  background-color: #fff;
 }
 
-.buttonSend{
-    height: 50px;
-    width: 300px;
-    margin: 15px 0px 5px 0px;
+.buttonSend {
+  height: 50px;
+  width: 300px;
+  margin: 15px 0px 5px 0px;
 }
 
-.formSearch{
-    width: 60%;
+.formSearch {
+  width: 60%;
 }
 
-.buscador{
-    width: 80%;
-    padding: 5px;
-    margin-right: 20px;
+.buscador {
+  width: 80%;
+  padding: 5px;
+  margin-right: 20px;
 }
 
-.discount{
-    color: rgb(72, 199, 55);
+.discount {
+  color: rgb(72, 199, 55);
 }
 
-.name{
-    font-size: 20px;
+.name {
+  font-size: 20px;
 }
 
-.buttonBuscador{
-    width: 20%;
-    margin-top: 5px;
-    padding: 5px;
-    margin-bottom: 10px;
+.buttonBuscador {
+  width: 20%;
+  margin-top: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 
-.products{
-    margin: 10px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
+.products {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.products article{
-    margin: 15px;
+.products article {
+  margin: 15px;
+}
+
+.error {
+  color: rgb(206, 17, 17);
 }
