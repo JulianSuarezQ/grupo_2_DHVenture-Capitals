@@ -66,7 +66,7 @@ const productosController = {
         color: req.body.color,
         price: parseInt(req.body.price, 10),
         size: req.body.size,
-        img:"default-image.png" 
+        img: req.file.filename? req.file.filename : "default-image.png",
     })
     res.redirect('/products'); 
   },
@@ -109,7 +109,7 @@ const productosController = {
       color: req.body.color,
       price: parseInt(req.body.price, 10),
       size: req.body.size,
-      img:"default-image.png" 
+      img: req.file.filename
   },{
     where: { id_product : req.params.id}
   })

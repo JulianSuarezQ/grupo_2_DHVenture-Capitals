@@ -16,7 +16,6 @@ const usersApiController = {
       })
   },
 
-
   count: (req, res) => {
     db.Users.findAll(req.params.id)
       .then(users => {

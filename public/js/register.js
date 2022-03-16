@@ -89,6 +89,7 @@ window.addEventListener("load", () => {
     
 
         //validation email
+        console.log("estoy aca")
         let email = document.querySelector("#email");
         emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i; //script para validar un email
         if(email.value == ""){
@@ -100,7 +101,7 @@ window.addEventListener("load", () => {
 
         if(errors.length == 0){
 
-            fetch("http://localhost:3000/apis/users/email/" + email.value)
+            fetch("http://localhost:3000/apis/email/" + email.value)
 
             .then(function(respuesta){
                 return respuesta.json()
@@ -121,6 +122,13 @@ window.addEventListener("load", () => {
                 }
             
             })
+        }else if(errors.length > 0){
+            event.preventDefault();
+            let ulErrores = document.querySelector(".errors-email")
+
+            errors.forEach(error => {
+                ulErrores.innerHTML = `<span style="color:red">${error}</span></br>`
+            });
         }
 
     })//fin formulario
