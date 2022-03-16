@@ -67,7 +67,7 @@ const productosController = {
         color: req.body.color,
         price: parseInt(req.body.price, 10),
         size: req.body.size,
-        img:"default-image.png" 
+        img:"default-image.png" //hacer
     })
     res.redirect('/products'); 
   },
@@ -94,7 +94,7 @@ const productosController = {
     let todasCategorias = db.Category.findAll()
     Promise.all([todosProductos , todasCategorias])
       .then(function([productoMostrar , categoriaMostrar]){
-        res.render("product-edit-form", { productToEdit: productoMostrar , categoriaToEdit: categoriaMostrar}); //ver CATEGORIA
+        res.render("product-edit-form", { productToEdit: productoMostrar , categoriaToEdit: categoriaMostrar}); 
     })
   },
 
@@ -110,7 +110,7 @@ const productosController = {
       color: req.body.color,
       price: parseInt(req.body.price, 10),
       size: req.body.size,
-      img:"default-image.png" 
+      img:"default-image.png" //hacer
   },{
     where: { id_product : req.params.id}
   })
@@ -137,11 +137,6 @@ const productosController = {
       }
     })
     res.redirect('/products'); 
-
- /*    let finalProducts = todosLosProductos.filter(oneProduct => oneProduct.id != id);
-    fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
-    return res.redirect('/products'); */
-
   }
 
 };
