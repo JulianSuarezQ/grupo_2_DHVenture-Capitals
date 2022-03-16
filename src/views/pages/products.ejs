@@ -1,120 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/index.css" />
     <link rel="stylesheet" href="/css/header.css" />
     <link rel="stylesheet" href="/css/footer.css" />
-    <link rel="stylesheet" href="/css/productos.css">
+    <link rel="stylesheet" href="/css/productos.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
+    <script src="/js/product.js"></script>
+
     <title>Productos</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="main-header"><%- include('../partials/header') %></header>
 
     <%if (list == true){ %>
-      <main>
-        <div class="contenedor">
-          <% if (locals.userLogged.id_rol == 1) {%>
-          <h3><a href="/products">LISTA DE PRODUCTOS</a> | <a href="/products/create">AGREGAR PRODUCTOS</a></h3>  
-          <% } %>  
-         <!--  <form class="formSearch" action="/products/search" method="GET">
+    <main>
+      <div class="contenedor">
+        <% if (locals.userLogged.id_rol == 1) {%>
+        <h3>
+          <a href="/products">LISTA DE PRODUCTOS</a> |
+          <a href="/products/create">AGREGAR PRODUCTOS</a>
+        </h3>
+        <% } %>
+        <!--  <form class="formSearch" action="/products/search" method="GET">
             <input class = "buscador" for="search" name="name" placeholder="Busca tu Producto">
             <input class = "buttonBuscador" type="submit" valvue="search" id="search">
           </form> -->
-          <% if(productos.length>0 ){ %>
-            <div class="products">
-              <% for(let i = 0; i < productos.length; i++){ %> 
-                <article><a href="/products/<%= productos[i].id_product %> ">
-                  <img src="/images/products/<%=productos[i].img%>" alt="">
-                  <div class="div-article">
-                    <% if(productos[i].discount <= 0){%> 
-                    <span class="precios">$<%=productos[i].price%></span>
-                    <% }else{ %> 
-                    <%let preciofinal = (productos[i].price - (productos[i].price * productos[i].discount / 100))%>
-                    <span>$<%=preciofinal.toFixed(2)%></span>
-                    <span class="discount"><%= productos[i].discount %>% OFF</span>
-                    <% } %> 
-                  </div>
-                  <h1 class="name"><%=productos[i].name%></h1>
-                </a>
-                </article>
-              <% } %>
-            </div>
-          <%}else{ %> 
-            <p>No hay resultados</p>
+        <% if(productos.length>0 ){ %>
+        <div class="products">
+          <% for(let i = 0; i < productos.length; i++){ %>
+          <article>
+            <a href="/products/<%= productos[i].id_product %> ">
+              <img src="/images/products/<%=productos[i].img%>" alt="" />
+              <div class="div-article">
+                <% if(productos[i].discount <= 0){%>
+                <span class="precios">$<%=productos[i].price%></span>
+                <% }else{ %> <%let preciofinal = (productos[i].price -
+                (productos[i].price * productos[i].discount / 100))%>
+                <span>$<%=preciofinal.toFixed(2)%></span>
+                <span class="discount"><%= productos[i].discount %>% OFF</span>
+                <% } %>
+              </div>
+              <h1 class="name"><%=productos[i].name%></h1>
+            </a>
+          </article>
           <% } %>
         </div>
+        <%}else{ %>
+        <p>No hay resultados</p>
+        <% } %>
+      </div>
     </main>
     <% }else{ %>
     <main>
-        <div class="contenedor">
-          <h3><a href="/products">LISTA DE PRODUCTOS</a> | <a href="/products/create">AGREGAR PRODUCTOS</a></h3>    
-          <form action="/products/create" method="POST" enctype="multipart/form-data">
-            <div class="conteiner">
-              <div class="form1">
-                <div>
-                  <i class="ast">*</i><label for="nombre">Nombre</label>
-                  <input type="text" name="name" id="nombre">
-                </div>
-                <div>
-                  <i class="ast">*</i><label for="descripcion">Descripcion</label>
-                  <input type="text" name="detail" id="descripcion">
-                </div>
-                <div>
-                  <i class="ast">*</i><label for="img">imagen</label>
-                  <input type="file" name="img" id="img" >
-                </div>
-                <div>
-                  <label for="descount">Descuento</label>
-                  <input type="text" name="discount" id="discount" placeholder=" ej: 5, 10, ...">
-                </div>
+      <div class="contenedor">
+        <h3>
+          <a href="/products">LISTA DE PRODUCTOS</a> |
+          <a href="/products/create">AGREGAR PRODUCTOS</a>
+        </h3>
+        <form
+          class="product-form"
+          id="product-form"
+          action="/products/create"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="conteiner">
+            <div class="form1">
+              <div>
+                <i class="ast">*</i><label for="nombre">Nombre</label>
+                <input type="text" name="name" id="name" />
               </div>
-              <div class="form2">
-                <div>
-                  <i class="ast">*</i><label for="categoria">Categoria</label>
-                  <select type="text" name="id_category" id="id_categoria">
-                    <% for(let i = 0 ; i < categorias.length ; i++){ %>
-                      <option value="<%= categorias[i].dataValues.id_category %>"><%= categorias[i].dataValues.name %></option>
-                    <% } %>
-                  </select>
-                </div>
-                <div>
-                  <i class="ast">*</i><label for="color">color</label>
-                  <input type="text" name="color" id="color">
-                </div>
-                <div>
-                  <i class="ast">*</i><label for="stock">stock</label>
-                  <input type="text" name="stock" id="stock">
-                </div>
-                <div>
-                  <i class="ast">*</i><label for="precio">Precio</label>
-                  <input type="text" name="price" id="precio">
-                </div>
-                <div class="talle">
-                  <i class="ast">*</i><label for="talle">talle</label>
-                  <select name="size" id="talle">
-                    <option value="XL">XL</option>
-                    <option value="L">L</option>
-                    <option value="M">M</option>
-                    <option value="S">S</option>
-                  </select>
-                </div>
+              <span class="errors-name"></span>
+              <div>
+                <i class="ast">*</i><label for="descripcion">Descripcion</label>
+                <input type="text" name="detail" id="detail" />
+              </div>
+              <% if(locals.errors && errors.name){ %>
+              <span class="error"><%= errors.name.msg %></span>
+              <% } %>
+              <span class="errors-detail"></span>
+              <% if(locals.errors && errors.detail){ %>
+              <span class="error"><%= errors.detail.msg %></span>
+              <% } %>
+              <div>
+                <i class="ast">*</i><label for="img">imagen</label>
+                <input type="file" name="img" id="img" />
+              </div>
+              <span class="errors-img"></span>
+              <% if(locals.errors && errors.img){ %>
+              <span class="error"><%= errors.img.msg %></span>
+              <% } %>
+              <div>
+                <label for="descount">Descuento</label>
+                <input
+                  type="text"
+                  name="discount"
+                  id="discount"
+                  placeholder=" ej: 5, 10, ..."
+                />
               </div>
             </div>
-            <button class="buttonSend" type="submit">Cargar</button>
-         </form>
-        </div>
+            <div class="form2">
+              <div>
+                <i class="ast">*</i><label for="categoria">Categoria</label>
+                <select type="text" name="id_category" id="id_categoria">
+                  <% for(let i = 0 ; i < categorias.length ; i++){ %>
+                  <option value="<%= categorias[i].dataValues.id_category %>">
+                    <%= categorias[i].dataValues.name %>
+                  </option>
+                  <% } %>
+                </select>
+              </div>
+              <div>
+                <i class="ast">*</i><label for="color">color</label>
+                <input type="text" name="color" id="color" />
+              </div>
+              <% if(locals.errors && errors.color){ %>
+              <span class="error"><%= errors.color.msg %></span>
+              <% } %>
+              <span class="errors-color"></span>
+              <div>
+                <i class="ast">*</i><label for="stock">stock</label>
+                <input type="text" name="stock" id="stock" />
+              </div>
+              <% if(locals.errors && errors.stock){ %>
+              <span class="error"><%= errors.stock.msg %></span>
+              <% } %>
+              <span class="errors-stock"></span>
+              <div>
+                <i class="ast">*</i><label for="precio">Precio</label>
+                <input type="text" name="price" id="price" />
+              </div>
+              <% if(locals.errors && errors.price){ %>
+              <span class="error"><%= errors.price.msg %></span>
+              <% } %>
+              <span class="errors-price"></span>
+              <div class="talle">
+                <i class="ast">*</i><label for="talle">talle</label>
+                <select name="size" id="talle">
+                  <option value="XL">XL</option>
+                  <option value="L">L</option>
+                  <option value="M">M</option>
+                  <option value="S">S</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button class="buttonSend" type="submit">Cargar</button>
+        </form>
+      </div>
     </main>
     <% } %>
 
     <footer class="footer-home"><%- include('../partials/footer') %></footer>
-</body>
+  </body>
 </html>

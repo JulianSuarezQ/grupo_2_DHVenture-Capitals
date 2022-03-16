@@ -1,34 +1,10 @@
 const bcryptjs = require("bcryptjs");
-const { validationResult } = require("express-validator");
+const { validationResult, body } = require("express-validator");
 const { cookie } = require("express/lib/response");
 
 const db = require("../../database/models")
 
 const usersController = {
-
-  userEmail: (req, res) => {
-    db.Users.findOne({
-      where: {
-        email: req.params.email,
-      }
-    })
-      .then(user => {
-        return res.status(200).json({
-          data: user,
-          status: 200
-        })
-      })
-  },
-
-  userId: (req, res) => {
-    db.Users.findByPk(req.params.id)
-      .then(user => {
-        return res.status(200).json({
-          data: user,
-          status: 200
-        })
-      })
-  },
 
   //RENDER LOGIN
 
@@ -51,6 +27,7 @@ const usersController = {
   processLogin: (req, res) => {
 
     let validation = validationResult(req);
+
     if (validation.errors.length <= 0) {
 
       db.Users.findOne({
@@ -104,13 +81,7 @@ const usersController = {
   createUser: (req, res) => {
     let validation = validationResult(req);
     //validacion del backend
-    if (validation.errors.length > 0) {
-      //retornamos errores al front
-      return res.render("register", {
-        errors: validation.mapped(),
-        oldData: req.body,
-      });
-    }
+    console.log(validation)
 
     db.Users.findOne({
       includes: [
@@ -121,39 +92,43 @@ const usersController = {
         email: req.body.email
       }
     })
-      .then(user => {
-
-        if(user){
-          //Validacion del mail registrado
-          res.render("register", {
-            errors: {
-              email: {
-                msg: "Este email ya está registrado",
-              },
-            },
-            oldData: req.body,
-          });
-          console.log(bcryptjs.hashSync(req.body.password, 10))
-          db.Users.create({
-            id_rol: 2,
-            name: req.body.name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            password: bcryptjs.hashSync(req.body.password, 10),
-            birth_date: req.body.birth_date,
-            dni: req.body.dni,
-            gender: req.body.gender,
-            tel: parseInt(req.body.tel, 10),
-            polices: true,
-            img: req.file.filename
-          })
-          .then(res.redirect("/"))
-          .catch(e => {
-            console.log(e)
-            }
-          )
-        }
-      })    
+    .then(user => {
+      if(user){
+        //Validacion del mail registrado
+        validation.errors.push(
+          {
+            value: req.body.email,
+            msg: "Este email ya está registrado",
+            param: "email",
+            location:"body"
+          }
+        )
+        console.log(validation)
+    }})
+    .then(function(){
+      if(validation.errors.length == 0){
+        db.Users.create({
+          id_rol: 2,
+          name: req.body.name,
+          last_name: req.body.last_name,
+          email: req.body.email,
+          password: bcryptjs.hashSync(req.body.password, 10),
+          birth_date: req.body.birth_date,
+          dni: req.body.dni,
+          gender: req.body.gender,
+          tel: parseInt(req.body.tel, 10),
+          polices: true,
+          img: req.file.filename
+        })
+        res.redirect("/")
+      }else{
+        console.log(validation)
+        res.render("register", {
+          errors: validation.mapped(),
+          oldData: req.body,
+        });
+      }
+    }).catch(e => console.log(e))
   },
 
   perfil: (req, res) => {

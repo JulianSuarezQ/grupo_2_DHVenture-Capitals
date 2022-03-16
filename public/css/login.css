@@ -2,25 +2,30 @@
   box-sizing: border-box;
 }
 
-  .main-login {
-    width: 100%;
-    height: 100%;
-    padding-bottom: 30px;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+body{
+  background-color: rgb(206, 229, 250);
+}
+
+.main-login {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 30px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 main .form-box{
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   width: 60%;
   height: 400px;
-  padding: 40px;
+  padding: 20px;
   background: white;
   text-align: center;
   border: 1px solid rgba(0, 0, 0, 0.200);
@@ -53,6 +58,7 @@ main .form-box{
   text-decoration: none;
   font-size: 20px;
   width: 60%;
+  height: 80%;
 }
 
 .text-form i {
@@ -91,14 +97,15 @@ main .form-box{
   font-size: 15px;
   padding-bottom: 10px;
 }
-.boton-iniciar {
+
+.boton-iniciar:hover {
   height: 100%;
   width: 100%;
   border: 1px solid #567492;
   background-color: #014f86;
   width: 60%;
   height: 30px;
-  padding: 10px;
+  padding: 1px;
 }
 
 @media (min-width: 768px) {
@@ -115,7 +122,6 @@ main .form-box{
 
   .formulario {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     width: 1100px;

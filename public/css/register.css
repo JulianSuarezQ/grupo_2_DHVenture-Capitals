@@ -3,6 +3,7 @@
 }
 
 body {
+  background-color: rgb(206, 229, 250);
   padding: 0px;
   margin: auto;
   font-weight: 400;
@@ -18,6 +19,7 @@ main {
 }
 
 .contenedor {
+  background-color: white;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

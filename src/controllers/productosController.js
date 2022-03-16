@@ -1,7 +1,6 @@
 const path = require("path");
 const fs = require("fs");
 const sequelize = require("sequelize")
-const productsFilePath = path.join(__dirname, "../db/productos.json");
 const db = require("../../database/models");
 const res = require("express/lib/response");
 
@@ -67,7 +66,7 @@ const productosController = {
         color: req.body.color,
         price: parseInt(req.body.price, 10),
         size: req.body.size,
-        img:"default-image.png" //hacer
+        img: req.file.filename? req.file.filename : "default-image.png",
     })
     res.redirect('/products'); 
   },
@@ -110,7 +109,7 @@ const productosController = {
       color: req.body.color,
       price: parseInt(req.body.price, 10),
       size: req.body.size,
-      img:"default-image.png" //hacer
+      img: req.file.filename
   },{
     where: { id_product : req.params.id}
   })

@@ -8,6 +8,7 @@ const viewsPath = path.resolve(__dirname, "./views/pages");
 const mainRouter = require("./routes/main");
 const productosRouter = require("./routes/productos");
 const usersRouter = require("./routes/users");
+const apiRouter = require("./routes/apis")
 const carritoRouter = require("./routes/carrito");
 const methodOVerride = require("method-override");
 const cookieParser = require("cookie-parser");
@@ -40,7 +41,10 @@ app.use("/products", productosRouter);
 
 app.use("/carrito", carritoRouter);
 
+app.use("/apis", apiRouter);
+
 app.use("/users", usersRouter);
+
 
 app.use(function (req, res, next) {
   res.status(404);

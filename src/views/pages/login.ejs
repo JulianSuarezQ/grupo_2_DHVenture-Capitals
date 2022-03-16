@@ -4,27 +4,20 @@
     <link rel="stylesheet" href="/css/login.css" />
     <title>Ingresar / Registrarme</title>
     <%- include('../partials/head') %>
+    <script src="/js/login.js"></script>
   </head>
   <body>
     <header class="main-header"><%- include('../partials/header') %></header>
 
     <main class="main-login">
-      <form class="form-box" action="/users/login" method="post">
+      <form class="form-box" action="/users/login" method="post" id="form_login">
         <span class="form-title"
           ><a href="login">INGRESA</a> |
-          <a href="register"> REGISTRARME</a></span
-        > 
-        
+          <a href="register"> REGISTRARME</a></span> 
         <div class="form-box-inside">
           <div class="text-form">
             <div><i>*</i><label for="email">Email</label></div>
-            <input
-              class="email"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Correo Electronico *"
-            />
+            <input class="email" type="email" name="email" id="email" placeholder="Correo Electronico *"/>
             <% if (locals.errors && errors.email){%>
               <div class="text-danger" style="color: red">
                 <%= errors.email.msg %>
@@ -46,12 +39,13 @@
                 </div>
               <%}%> 
             </div>
-            <% if (locals.errorsLogin && errorsLogin.email){%>
+            <!-- <% if (locals.errorsLogin && errorsLogin.email){%>
               <div class="text-danger" style="color: red">
                 <%= errorsLogin.email.msg %>
               </div>
-            <%}%>
+            <%}%> -->
           </div>
+          <span class="errors_login"></span>
           <div class="remember">
             <label for="remember">Recordarme</label>
             <input

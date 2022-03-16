@@ -21,3 +21,11 @@ https://trello.com/b/rx6nT14g/sprint-2
 
 
 Usuario Admin: email: admin@admin.com password: adminadmin
+
+
+Apis: 
+
+http://localhost:3000/apis/users/
+
+http://localhost:3000/apis/users/:id
+
