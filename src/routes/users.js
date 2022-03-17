@@ -15,7 +15,6 @@ const guestLoggedMiddleware = require("../middlewares/guestLoggedMiddleware");
 //REGISTER
 
 router.get("/register", guestLoggedMiddleware, usersController.register);
-
 router.post("/createUser", upload.single("img"), validateRegister, usersController.createUser);
 
 //LOGIN

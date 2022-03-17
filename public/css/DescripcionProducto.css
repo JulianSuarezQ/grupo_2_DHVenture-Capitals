@@ -12,16 +12,17 @@ main{
 
 .fondo{
     width: 100%;
-    height: 700px;
+    height: 760px;
     background-color: rgb(233, 233, 233);
 }
 
 main .contenedor{
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    /* height: 80%; */
     display: flex;
     justify-content: center;
     padding: 20px;
+    padding-bottom: 30px;
     border: 1px solid rgb(153, 153, 153);
     border-radius: 7px;
     margin: 30px;
@@ -32,7 +33,7 @@ main .contenedor{
 .ficha-producto{
     display: flex;
     flex-direction: column;
-    margin-right: 200px;
+    margin-right: 150px;
 }
 
 div.img{
@@ -92,8 +93,8 @@ div.img{
 }
 
 .editar{
-    width: 80%;
-    height: 10%;
+    width: 100%;
+    height: 30%;
     border-radius: 7px;
     background-color: rgba(65,137,230,.15);
     margin-top: 40px;
@@ -127,6 +128,7 @@ div.img{
     justify-content: space-evenly;
 }
 
+
 .productos-relacionados h3{
     border: solid 3px black;
     display: inline-block;
@@ -135,4 +137,21 @@ div.img{
 
 .productos-relacionados li{
     list-style: none;
+}
+
+.caracteristicas{
+    /* border: solid 1px black; */
+    padding: 5px;
+    margin: 5px;
+}
+
+.caracteristicas h3{
+    display: flex;
+    align-content: center;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.caracteristicas li{
+    text-transform: uppercase;
 }

@@ -35,7 +35,5 @@ window.addEventListener('load', function(){
                     error_view.innerHTML = `<span style = 'color: red'> ${error}  </span>`
                 }
             })
-
     })
-
 })

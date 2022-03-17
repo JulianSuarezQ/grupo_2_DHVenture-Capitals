@@ -20,7 +20,13 @@
           <div class="img">
             <img src="/images/products/<%= productos.img %>">
           </div>
+        <div>
+          <% if (locals.userLogged.id_rol == 1) {%>
+            <button class="editar" ><a href="/products/edit/<%= productos.id_product%>">Editar Producto</a></button>
+            <button class="editar"> <a href="/products/delete/<%= productos.id_product%>">Borrar Producto</a> </button>
+          <%}%>
         </div>
+          </div>
         <div class="content2">
 
           <div>
@@ -45,27 +51,25 @@
             <form action="/carrito/<%=productos.id%>" method="POST">
               <input class="carrito" type="submit" name="<%=productos.id%>" value="AÑADIR AL CARRITO">
             </form>
-
-            <div class="caracteristicas">
-              <h3>Características del producto</h3>
+          <div class="caracteristicas">
+            <div class="caracteristicaProd">
+              <h3>CARACTERISTICAS DEL PRODUCTO</h3>
               <ul>
                 <li><%=productos.color%></li>
                 <li><%=productos.size%></li>
               </ul>
             </div>
 
-          <div class="caracteristicas">
+            <div class="caracteristicaDetail">
+              <h3>DESCRIPCION DEL PRODUCTO</h3>
             <span>
               <%= productos.detail %>
+          </div>
             </span>
           </div>
-        <% if (locals.userLogged.id_rol == 1) {%>
-          <button class="editar" ><a href="/products/edit/<%= productos.id_product%>">Editar Producto</a></button>
-          <button class="editar"> <a href="/products/delete/<%= productos.id_product%>">Borrar Producto</a> </button>
-        <%}%>
         </div>
       </div>
-    </div>
+    
 
     <section class="productos-relacionados">
       <h3>PRODUCTOS RELACIONADOS</h3>
@@ -103,6 +107,7 @@
       </ul>
 
     </section>
+    </div>
   </main>
 
 <footer class="footer-home"><%- include('../partials/footer') %></footer>
