@@ -8,12 +8,12 @@ window.addEventListener('load', function(){
         
         let email = document.querySelector('#email')
         if (email.value == ''){
-            error = 'Los campos estan vacios';
+            error = 'Los campos no pueden estar vacios';
         };
 
         let password = document.querySelector('#password')
         if (password.value == ''){
-            error= 'Los campos estan vacios';
+            error= 'Los campos no pueden estar vacios';
         }
 
         if (error){
@@ -21,12 +21,21 @@ window.addEventListener('load', function(){
             let error_view = document.querySelector('.errors_login');
             error_view.innerHTML = `<span style = 'color: red'> ${error}  </span>`
         }
+
+        fetch("http://localhost:3000/apis/email/" + email.value)
+            .then(function(respuesta){
+                return respuesta.json()
+            })
+            .then(function(datos){
+                console.log(datos)
+                if(datos.data == null){
+                    evento.preventDefault()
+                   let error= 'Las credenciales no existen';
+                    let error_view = document.querySelector('.errors_login');
+                    error_view.innerHTML = `<span style = 'color: red'> ${error}  </span>`
+                }
+            })
+
     })
-
-
-
-
-
-
 
 })
