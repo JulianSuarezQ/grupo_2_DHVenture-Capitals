@@ -9,25 +9,44 @@ const productApiController = {
     count: function (req, res) { 
       db.Products.findAll()
         .then(function(products){
-          res.status(200).json("products", {
+          res.status(200).json({
               meta:{
                 status: 200,
-                cant: products.length,
+                cant: products.length, 
                 url: 'api/products'
               },
         });
       });
     },
 
-    /* detail: (req, res) => {
-        let idProducto = req.params.id;
-        db.Products.findByPk(idProducto, {
+/*     countByCategory: (req, res) => {
+        db.Products.findAll({
           include:[{association:'category'}]
         })
           .then(function(producto){
-            res.render('descripcionProducto' , {productos: producto});
+            res.status(200).json({
+                data:{
+                    producto.id_category:{
+
+                    }
+                }
+
+            },
+                'descripcionProducto' , {productos: producto}
+                );
         })
-    } */
+    }, */
+
+    products: function (req, res) { 
+    let todosProductos =  db.Products.findAll()
+    let todasCategorias = db.Category.findAll();
+             Promise.all([todosProductos, todasCategorias])
+            .then(function([products , categoriaMostrar]){
+            res.status(200).json({
+                data:products, categoriaMostrar
+          });
+        });
+      },
 }
 
 module.exports = productApiController;

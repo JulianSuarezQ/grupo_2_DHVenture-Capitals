@@ -20,17 +20,7 @@ router.get("/description", userLogged, productosController.descriptionProduct);
 router.get("/:id", userLogged, productosController.detail);
 
 router.get("/edit/:id", userLogged, productosController.edit);
-<<<<<<< HEAD
 router.put("/edit/:id",userLogged,upload.single("img"),productosController.update);
-=======
-router.put(
-  "/edit/:id",
-  userLogged,
-  upload.single("img"),
-  validateEditProduct,
-  productosController.update
-);
->>>>>>> b35f5a3f5e57da449ccad4766a899552383e5d0f
 
 router.get("/delete/:id", userLogged, productosController.PagDelete);
 router.post("/delete/:id", userLogged, productosController.delete);
