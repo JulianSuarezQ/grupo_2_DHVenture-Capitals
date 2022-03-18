@@ -4,6 +4,7 @@ const upload = require("../middlewares/multer");
 const productosController = require("../controllers/productosController");
 const userLogged = require("../middlewares/userLoggedMiddleware");
 const validateCreateProduct = require("../middlewares/createProductMiddleware");
+const validateEditProduct = require("../middlewares/editProductMiddleware");
 
 // '/products/....'
 
@@ -29,6 +30,7 @@ router.put(
   "/edit/:id",
   userLogged,
   upload.single("img"),
+  validateEditProduct,
   productosController.update
 );
 
