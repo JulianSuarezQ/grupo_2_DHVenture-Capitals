@@ -26,7 +26,7 @@ const productApiController = {
             res.render('descripcionProducto' , {productos: producto});
         })
     } */
-  allProducts: function (req, res) {
+  productById: function (req, res) {
     db.Products.findByPk(req.params.id, {
       include: [
         {

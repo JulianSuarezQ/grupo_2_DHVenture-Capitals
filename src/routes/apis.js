@@ -16,6 +16,6 @@ router.get("/email/:email", usersApiController.userEmail);
 
 router.get("/productos", productApiController.count);
 
-router.get("/products/:id", productApiController.allProducts);
+router.get("/products/:id", productApiController.productById);
 
 module.exports = router;
