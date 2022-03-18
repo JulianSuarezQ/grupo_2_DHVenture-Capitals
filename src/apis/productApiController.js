@@ -48,10 +48,11 @@ const productApiController = {
                       cant: products.length, 
                       url: 'api/products'
                     },
+                    data: products,
               });
         });
       },
-      
+
       productById: function (req, res) {
         db.Products.findByPk(req.params.id, {
           include: [

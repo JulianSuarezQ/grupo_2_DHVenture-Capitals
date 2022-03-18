@@ -18,6 +18,6 @@ router.get('/count', productApiController.count);
 
 router.get('/productos' , productApiController.products)
 
-router.get("/products/:id", productApiController.allProducts);
+router.get("/products/:id", productApiController.productById);
 
 module.exports = router;
