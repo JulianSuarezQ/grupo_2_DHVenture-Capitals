@@ -30,7 +30,7 @@
 
 
             <div class="buttonAdmin">
-                <% if (locals.userLogged.id_rol == 1) {%>
+                <% if (locals.userLogged != undefined && locals.userLogged.id_rol == 1) {%>
                   <button class="editar" ><a href="/products/edit/<%= productos.id_product%>">Editar Producto</a></button>
                   <button class="editar"> <a href="/products/delete/<%= productos.id_product%>">Borrar Producto</a> </button>
                 <%}%>
@@ -54,11 +54,9 @@
             <% } %>  
           </div>
 
-          <% if (locals.userLogged.id_rol != 1) {%>
+          <% if (locals.userLogged == undefined) {%>
             <form action="/products/buy/<%= productos.id %>" method="POST">
               <input class="comprar" type="submit" name="<%=productos.id%>" value="COMPRAR AHORA">
-            </form>
-            <form action="/carrito/<%=productos.id%>" method="POST">
               <input class="carrito" type="submit" name="<%=productos.id%>" value="AÑADIR AL CARRITO">
             </form>
             <%}%>

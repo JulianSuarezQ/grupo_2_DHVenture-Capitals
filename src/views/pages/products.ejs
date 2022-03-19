@@ -23,42 +23,43 @@
 
     <%if (list == true){ %>
     <main>
+      <% if (locals.userLogged != undefined && locals.userLogged.id_rol ==1)%>
+      <%{%>
       <div class="contenedor">
-        <% if (locals.userLogged != undefined && locals.userLogged.id_rol ==1)%>
-        <%{%>
         <h3>
           <a href="/products">LISTA DE PRODUCTOS</a> |
           <a href="/products/create">AGREGAR PRODUCTOS</a>
         </h3>
-        <% } %>
-        <!--  <form class="formSearch" action="/products/search" method="GET">
+      </div>
+
+      <% } %>
+      <!--  <form class="formSearch" action="/products/search" method="GET">
             <input class = "buscador" for="search" name="name" placeholder="Busca tu Producto">
             <input class = "buttonBuscador" type="submit" valvue="search" id="search">
           </form> -->
-        <% if(productos.length>0 ){ %>
-        <div class="products">
-          <% for(let i = 0; i < productos.length; i++){ %>
-          <article>
-            <a href="/products/<%= productos[i].id_product %> ">
-              <img src="/images/products/<%=productos[i].img%>" alt="" />
-              <div class="div-article">
-                <% if(productos[i].discount <= 0){%>
-                <span class="precios">$<%=productos[i].price%></span>
-                <% }else{ %> <%let preciofinal = (productos[i].price -
-                (productos[i].price * productos[i].discount / 100))%>
-                <span>$<%=preciofinal.toFixed(2)%></span>
-                <span class="discount"><%= productos[i].discount %>% OFF</span>
-                <% } %>
-              </div>
-              <h1 class="name"><%=productos[i].name%></h1>
-            </a>
-          </article>
-          <% } %>
-        </div>
-        <%}else{ %>
-        <p>No hay resultados</p>
+      <% if(productos.length>0 ){ %>
+      <div class="products">
+        <% for(let i = 0; i < productos.length; i++){ %>
+        <article>
+          <a href="/products/<%= productos[i].id_product %> ">
+            <img src="/images/products/<%=productos[i].img%>" alt="" />
+            <div class="div-article">
+              <% if(productos[i].discount <= 0){%>
+              <span class="precios">$<%=productos[i].price%></span>
+              <% }else{ %> <%let preciofinal = (productos[i].price -
+              (productos[i].price * productos[i].discount / 100))%>
+              <span>$<%=preciofinal.toFixed(2)%></span>
+              <span class="discount"><%= productos[i].discount %>% OFF</span>
+              <% } %>
+            </div>
+            <h1 class="name"><%=productos[i].name%></h1>
+          </a>
+        </article>
         <% } %>
       </div>
+      <%}else{ %>
+      <p>No hay resultados</p>
+      <% } %>
     </main>
     <% }else{ %>
     <main>
