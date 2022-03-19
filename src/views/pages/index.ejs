@@ -36,7 +36,7 @@
       <div class="div-mas-vendidos">
       <% if (productos.length >= 4 ) { %>
         <% for(let i = 0; i < 4; i++){ %> 
-          <article><a href="/products/<%= productos[i].id %> ">
+          <article><a href="/products/<%= productos[i].id_product %> ">
             <img src="/images/products/<%=productos[i].img%>" alt="">
             <div class="div-article">
               <% if(productos[i].descount <= 0){%> 
@@ -61,7 +61,7 @@
       <div class="div-recomendados">
           <% if (productos.length >= 8) { %>
             <% for(let i = 4; i < 8; i++){ %> 
-              <article><a href="/products/<%= productos[i].id %> ">
+              <article><a href="/products/<%= productos[i].id %> "></a>
                 <img src="/images/products/<%=productos[i].image%>" alt="">
                 <div class="div-article">
                   <% if(productos[i].discount <= 0){%> 
