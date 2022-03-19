@@ -6,51 +6,44 @@ const res = require("express/lib/response");
 
 const productApiController = {
 
-    count: function (req, res) { 
-      db.Products.findAll()
-        .then(function(products){
-          res.status(200).json({
-              meta:{
-                status: 200,
-                cant: products.length, 
-                url: 'api/products'
-              },
-        });
-      });
-    },
-
-/*     countByCategory: (req, res) => {
-        db.Products.findAll({
-          include:[{association:'category'}]
-        })
-          .then(function(producto){
-            res.status(200).json({
-                data:{
-                    producto.id_category:{
-
-                    }
-                }
-
-            },
-                'descripcionProducto' , {productos: producto}
-                );
-        })
-    }, */
-
     products: function (req, res) { 
-    let todosProductos =  db.Products.findAll()
-    let todasCategorias = db.Category.findAll();
-             Promise.all([todosProductos, todasCategorias])
-            .then(function([products , categoriaMostrar]){
+    db.Products.findAll({
+        include: [
+          {
+            association: "category",
+          },
+        ],
+      })
+            .then(function(products){
                 res.status(200).json({
                     meta:{
                       status: 200,
                       cant: products.length, 
                       url: 'api/products'
                     },
-                    data: products,
+                    products: products.map(produ => {
+                    return {
+                    id: produ.id_product,
+                    name: produ.name,
+                    discount: produ.discount,
+                    detail: produ.detail,
+                    stock: produ.stock,
+                    id_category: produ.category.name, 
+                    price: produ.price,
+                    size: produ.size,
+                    img: produ.img,
+                    }
+                 }),
               });
+              
+        })
+        .catch((error)=> {
+          error = 'No existe ningun producto cargado';
+          return res.status(400).json({
+            error
+          });
         });
+            
       },
 
       productById: function (req, res) {
