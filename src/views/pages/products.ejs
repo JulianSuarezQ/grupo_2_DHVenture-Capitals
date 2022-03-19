@@ -24,7 +24,8 @@
     <%if (list == true){ %>
     <main>
       <div class="contenedor">
-        <% if (locals.userLogged.id_rol == 1) {%>
+        <% if (locals.userLogged != undefined && locals.userLogged.id_rol ==1)%>
+        <%{%>
         <h3>
           <a href="/products">LISTA DE PRODUCTOS</a> |
           <a href="/products/create">AGREGAR PRODUCTOS</a>
