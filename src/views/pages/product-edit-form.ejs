@@ -37,6 +37,10 @@
               />
             </div>
             <span class="errors-name"></span>
+            <!-- validacion back -->
+            <% if(locals.errors && errors.name){ %>
+            <span class="error"><%= errors.name.msg %></span>
+            <% } %>
             <div class="col-12">
               <label for="detail" class="form-label">Descripción:</label>
               <input
@@ -47,6 +51,10 @@
               />
             </div>
             <span class="errors-detail"></span>
+            <!-- validacion back -->
+            <% if(locals.errors && errors.detail){ %>
+            <span class="error"><%= errors.detail.msg %></span>
+            <% } %>
             <div>
               <i class="ast"></i><label for="categoria">Categoria</label>
               <select type="text" name="id_category" id="id_categoria">
@@ -82,6 +90,10 @@
               />
             </div>
             <span class="errors-price"></span>
+            <!-- validacion back -->
+            <% if(locals.errors && errors.price){ %>
+            <span class="error"><%= errors.price.msg %></span>
+            <% } %>
             <div class="">
               <label for="discount" class="form-label">Descuento:</label>
               <input
@@ -105,11 +117,15 @@
               />
             </div>
             <span class="errors-color"></span>
+            <!-- validacion back -->
+            <% if(locals.errors && errors.color){ %>
+            <span class="error"><%= errors.color.msg %></span>
+            <% } %>
             <div>
               <i class="ast"></i><label for="img">imagen</label>
               <input type="file" name="img" id="img" />
             </div>
-            <div class="button-submit">
+            <div class="boton-iniciar">
               <button type="submit" class="buy-now-button">
                 Guardar producto
               </button>
