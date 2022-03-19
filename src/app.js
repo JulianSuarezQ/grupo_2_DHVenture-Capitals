@@ -41,7 +41,7 @@ app.use("/products", productosRouter);
 
 app.use("/carrito", carritoRouter);
 
-app.use("/apis", apiRouter);
+app.use("/api", apiRouter);
 
 app.use("/users", usersRouter);
 
