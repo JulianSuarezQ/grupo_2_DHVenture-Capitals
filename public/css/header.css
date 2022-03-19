@@ -54,12 +54,11 @@ a {
   flex-direction: row;
 }
 
-.header-right-logged .Bienvenido{
+.header-right-logged .Bienvenido {
   margin-right: 30px;
   display: flex;
   align-items: center;
 }
-
 
 .header-right-logged h6 {
   color: black;
@@ -88,7 +87,7 @@ a {
 .header-center-simple h4 {
   color: rgb(255, 255, 255);
   font-weight: inherit;
-  margin-left: 5px;
+  margin-left: 15px;
 }
 
 .header-center {
