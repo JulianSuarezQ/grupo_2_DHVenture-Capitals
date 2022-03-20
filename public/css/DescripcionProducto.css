@@ -28,6 +28,8 @@ main {
 }
 
 .ficha-producto {
+  max-width: 100%;
+  max-height: 100%;
   display: flex;
   padding-left: 10px;
   flex-direction: column;
@@ -96,7 +98,7 @@ div img {
   height: 30%;
   border-radius: 7px;
   background-color: rgba(65, 137, 230, 0.15);
-  margin-top: 40px;
+  margin-top: 10px;
   border: solid 2px #3483fa98;
 }
 
@@ -150,6 +152,10 @@ div img {
 
 .precio h2 {
   text-align: left;
+}
+
+.buttonAdmin {
+  display: none;
 }
 
 @media (max-width: 768px) {
