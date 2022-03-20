@@ -23,8 +23,8 @@
 
     <%if (list == true){ %>
     <main>
-      <% if (locals.userLogged != undefined && locals.userLogged.id_rol ==1)%>
-      <%{%>
+      <% if (locals.userLogged != undefined && locals.isLogged == true &&
+      locals.userLogged.id_rol == 1){%>
       <div class="contenedor">
         <h3>
           <a href="/products">LISTA DE PRODUCTOS</a> |
