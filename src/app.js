@@ -8,11 +8,30 @@ const viewsPath = path.resolve(__dirname, "./views/pages");
 const mainRouter = require("./routes/main");
 const productosRouter = require("./routes/productos");
 const usersRouter = require("./routes/users");
-const apiRouter = require("./routes/apis")
+const apiRouter = require("./routes/apis");
 const carritoRouter = require("./routes/carrito");
 const methodOVerride = require("method-override");
 const cookieParser = require("cookie-parser");
 const rememberMiddleware = require("./middlewares/rememberMiddlewares");
+
+//swagger doc
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerSpec = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Scaloneta",
+      version: "1.0.0",
+    },
+    servers: [
+      {
+        url: "http://localhost:3000",
+      },
+    ],
+  },
+  apis: [`${path.join(__dirname, "./apis/*.js")}`],
+};
 
 //session
 app.use(
@@ -26,7 +45,7 @@ app.use(
 app.use(methodOVerride("_method"));
 app.use(express.static(publicPath));
 app.set("view engine", "ejs");
-app.use(cookieParser())
+app.use(cookieParser());
 app.set("views", viewsPath);
 app.use(express.urlencoded({ extended: false }));
 app.use(rememberMiddleware);
@@ -45,6 +64,12 @@ app.use("/api", apiRouter);
 
 app.use("/users", usersRouter);
 
+//Swagger route
+app.use(
+  "/api-doc",
+  swaggerUI.serve,
+  swaggerUI.setup(swaggerJsDoc(swaggerSpec))
+);
 
 app.use(function (req, res, next) {
   res.status(404);
