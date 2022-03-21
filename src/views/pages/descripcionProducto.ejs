@@ -52,6 +52,7 @@
                 <h2>$<%= productos.price.toFixed(2) %></h2>
               </div>
             <% } %>  
+            
           </div>
 
           <% if (locals.userLogged == undefined) {%>
@@ -76,6 +77,13 @@
               <%= productos.detail %>
           </div>
             </span>
+            <div class="buttonAdminResponsive">
+              <% if (locals.userLogged != undefined && locals.userLogged.id_rol == 1) {%>
+                <button class="editar" ><a href="/products/edit/<%= productos.id_product%>">Editar Producto</a></button>
+                <button class="editar"> <a href="/products/delete/<%= productos.id_product%>">Borrar Producto</a> </button>
+              <%}%>
+            </div>
+        </div>
           </div>
         </div>
       </div>

@@ -3,19 +3,17 @@ const path = require("path");
 const { dirname } = require("path");
 
 const usersApiController = {
-
   userEmail: (req, res) => {
     db.Users.findOne({
       where: {
         email: req.params.email,
-      }
-    })
-      .then(user => {
-        return res.status(200).json({
-          data: user,
-          status: 200
-        })
-      })
+      },
+    }).then((user) => {
+      return res.status(200).json({
+        data: user,
+        status: 200,
+      });
+    });
   },
 
   count: (req, res) => {
