@@ -48,43 +48,45 @@ const res = require("express/lib/response");
  */
 
 const productApiController = {
-  products: function (req, res) {
-    db.Products.findAll({
-      include: [
-        {
-          association: "category",
-        },
-      ],
-    })
-      .then(function (products) {
-        res.status(200).json({
-          meta: {
-            status: 200,
-            cant: products.length,
-            url: "api/products",
-          },
-          products: products.map((produ) => {
-            return {
-              id: produ.id_product,
-              name: produ.name,
-              discount: produ.discount,
-              detail: produ.detail,
-              stock: produ.stock,
-              id_category: produ.category.name,
-              price: produ.price,
-              size: produ.size,
-              img: produ.img,
-            };
-          }),
-        });
+
+  products: function(req, res){
+    let todosProductos = db.Products.findAll({
+      include: [{ association: "category" }],
+    });
+    let todasCategorias = db.Category.findAll({
+      include: [{ association: "products" }],
+    });
+      Promise.all([todosProductos, todasCategorias])
+      .then(function ([products, category,]){
+            res.json ({
+              count: products.length,
+
+              countByCategory: category.map((cate)=>{
+                  return{
+                    name: cate.name,
+                    count_products: cate.products.length
+                  }
+              }),
+
+              products: products.map((produ) => {
+                return {
+                  id: produ.id_product,
+                  name: produ.name,
+                  discount: produ.discount,
+                  detail: produ.detail,
+                  stock: produ.stock,
+                  category: produ.category.name,
+                  price: produ.price,
+                  size: produ.size,
+                  img: produ.img,
+                };
+              }),
+              
+
+            })
       })
-      .catch((error) => {
-        error = "No existe ningun producto cargado";
-        return res.status(400).json({
-          error,
-        });
-      });
   },
+
 
   /**
    *
