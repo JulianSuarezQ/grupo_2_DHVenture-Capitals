@@ -1,4 +1,6 @@
 const db = require("../../database/models")
+const path = require("path");
+const { dirname } = require("path");
 
 const usersApiController = {
 
@@ -26,7 +28,7 @@ const usersApiController = {
                 id: user.id_user,
                 name: user.name,
                 email: user.email,
-                detail: "hacer"
+                detail: ("http://localhost:3000/apis/users/" + user.id_user)
               }
             }),
             status: 200
@@ -46,11 +48,15 @@ const usersApiController = {
           gender: user.gender,
           tel: user.tel,
           polices: user.polices,
-          img: user.dni,
+          img: ("http://localhost:3000/apis/users/img/" + user.img),
           status: 200
         })
       })
   },
+
+  img: (req, res) => {
+    res.redirect(path.resolve(__dirname, "/public/images/users/" + req.params.img)) // preguntar
+  }
 
 }
 

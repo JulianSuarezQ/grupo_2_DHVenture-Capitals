@@ -10,6 +10,8 @@ router.get("/users/:id", usersApiController.users);
 
 router.get("/users/", usersApiController.count);
 
+router.get("/users/img/:img", usersApiController.img);
+
 router.get("/email/:email", usersApiController.userEmail);
 
 //Products
