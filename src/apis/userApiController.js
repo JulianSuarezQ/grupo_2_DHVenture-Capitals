@@ -46,15 +46,11 @@ const usersApiController = {
           gender: user.gender,
           tel: user.tel,
           polices: user.polices,
-          img: user.img,
+          img: ("http://localhost:3000/images/users/" + user.img),
           status: 200
         })
       })
   },
-
-  img: (req, res) => {
-    res.redirect(path.resolve(__dirname, "/public/images/users/" + req.params.img)) // preguntar
-  }
 
 }
 
