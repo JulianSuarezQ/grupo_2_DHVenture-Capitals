@@ -26,7 +26,7 @@ const usersApiController = {
                 id: user.id_user,
                 name: user.name,
                 email: user.email,
-                detail: ("http://localhost:3000/apis/users/" + user.id_user)
+                detail: ("http://localhost:3000/api/users/" + user.id_user)
               }
             }),
             status: 200
@@ -46,7 +46,7 @@ const usersApiController = {
           gender: user.gender,
           tel: user.tel,
           polices: user.polices,
-          img: ("http://localhost:3000/apis/users/img/" + user.img),
+          img: user.img,
           status: 200
         })
       })

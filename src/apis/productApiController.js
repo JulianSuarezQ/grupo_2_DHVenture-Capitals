@@ -67,7 +67,6 @@ const productApiController = {
                     count_products: cate.products.length
                   }
               }),
-
               products: products.map((produ) => {
                 return {
                   id: produ.id_product,
@@ -81,11 +80,16 @@ const productApiController = {
                   img: produ.img,
                 };
               }),
-              
-
             })
       })
-  },
+      .catch((error) => {
+        error =
+          "No existe ningun producto en la base de datos";
+        return res.status(404).json({
+          error,
+        })
+      })
+  },  
 
 
   /**
