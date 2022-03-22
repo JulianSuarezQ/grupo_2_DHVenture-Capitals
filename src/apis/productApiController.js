@@ -48,56 +48,79 @@ const res = require("express/lib/response");
  */
 
 const productApiController = {
-
-  products: function(req, res){
+  /**
+   *
+   * @swagger
+   * /api/products:
+   *  get:
+   *      summary: get all products
+   *      tags: [Products]
+   *      responses:
+   *        200:
+   *          description: Get all products
+   *          content:
+   *            application/json:
+   *               schema:
+   *                type: array
+   *                items:
+   *                $ref: '#/components/schemas/product'
+   *        404:
+   *          description: Not found products in db
+   *          content:
+   *            application/json:
+   *               schema:
+   *                type: object
+   *                $ref: '#/components/schemas/error'
+   *
+   */
+  products: function (req, res) {
     let todosProductos = db.Products.findAll({
       include: [{ association: "category" }],
     });
     let todasCategorias = db.Category.findAll({
       include: [{ association: "products" }],
     });
-      Promise.all([todosProductos, todasCategorias])
-      .then(function ([products, category,]){
-            res.json ({
-              count: products.length,
+    Promise.all([todosProductos, todasCategorias])
+      .then(function ([products, category]) {
+        res.json({
+          count: products.length,
 
-              countByCategory: category.map((cate)=>{
-                  return{
-                    name: cate.name,
-                    count_products: cate.products.length
-                  }
-              }),
-              products: products.map((produ) => {
-                return {
-                  id: produ.id_product,
-                  name: produ.name,
-                  discount: produ.discount,
-                  detail: produ.detail,
-                  stock: produ.stock,
-                  category: produ.category.name,
-                  price: produ.price,
-                  size: produ.size,
-                  img: produ.img,
-                };
-              }),
-            })
+          countByCategory: category.map((cate) => {
+            return {
+              name: cate.name,
+              count_products: cate.products.length,
+            };
+          }),
+          products: products.map((produ) => {
+            return {
+              id: produ.id_product,
+              name: produ.name,
+              discount: produ.discount,
+              detail: produ.detail,
+              stock: produ.stock,
+              category: produ.category.name,
+              price: produ.price,
+              size: produ.size,
+              img: produ.img,
+            };
+          }),
+        });
       })
       .catch((error) => {
-        error =
-          "No existe ningun producto en la base de datos";
+        error = "No existe ningun producto en la base de datos";
         return res.status(404).json({
           error,
-        })
-      })
-  },  
-
+        });
+      });
+  },
 
   /**
    *
    * @swagger
-   * /api/products/id:
+   * /api/products/{id}:
    *  get:
    *      summary: get product by id
+   *      tags: [Products]
    *      parameters:
    *      - in: path
    *        name: id
