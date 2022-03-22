@@ -3,7 +3,8 @@ const fs = require("fs");
 const sequelize = require("sequelize");
 const db = require("../../database/models");
 const res = require("express/lib/response");
-const { validationResult } = require("express-validator");
+const { validationResult, body } = require("express-validator");
+const Op = db.Sequelize.Op;
 
 const productosController = {
   list: function (req, res) {
@@ -19,23 +20,25 @@ const productosController = {
   },
 
   search: function (req, res) {
-    const productosDB = todosLosProductos;
-    let busca = req.query.name;
-    let productosResultantes = [];
-
-    for (let i = 0; i < productosDB.length; i++) {
-      if (productosDB[i].name.includes(busca)) {
-        productosResultantes.push(productosDB[i]);
+    console.log(req.body.search)
+    let search = req.body.search
+    db.Products.findAll({
+      include: [{ association: "category" }, { association: "cart" }],
+      where: {
+        name: {[Op.like]: '%'+search+'%'}
       }
-    }
-
-    let result = productosResultantes != [];
-
-    res.render("products", {
+    }).then(products =>{
+    res.render("products",{
       list: true,
       resultado: true,
-      productos: productosResultantes,
-    });
+      productos: products,
+    })})
+    .catch(e => {
+      res.render("products",{
+        list:true,
+        productos: 0,
+      })
+    })
   },
 
   create: function (req, res) {

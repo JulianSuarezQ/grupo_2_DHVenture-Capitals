@@ -13,11 +13,9 @@
   </div>
 
   <div class="header-center">
-    <form action="">
-      <input class="search" type="search" placeholder="Que quieres buscar" />
-      <button class="button-header" type="submit">
-        <i class="fas fa-search"></i>
-      </button>
+    <form action="/products/search" method="POST">
+      <input class="search" name="search" placeholder="Que quieres buscar?"/>
+      <input class="button-header" type="submit" value="Buscar">
     </form>
   </div>
 

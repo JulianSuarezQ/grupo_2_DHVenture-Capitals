@@ -19,20 +19,14 @@ router.post(
   productosController.store
 );
 
-router.get("/search", userLogged, productosController.search);
+router.post("/search", productosController.search);
 
 router.get("/description", userLogged, productosController.descriptionProduct);
 
 router.get("/:id", userLogged, productosController.detail);
 
 router.get("/edit/:id", userLogged, productosController.edit);
-router.put(
-  "/edit/:id",
-  userLogged,
-  upload.single("img"),
-  validateEditProduct,
-  productosController.update
-);
+router.put("/edit/:id", userLogged,upload.single("img"),validateEditProduct,productosController.update);
 
 router.get("/delete/:id", userLogged, productosController.PagDelete);
 router.post("/delete/:id", userLogged, productosController.delete);

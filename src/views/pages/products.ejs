@@ -14,7 +14,7 @@
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
-    <!-- <script src="/js/product.js"></script> -->
+    <script src="/js/product.js"></script>
 
     <title>Productos</title>
   </head>
@@ -33,20 +33,7 @@
       </div>
 
       <% } %>
-      <form class="formSearch" action="/products/search" method="GET">
-        <input
-          class="buscador"
-          for="search"
-          name="name"
-          placeholder="Busca tu Producto"
-        />
-        <input
-          class="buttonBuscador"
-          type="submit"
-          valvue="search"
-          id="search"
-        />
-      </form>
+
       <% if(productos.length>0 ){ %>
       <div class="products">
         <% for(let i = 0; i < productos.length; i++){ %>
