@@ -1,9 +1,13 @@
-.row.product-detail {
+.products-div {
   display: flex;
-  align-content: center;
+  justify-content: center;
+}
+
+.edit-form {
+  display: flex;
   flex-direction: column;
-  margin: 10px;
-  padding: 10px;
+  justify-content: center;
+  padding-bottom: 30px;
 }
 
 div {
@@ -13,14 +17,24 @@ div {
   margin: 5px;
 }
 
-.boton-iniciar:hover {
-  height: 100%;
+.boton-iniciar {
+  text-align: center;
   width: 100%;
-  border: 1px solid #567492;
-  background-color: #014f86;
-  width: 60%;
-  height: 30px;
-  padding: 1px;
+  height: 30%;
+  border-radius: 7px;
+  background-color: rgba(65, 137, 230, 0.15);
+  margin-top: 10px;
+  border: solid 2px #3483fa98;
+}
+
+.buy-now-button {
+  background-color: rgba(65, 137, 230, 0.15);
+  color: #3483fa;
+  border: none;
+}
+
+.boton-iniciar:hover {
+  padding: 3px;
 }
 
 .error {
