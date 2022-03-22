@@ -53,7 +53,7 @@
             
           </div>
 
-          <% if (locals.userLogged == undefined) {%>
+          <% if (locals.userLogged == undefined || locals.userLogged.id_rol != 1) {%>
             <form action="/products/buy/<%= productos.id %>" method="POST">
               <input class="comprar" type="submit" name="<%=productos.id%>" value="COMPRAR AHORA">
               <input class="carrito" type="submit" name="<%=productos.id%>" value="AÑADIR AL CARRITO">
