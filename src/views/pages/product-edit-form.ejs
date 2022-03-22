@@ -55,18 +55,7 @@
             <% if(locals.errors && errors.detail){ %>
             <span class="error"><%= errors.detail.msg %></span>
             <% } %>
-            <div>
-              <i class="ast"></i><label for="categoria">Categoria</label>
-              <select type="text" name="id_category" id="id_categoria">
-                <% for(let i = 0 ; i < categoriaToEdit.length ; i++){ %>
-                <option
-                  value="<%= categoriaToEdit[i].dataValues.id_category %>"
-                >
-                  <%=categoriaToEdit[i].dataValues.name %>
-                </option>
-                <% } %>
-              </select>
-            </div>
+
             <div class="">
               <label for="size" class="form-label">Talle:</label>
               <input

@@ -53,18 +53,29 @@ const productosController = {
     let validation = validationResult(req);
     console.log(validation);
 
-    db.Products.create({
-      name: req.body.name,
-      discount: parseInt(req.body.discount, 10),
-      detail: req.body.detail,
-      stock: req.body.stock,
-      id_category: parseInt(req.body.id_category, 10),
-      color: req.body.color,
-      price: parseInt(req.body.price, 10),
-      size: req.body.size,
-      img: req.file.filename ? req.file.filename : "default-image.png",
-    });
-    res.redirect("/products");
+    if (!validation.isEmpty()) {
+      db.Category.findAll().then((categorias) => {
+        res.render("products", {
+          errors: validation.mapped(),
+          list: false,
+          productos: req.body,
+          categorias: categorias,
+        });
+      });
+    } else {
+      db.Products.create({
+        name: req.body.name,
+        discount: parseInt(req.body.discount, 10),
+        detail: req.body.detail,
+        stock: req.body.stock,
+        id_category: parseInt(req.body.id_category, 10),
+        color: req.body.color,
+        price: parseInt(req.body.price, 10),
+        size: req.body.size,
+        img: req.file?.filename ? req.file.filename : "default-image.png",
+      });
+      res.redirect("/products");
+    }
   },
 
   descriptionProduct: function (req, res) {
@@ -98,23 +109,35 @@ const productosController = {
   },
 
   update: (req, res) => {
-    db.Products.update(
-      {
-        name: req.body.name,
-        discount: parseInt(req.body.discount, 10),
-        detail: req.body.detail,
-        stock: req.body.stock,
-        id_category: parseInt(req.body.id_category, 10),
-        color: req.body.color,
-        price: parseInt(req.body.price, 10),
-        size: req.body.size,
-        img: req.file.filename,
-      },
-      {
-        where: { id_product: req.params.id },
-      }
-    );
-    res.redirect("/products");
+    let validation = validationResult(req);
+    console.log(validation);
+    console.log("CATEGORIA " + req.body.id_category);
+
+    if (!validation.isEmpty()) {
+      res.render("product-edit-form", {
+        errors: validation.mapped(),
+        list: true,
+        productToEdit: req.body,
+      });
+    } else {
+      db.Products.update(
+        {
+          name: req.body.name,
+          discount: parseInt(req.body.discount, 10),
+          detail: req.body.detail,
+          stock: req.body.stock,
+          id_category: req.body.id_category,
+          color: req.body.color,
+          price: parseInt(req.body.price, 10),
+          size: req.body.size,
+          img: req.file?.filename ? req.file.filename : "default-image.png",
+        },
+        {
+          where: { id_product: req.params.id },
+        }
+      );
+      res.redirect("/products");
+    }
   },
 
   PagDelete: (req, res) => {

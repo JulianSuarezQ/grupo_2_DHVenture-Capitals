@@ -14,14 +14,14 @@
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
-    <script src="/js/product.js"></script>
+    <!-- <script src="/js/product.js"></script> -->
 
     <title>Productos</title>
   </head>
   <body>
     <header class="main-header"><%- include('../partials/header') %></header>
 
-    <%if (list == true){ %>
+    <%if (list != undefined && list == true){ %>
     <main>
       <% if (locals.userLogged != undefined && locals.isLogged == true &&
       locals.userLogged.id_rol == 1){%>
@@ -92,13 +92,13 @@
                 <input type="text" name="name" id="name" />
               </div>
               <span class="errors-name"></span>
+              <% if(locals.errors && errors.name){ %>
+              <span class="error"><%= errors.name.msg %></span>
+              <% } %>
               <div>
                 <i class="ast">*</i><label for="descripcion">Descripcion</label>
                 <input type="text" name="detail" id="detail" />
               </div>
-              <% if(locals.errors && errors.name){ %>
-              <span class="error"><%= errors.name.msg %></span>
-              <% } %>
               <span class="errors-detail"></span>
               <% if(locals.errors && errors.detail){ %>
               <span class="error"><%= errors.detail.msg %></span>
