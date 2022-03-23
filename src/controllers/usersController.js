@@ -24,6 +24,7 @@ const usersController = {
 
   processLogin: (req, res) => {
     let validation = validationResult(req);
+
     if (validation.errors.length <= 0) {
       db.Users.findOne({
         includes: [{ association: "rols" }, { association: "user_carts" }],
@@ -32,12 +33,10 @@ const usersController = {
         },
       })
         .then((user) => {
-          console.log(user.dataValues.password);
           if (
             bcryptjs.compareSync(req.body.password, user.dataValues.password) ==
             true
           ) {
-            console.log("HOLAAAGUACHOO");
             //console.log(req.body.password, user.dataValues.password, bcryptjs.compareSync(req.body.password, user.dataValues.password));
             delete user.dataValues.password;
             req.session.userLogged = user.dataValues;
@@ -46,6 +45,7 @@ const usersController = {
               res.cookie("remember", user.dataValues.email, { maxAge: 60000 });
             }
             console.log("remember ", req.body.remember);
+            console.log("");
             res.redirect("/");
           }
         })
