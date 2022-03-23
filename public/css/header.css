@@ -123,6 +123,34 @@ a {
   display: none;
 }
 
+.main-navbar-responsive {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.main-navbar-responsive a {
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  display: inline-block;
+}
+
+.main-navbar-responsive ul {
+  list-style: none;
+  margin: 0px;
+}
+
+.center-navbar-responsive {
+  padding: 5px;
+  font-size: 17px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .main-navbar ul {
   list-style: none;
   margin: 0px;
@@ -139,6 +167,11 @@ a {
   .main-navbar {
     display: inherit;
   }
+
+  .main-navbar-responsive {
+    display: none;
+  }
+
   .center-navbar {
     padding: 5px;
     font-size: 17px;
