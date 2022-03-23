@@ -59,10 +59,10 @@
   <section class="recomendados">
       <h2>Recomendados para vos!</h2>
       <div class="div-recomendados">
-          <% if (productos.length >= 8) { %>
-            <% for(let i = 4; i < 8; i++){ %> 
+          <% if (productos.length >= 4) { %>
+            <% for(let i = 0; i < 4; i++){ %> 
               <article><a href="/products/<%= productos[i].id %> "></a>
-                <img src="/images/products/<%=productos[i].image%>" alt="">
+                <img src="/images/products/<%=productos[i].img%>" alt="">
                 <div class="div-article">
                   <% if(productos[i].discount <= 0){%> 
                   <span class="precios">$<%=productos[i].price%></span>
