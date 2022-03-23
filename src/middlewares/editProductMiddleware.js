@@ -17,7 +17,7 @@ module.exports = [
   body("color")
     .notEmpty()
     .withMessage("El campo no puede estar vacio")
-    .isLength({ min: 5 })
+    .isLength({ min: 4 })
     .withMessage("Debe completar el color con al menos 4 caracteres"),
 
   body("price")
