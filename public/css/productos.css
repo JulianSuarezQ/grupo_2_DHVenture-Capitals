@@ -124,3 +124,8 @@ input {
 .error {
   color: rgb(206, 17, 17);
 }
+
+article img {
+  max-width: 260px;
+  max-height: 260px;
+}

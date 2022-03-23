@@ -20,25 +20,27 @@ const productosController = {
   },
 
   search: function (req, res) {
-    console.log(req.body.search)
-    let search = req.body.search
+    console.log(req.body.search);
+    let search = req.body.search;
     db.Products.findAll({
       include: [{ association: "category" }, { association: "cart" }],
       where: {
-        name: {[Op.like]: '%'+search+'%'}
-      }
-    }).then(products =>{
-    res.render("products",{
-      list: true,
-      resultado: true,
-      productos: products,
-    })})
-    .catch(e => {
-      res.render("products",{
-        list:true,
-        productos: 0,
-      })
+        name: { [Op.like]: "%" + search + "%" },
+      },
     })
+      .then((products) => {
+        res.render("products", {
+          list: true,
+          resultado: true,
+          productos: products,
+        });
+      })
+      .catch((e) => {
+        res.render("products", {
+          list: true,
+          productos: 0,
+        });
+      });
   },
 
   create: function (req, res) {
@@ -99,6 +101,7 @@ const productosController = {
     let todosProductos = db.Products.findByPk(idProducto, {
       include: [{ association: "category" }],
     });
+    console.log(todosProductos);
     let todasCategorias = db.Category.findAll();
     Promise.all([todosProductos, todasCategorias]).then(function ([
       productoMostrar,
@@ -133,7 +136,9 @@ const productosController = {
           color: req.body.color,
           price: parseInt(req.body.price, 10),
           size: req.body.size,
-          img: req.file?.filename ? req.file.filename : "default-image.png",
+          img: req.file?.filename
+            ? req.file.filename
+            : "default-image-afa.jpeg",
         },
         {
           where: { id_product: req.params.id },

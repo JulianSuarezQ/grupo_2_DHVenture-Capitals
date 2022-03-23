@@ -52,7 +52,7 @@ module.exports = (sequelize, dataTypes) => {
 
   const Product = sequelize.define(alias, cols, config);
 
-  //asociacion 
+  //asociacion
   Product.associate = function (models) {
     Product.belongsTo(models.Category, {
       as: "category",
