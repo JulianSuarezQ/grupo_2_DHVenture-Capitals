@@ -87,6 +87,7 @@ const productApiController = {
 
           countByCategory: category.map((cate) => {
             return {
+              id_category: cate.id_category,
               name: cate.name,
               count_products: cate.products.length,
             };
