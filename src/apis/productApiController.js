@@ -102,7 +102,7 @@ const productApiController = {
               category: produ.category.name,
               price: produ.price,
               size: produ.size,
-              img: produ.img,
+              img: ("http://localhost:3000/images/products/" + produ.img),
             };
           }),
         });

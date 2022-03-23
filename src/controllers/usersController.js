@@ -23,6 +23,7 @@ const usersController = {
   // PROCESO DE LOGIN
 
   processLogin: (req, res) => {
+
     let validation = validationResult(req);
 
     if (validation.errors.length <= 0) {
@@ -54,6 +55,10 @@ const usersController = {
             },
           });
         });
+    }else{
+      res.render("login", {
+        errors: validation.mapped()
+      });
     }
   },
 
