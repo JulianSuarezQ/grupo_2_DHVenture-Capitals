@@ -14,21 +14,23 @@
 
   <div class="header-center">
     <form action="/products/search" method="POST">
-      <input class="search" name="search" placeholder="Que quieres buscar?"/>
-      <input class="button-header" type="submit" value="Buscar">
+      <input class="search" name="search" placeholder="Que quieres buscar?" />
+      <input class="button-header" type="submit" value="Buscar" />
     </form>
   </div>
 
   <% if (locals.isLogged) {%>
   <div class="header-right-logged">
-    <a class="Bienvenido" href="/users/perfil"><h6>Bienvenido <%= locals.userLogged.name %></h6></a>
-    <a href="../../carrito"><i class="fas fa-shopping-cart"></i></a>
+    <a class="Bienvenido" href="/users/perfil"
+      ><h6>Bienvenido <%= locals.userLogged.name %></h6></a
+    >
+    <a href="/mantenimiento"><i class="fas fa-shopping-cart"></i></a>
     <a href="../../users/logout"><i class="fas fa-sign-out-alt"></i></a>
   </div>
   <% } else { %>
   <div class="header-right">
     <a href="../../users/login"><i class="fas fa-user"></i></a>
-    <a href="../../carrito"><i class="fas fa-shopping-cart"></i></a>
+    <a href="/mantenimiento"><i class="fas fa-shopping-cart"></i></a>
   </div>
   <% }%>
 </div>
