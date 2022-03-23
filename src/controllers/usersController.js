@@ -37,20 +37,15 @@ const usersController = {
             bcryptjs.compareSync(req.body.password, user.dataValues.password) ==
             true
           ) {
-            //console.log(req.body.password, user.dataValues.password, bcryptjs.compareSync(req.body.password, user.dataValues.password));
             delete user.dataValues.password;
             req.session.userLogged = user.dataValues;
-            console.log(req.body);
             if (req.body.remember !== undefined) {
               res.cookie("remember", user.dataValues.email, { maxAge: 60000 });
             }
-            console.log("remember ", req.body.remember);
-            console.log("");
             res.redirect("/");
           }
         })
         .catch((e) => {
-          console.log(e);
           res.render("login", {
             errorsLogin: {
               email: {

@@ -20,7 +20,6 @@ const productosController = {
   },
 
   search: function (req, res) {
-    console.log(req.body.search);
     let search = req.body.search;
     db.Products.findAll({
       include: [{ association: "category" }, { association: "cart" }],

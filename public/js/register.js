@@ -1,6 +1,5 @@
 window.addEventListener("load", () => {
   let formulario = document.querySelector("form.register-form");
-  console.log("validation front");
 
   formulario.addEventListener("submit", function (event) {
     let errors = [];
